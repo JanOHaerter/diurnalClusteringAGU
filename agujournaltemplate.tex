@@ -14,28 +14,27 @@
 %
 
 %% To submit your paper:
-\documentclass[draft]{agujournal2019}
-\usepackage{url} 
-\usepackage{graphicx,natbib,overpic,xcolor}
-\usepackage{apacite}
+%\documentclass[draft]{agujournal2019}
+%\usepackage{url} 
+%\usepackage{graphicx,natbib,overpic,xcolor}
+%\usepackage{apacite}
 %\bibliographystyle{unsrtnat}
 %this package should fix any errors with URLs in refs.
-\usepackage{lineno}
-\usepackage[inline]{trackchanges} %for better track changes. finalnew option will compile document with changes incorporated.
-\usepackage{soul}
-\linenumbers
+%\usepackage{lineno}
+%\usepackage[inline]{trackchanges} %for better track changes. finalnew option will compile document with changes incorporated.
+%\usepackage{soul}
+%\linenumbers
+
+\documentclass[draft,linenumbers]{agujournal2019}
+\usepackage{apacite}
+\usepackage{url} %this package should fix any errors with URLs in refs.
+\usepackage{enumitem}
+\usepackage{amsmath}
+\usepackage{overpic}
+\usepackage{pict2e}
+\usepackage{bm}
 %%%%%%%
-% As of 2018 we recommend use of the TrackChanges package to mark revisions.
-% The trackchanges package adds five new LaTeX commands:
-%
-%  \note[editor]{The note}
-%  \annote[editor]{Text to annotate}{The note}
-%  \add[editor]{Text to add}
-%  \remove[editor]{Text to remove}
-%  \change[editor]{Text to remove}{Text to add}
-%
-% complete documentation is here: http://trackchanges.sourceforge.net/
-%%%%%%%
+
 
 \draftfalse
 
@@ -140,9 +139,9 @@
 % \end{keypoints}
 
 \begin{keypoints}
-\item enter point 1 here
-\item enter point 2 here
-\item enter point 3 here
+\item Self-aggregation is possible within short timeperiods, when boundary conditions oscillate,
+\item the effect is nearly independent of domain size or resolution,
+\item the effect requires only moderate temperature amplitudes.
 \end{keypoints}
 
 %% ------------------------------------------------------------------------ %%
@@ -167,11 +166,13 @@
 %% \begin{abstract} starts the second page
 
 \begin{abstract}
-In contrast to the standard radiative convective equilibrium setup, where surface conditions are held constant, we make surface conditions diurnally oscillating.
-While the atmosphere gradually equilibrates, and domain mean precipitation is similar from day to day, the spatial distribution of precipitation is only homogeneous during the first day. 
+Convective self-aggregation is a paradigm for tropical oceanic cloud organization\cite{wing2017convective} and has been shown to give rise to cloud clusters over timescales of weeks\cite{khairoutdinov2010aggregation,muller2012detailed}.
+In contrast to the standard radiative convective equilibrium setup \cite{held1993radiative,tompkins1998radiative}, where surface conditions are held constant, we here allow surface conditions to oscillate diurnally, but allow the system to reach a repetitive state, termed perpetual equilibrium \cite{schlemmer2011diurnal,haerter2018intensified}.
+While the atmosphere gradually equilibrates at the system scale and domain mean precipitation indeed becomes similar from day to day, the spatial distribution of precipitation is only homogeneous during the first day. 
 Already during the second day, the precipitation field is strongly structured and continues to cluster in subsequent days.
-The clustering is robust to changes in resolution but can removed by reduction of the amplitude of oscillation.
-Our results suggest that a modest diurnal cycle in forcing conditions can lead to aggregation-like structuring of the convective atmosphere. 
+The clustering is robust to changes in resolution but can be removed by reduction of the amplitude of oscillation.
+Our results suggest that a modest diurnal cycle in forcing conditions can lead to aggregation-like structuring of the convective atmosphere.
+The results may help clarify, how cloud clustering in the tropics could arise much more rapidly than through conventional self-aggregation.
 \end{abstract}
 
 \section*{Plain Language Summary}
@@ -209,18 +210,36 @@ Our results suggest that a modest diurnal cycle in forcing conditions can lead t
 
 
 \section{Introduction}\label{sec:intro}
-Convective self-aggregation is an idealized model for tropical convective precipitation over a sea surface of constant temperature.
+As an idealized numerical description of tropical convective self-organization, self-aggregation, where the cloud field segregates into cloudy and less cloudy sub-domains, usually assumes spatially and temporally constant surface moisture (sea surface) and temperature ($\sim 300\;K$) \cite{muller2012detailed}.
+It is well-known that many factors influence self-aggregation, such as sea surface temperature and surface feedbacks \cite{hohenegger2016coupled}, domain size, geometry and resolution \cite{muller2015favors}, as well as cold pool effects \cite{jeevanjee2013convective,haerter2019convective}.
+Above all, radiation feedbacks have however emerged as the "smoking gun" for sustaining and increasing the inequality between the sub-regions \cite{bretherton2005energy}.
+It has been argued, that cloudy regions --- which benefit from warming cloud feedbacks --- tend to emit less heat to space than do cloud-free regions.
+Together, these two effects induce net near-surface divergence from cloud-free regions and convergence into already cloudy ones --- bringing more moisture into cloudy regions, thus further enhancing the imbalance.
 
+Whereas numerical simulations assume constant insolation as well as surface boundary conditions, buoy-based instruments do measure diurnal variations in tropical sea surface temperature by typically 0.5-2 K \cite{weller1996surface,johnson1999trimodal} and satellite observations show a diurnal cycle in cloud height for the Madden Julian Oscillation \cite{suzuki2009diurnal,tian2006modulation}.
+Diurnal cycles in precipitation also emerge from two-dimensional numerical simulations where variations in insolation are accounted for \cite{liu1998numerical}. 
+This and earlier studies\cite{chen1997diurnal} also describe a persistent organized state of a mesoscale convective system, with characteristics of a squall line.
+\citet{chen1997diurnal} find a dynamics referred to as "diurnal dancing", which involves a bi-diurnal oscillation of local cloudiness.
+\cite{guichard2004modelling,brown2002large,petch2002impact,schlemmer2011diurnal,moseley2016,haerter2018intensified}, as simulated domains show typical build-up on convective available potential energy during the morning hours, and its release in terms of precipitation during the afternoon or evening.
+Yet, as the focus was often on the timing or the overall intensity of rainfall, simulated domains were either chosen to be relatively small and model resolutions relatively high. 
+State-of-the-art regional climate models now simulate relatively large domains ($\sim 1000$ $km$ at $1$ or $2$ $\;km$ resolution), but include the full complexity of the lateral forcing \cite{ban2015heavy}. 
+
+Sahelian MCS \cite{mathon2001life}
+Sea surface impact atmosphere \cite{kawai2007diurnal}
+2day equatorial waves \cite{haertel2004dynamics}
+scale interaction MJO diurnal cycle \cite{peatman2014propagation}
+tropical precipitation extremes and mesoscale systems \cite{rossow2013tropical}
+Rich gets richer effect \cite{chou2009evaluating}
 
 \section{Methods}\label{sec:methods}
-The convective atmosphere was simulated using the University of California, Los Angeles (UCLA) Large Eddy Simulation (LES) model with sub-grid scale turbulence parameterized after Smagorinsky \cite{smagorinsky}, a delta four-stream radiation scheme \cite{pincus} and a two-moment cloud microphysics scheme \cite{stevens2005evaluation}. 
-Rain evaporation is implemented after \citeA{seifert2008parameterization}.
-As detailed in \citeA{moseley2016intensification}, diurnally oscillating surface temperature ($T_s(t)$) boundary conditions are applied, with
+We simulate the convective atmosphere using the University of California, Los Angeles (UCLA) Large Eddy Simulation (LES) model with sub-grid scale turbulence parameterized after Smagorinsky \cite{smagorinsky1963general}, a delta four-stream radiation scheme \cite{pincus} and a two-moment cloud microphysics scheme \cite{stevens2005}. 
+Rain evaporation is implemented after \citet{seifert2006two}.
+As detailed in \cite{moseley2016}, diurnally oscillating surface temperature ($T_s(t)$) boundary conditions are applied, with
 \begin{eqnarray}
-  T_s(t)=\overline{T_{s}}-T_{a} \cos{(t/t_0)}\;,
+  T_s(t)=\overline{T_{s}}-T_{a} \cos{(2\pi\;t/t_0)}\;,
 \end{eqnarray}
 \noindent
-with $\overline{T_{s}}=298\;K$ and $t_0=24;h$ is the duration of the simulated model day.
+with $\overline{T_{s}}=298\;K$ and $t_0=24\;h$ is the duration of the simulated model day.
 All simulations were initialized with data from observed summertime mid-latitude conditions where convection had occurred in order to establish an initially unstable atmosphere. 
 However, due to the repeated diurnal cycle forcing, the system eventually establishes a self-consistent vertical temperature and moisture profile [show this somewhere].
 
@@ -231,9 +250,19 @@ The Coriolis force and the mean wind were set to zero with weak random initial p
 No large scale forcing was imposed,
 ensuring that the only driving force for convection was buoyancy and the forced lifting through cold pool interaction.
 The model output time step is $\Delta t_{out}=5\;min$. 
-At each output time step, $5\;min$-accumulated precipitation and instantaneous velocities are output at each model gridbox. 
+At each output time step, instantaneous precipitation intensity, moisture and velocity fields are output at each model gridbox. 
 
-We carry out three distinct simulations:
+We carry out a range of distinct simulations:
+\begin{table}
+    \centering
+    \begin{tabular}{c|c|c|c}
+        Experiment & Surface Temperature Amplitude, $T_a$ & Horizontal Resolution, $dx$ & Domain Size, $L$\\
+        A & 5 & 1 & 500\\
+    \end{tabular}
+    \caption{Summary of numerical experiments}
+    \label{tab:experiments_overview}
+\end{table}
+
 \begin{itemize}
     \item {\bf A}: $T_a=5\;K$ and $dx=1\;km$,
     \item {\bf B}: $T_a=2\;K$ and $dx=1\;km$,
@@ -259,41 +288,49 @@ We carry out three distinct simulations:
 \centering
 %\begin{overpic}
 %\includegraphics[height=0.33\linewidth]{cavities}
-\includegraphics[trim={2cm 2cm 1cm 1cm}, clip, height=0.24\linewidth]{1-288_T0_300K_ampl_10_1km_r_int_timmean_xy_plot.pdf}
-\includegraphics[trim={2cm 2cm 1cm 1cm}, clip, height=0.24\linewidth]{333-600_T0_300K_ampl_10_1km_r_int_timmean_xy_plot.pdf}
-\includegraphics[trim={2cm 2cm 1cm 1cm}, clip, height=0.24\linewidth]{621-888_T0_300K_ampl_10_1km_r_int_timmean_xy_plot.pdf}
-\includegraphics[trim={2cm 2cm 1cm 1cm}, clip, height=0.24\linewidth]{909-1176_T0_300K_ampl_10_1km_r_int_timmean_xy_plot.pdf}
-\includegraphics[trim={2cm 2cm 1cm 1cm}, clip, height=0.24\linewidth]{1197-1464_T0_300K_ampl_10_1km_r_int_timmean_xy_plot.pdf}
-\includegraphics[trim={2cm 2cm 1cm 1cm}, clip, height=0.24\linewidth]{1485-1752_T0_300K_ampl_10_1km_r_int_timmean_xy_plot.pdf}
-\includegraphics[trim={2cm 2cm 1cm 1cm}, clip, height=0.24\linewidth]{1773-2040_T0_300K_ampl_10_1km_r_int_timmean_xy_plot.pdf}
-\includegraphics[trim={2cm 2cm 1cm 1cm}, clip, height=0.24\linewidth]{2061-2348_T0_300K_ampl_10_1km_r_int_timmean_xy_plot.pdf}
+\includegraphics[trim={2cm 2.4cm 1cm 1cm}, clip, height=0.22\linewidth]{1-288_T0_300K_ampl_10_1km_r_int_timmean_xy_plot_l=1.pdf}
+%\end{overpic}
+\includegraphics[trim={2cm 2.4cm 1cm 1cm}, clip, height=0.22\linewidth]{333-600_T0_300K_ampl_10_1km_r_int_timmean_xy_plot_l=1.pdf}
+\includegraphics[trim={2cm 2.4cm 1cm 1cm}, clip, height=0.22\linewidth]{621-888_T0_300K_ampl_10_1km_r_int_timmean_xy_plot_l=1.pdf}
+\includegraphics[trim={2cm 2.4cm 1cm 1cm}, clip, height=0.22\linewidth]{909-1176_T0_300K_ampl_10_1km_r_int_timmean_xy_plot_l=1.pdf}
+\includegraphics[trim={2cm 2.4cm 1cm 1cm}, clip, height=0.22\linewidth]{1-288_T0_300K_ampl_4_1km_r_int_timmean_xy_plot_l=1.pdf}
+\includegraphics[trim={2cm 2.4cm 1cm 1cm}, clip, height=0.22\linewidth]{289-576_T0_300K_ampl_4_1km_r_int_timmean_xy_plot_l=1.pdf}
+\includegraphics[trim={2cm 2.4cm 1cm 1cm}, clip, height=0.22\linewidth]{577-864_T0_300K_ampl_4_1km_r_int_timmean_xy_plot_l=1.pdf}
+\includegraphics[trim={2cm 2.4cm 1cm 1cm}, clip, height=0.22\linewidth]{865-1172_T0_300K_ampl_4_1km_r_int_timmean_xy_plot_l=1.pdf}
+\begin{overpic}
+\put(1,1){test}
+\end{overpic}
+%\includegraphics[trim={2cm 2.4cm 1cm 1cm}, clip, height=0.22\linewidth]{1197-1464_T0_300K_ampl_10_1km_r_int_timmean_xy_plot_l=1.pdf}
+%\includegraphics[trim={2cm 2.4cm 1cm 1cm}, clip, height=0.22\linewidth]{1485-1752_T0_300K_ampl_10_1km_r_int_timmean_xy_plot_l=1.pdf}
+%\includegraphics[trim={2cm 2.4cm 1cm 1cm}, clip, height=0.22\linewidth]{1773-2040_T0_300K_ampl_10_1km_r_int_timmean_xy_plot_l=1.pdf}
+%\includegraphics[trim={2cm 2.4cm 1cm 1cm}, clip, height=0.22\linewidth]{2061-2348_T0_300K_ampl_10_1km_r_int_timmean_xy_plot_l=1.pdf}
 \caption{{\bf Spatial distribution of daily precipitation sum.}. }
 \label{fig:daily_sum_5K}
 \end{figure*}
 
-\begin{figure*}
+%\begin{figure*}
+%\centering
+%\begin{overpic}
+%\includegraphics[height=0.33\linewidth]{cavities}
+%\includegraphics[trim={2cm 2.4cm 1cm 1cm}, clip, height=0.22\linewidth]{1-288_T0_300K_ampl_4_1km_r_int_timmean_xy_plot_l=1.pdf}
+%\includegraphics[trim={2cm 2.4cm 1cm 1cm}, clip, height=0.22\linewidth]{289-576_T0_300K_ampl_4_1km_r_int_timmean_xy_plot_l=1.pdf}
+%\includegraphics[trim={2cm 2.4cm 1cm 1cm}, clip, height=0.22\linewidth]{577-864_T0_300K_ampl_4_1km_r_int_timmean_xy_plot_l=1.pdf}
+%\includegraphics[trim={2cm 2.4cm 1cm 1cm}, clip, height=0.22\linewidth]{865-1172_T0_300K_ampl_4_1km_r_int_timmean_xy_plot_l=1.pdf}
+%\caption{{\bf Daily precipitation sum for smaller forcing amplitude.}. }
+%\label{fig:daily_sum_2K}
+%\end{figure*}
+
+
+\begin{figure}
 \centering
 %\begin{overpic}
 %\includegraphics[height=0.33\linewidth]{cavities}
-\includegraphics[trim={2cm 2cm 1cm 1cm}, clip, height=0.24\linewidth]{1-288_T0_300K_ampl_4_1km_r_int_timmean_xy_plot.pdf}
-\includegraphics[trim={2cm 2cm 1cm 1cm}, clip, height=0.24\linewidth]{289-576_T0_300K_ampl_4_1km_r_int_timmean_xy_plot.pdf}
-\includegraphics[trim={2cm 2cm 1cm 1cm}, clip, height=0.24\linewidth]{577-864_T0_300K_ampl_4_1km_r_int_timmean_xy_plot.pdf}
-\includegraphics[trim={2cm 2cm 1cm 1cm}, clip, height=0.24\linewidth]{865-1172_T0_300K_ampl_4_1km_r_int_timmean_xy_plot.pdf}
-\caption{{\bf Daily precipitation sum for smaller forcing amplitude.}. }
-\label{fig:daily_sum_2K}
-\end{figure*}
-
-
-\begin{figure*}
-\centering
-%\begin{overpic}
-%\includegraphics[height=0.33\linewidth]{cavities}
-\includegraphics[trim={2cm 2cm 1cm 1cm}, clip, height=0.12\linewidth]{1-288_T0_300K_ampl_10_500m_r_int_timmean_xy_plot.pdf}
-\includegraphics[trim={2cm 2cm 1cm 1cm}, clip, height=0.12\linewidth]{289-576_T0_300K_ampl_10_500m_r_int_timmean_xy_plot.pdf}
-\includegraphics[trim={2cm 2cm 1cm 1cm}, clip, height=0.12\linewidth]{577-864_T0_300K_ampl_10_500m_r_int_timmean_xy_plot.pdf}
-\caption{{\bf Daily precipitation sum for smaller forcing amplitude.}. }
-\label{fig:daily_sum_2K}
-\end{figure*}
+\includegraphics[trim={2cm 2.4cm 1cm 1cm}, clip, height=0.11\linewidth]{1-288_T0_300K_ampl_10_500m_r_int_timmean_xy_plot_l=2.pdf}
+\includegraphics[trim={2cm 2.4cm 1cm 1cm}, clip, height=0.11\linewidth]{289-576_T0_300K_ampl_10_500m_r_int_timmean_xy_plot_l=2.pdf}
+\includegraphics[trim={2cm 2.4cm 1cm 1cm}, clip, height=0.11\linewidth]{577-864_T0_300K_ampl_10_500m_r_int_timmean_xy_plot_l=2.pdf}
+\caption{{\bf Daily precipitation sum for higher lateral model resolution.}. }
+\label{fig:daily_sum_500m}
+\end{figure}
 
 \section{Discussion}\label{sec:discussions}
 
@@ -304,7 +341,7 @@ We carry out three distinct simulations:
 JOH gratefully acknowledges funding by a grant from the VILLUM Foundation (grant number: 13168) and the European Research Council (ERC) under the European Union's Horizon 2020 research and innovation program (grant number: 771859).
 The authors are grateful for computing resources and technical assistance provided by the Danish Center for Climate Computing, a facility built with support of the Danish e-Infrastructure Corporation, Danish Hydrocarbon Research and Technology Centre, VILLUM Foundation, and the Niels Bohr Institute.
 
-\bibliography{references_clustering.bib}
+\bibliography{references_clustering}
 
 
 
