@@ -15,7 +15,11 @@
 
 %% To submit your paper:
 \documentclass[draft]{agujournal2019}
-\usepackage{url} %this package should fix any errors with URLs in refs.
+\usepackage{url} 
+\usepackage{graphicx,natbib,overpic,xcolor}
+\usepackage{apacite}
+%\bibliographystyle{unsrtnat}
+%this package should fix any errors with URLs in refs.
 \usepackage{lineno}
 \usepackage[inline]{trackchanges} %for better track changes. finalnew option will compile document with changes incorporated.
 \usepackage{soul}
@@ -61,7 +65,7 @@
 %
 % ie, \journalname{Water Resources Research}
 
-\journalname{Enter journal name here}
+\journalname{Diurnal Aggregation}
 
 
 \begin{document}
@@ -78,7 +82,7 @@
 
 % Example: \title{This is a test title}
 
-\title{=enter title here=}
+\title{Diurnal Self-Aggregation}
 
 %% ------------------------------------------------------------------------ %%
 %
@@ -99,7 +103,7 @@
 % Example: \authors{A. B. Author\affil{1}\thanks{Current address, Antartica}, B. C. Author\affil{2,3}, and D. E.
 % Author\affil{3,4}\thanks{Also funded by Monsanto.}}
 
-\authors{=list all authors here=}
+\authors{Jan O. Haerter}
 
 
 % \affiliation{1}{First Affiliation}
@@ -107,7 +111,7 @@
 % \affiliation{3}{Third Affiliation}
 % \affiliation{4}{Fourth Affiliation}
 
-\affiliation{=number=}{=Affiliation Address=}
+\affiliation{1}{Niels Bohr Institute, University of Copenhagen, Blegdamsvej 17, 2100 Copenhagen, Denmark}
 %(repeat as many times as is necessary)
 
 %% Corresponding Author:
@@ -120,7 +124,7 @@
 
 % Example: \correspondingauthor{First and Last Name}{email@address.edu}
 
-\correspondingauthor{=name=}{=email address=}
+\correspondingauthor{Jan O. Haerter}{haerter@nbi.ku.dk}
 
 %% Keypoints, final entry on title page.
 
@@ -163,7 +167,11 @@
 %% \begin{abstract} starts the second page
 
 \begin{abstract}
-[ enter your Abstract here ]
+In contrast to the standard radiative convective equilibrium setup, where surface conditions are held constant, we make surface conditions diurnally oscillating.
+While the atmosphere gradually equilibrates, and domain mean precipitation is similar from day to day, the spatial distribution of precipitation is only homogeneous during the first day. 
+Already during the second day, the precipitation field is strongly structured and continues to cluster in subsequent days.
+The clustering is robust to changes in resolution but can removed by reduction of the amplitude of oscillation.
+Our results suggest that a modest diurnal cycle in forcing conditions can lead to aggregation-like structuring of the convective atmosphere. 
 \end{abstract}
 
 \section*{Plain Language Summary}
@@ -200,203 +208,103 @@
 % \section{Conclusions}
 
 
-\section{= enter section title =}
-%Text here ===>>>
+\section{Introduction}\label{sec:intro}
+Convective self-aggregation is an idealized model for tropical convective precipitation over a sea surface of constant temperature.
 
 
-%%
+\section{Methods}\label{sec:methods}
+The convective atmosphere was simulated using the University of California, Los Angeles (UCLA) Large Eddy Simulation (LES) model with sub-grid scale turbulence parameterized after Smagorinsky \cite{smagorinsky}, a delta four-stream radiation scheme \cite{pincus} and a two-moment cloud microphysics scheme \cite{stevens2005evaluation}. 
+Rain evaporation is implemented after \citeA{seifert2008parameterization}.
+As detailed in \citeA{moseley2016intensification}, diurnally oscillating surface temperature ($T_s(t)$) boundary conditions are applied, with
+\begin{eqnarray}
+  T_s(t)=\overline{T_{s}}-T_{a} \cos{(t/t_0)}\;,
+\end{eqnarray}
+\noindent
+with $\overline{T_{s}}=298\;K$ and $t_0=24;h$ is the duration of the simulated model day.
+All simulations were initialized with data from observed summertime mid-latitude conditions where convection had occurred in order to establish an initially unstable atmosphere. 
+However, due to the repeated diurnal cycle forcing, the system eventually establishes a self-consistent vertical temperature and moisture profile [show this somewhere].
 
-%  Numbered lines in equations:
-%  To add line numbers to lines in equations,
-%  \begin{linenomath*}
-%  \begin{equation}
-%  \end{equation}
-%  \end{linenomath*}
+\noindent
+The model numerically integrates the anelastic equations of motion on a regular horizontal domain with varying horizontal grid spacing $dx$ and periodic boundary conditions. 
+The model spans 75 stretchable vertical levels peaking at the full domain height of 16.5 km with a sponge layer above 12.3 km.
+The Coriolis force and the mean wind were set to zero with weak random initial perturbations added as noise to break complete spatial symmetry. 
+No large scale forcing was imposed,
+ensuring that the only driving force for convection was buoyancy and the forced lifting through cold pool interaction.
+The model output time step is $\Delta t_{out}=5\;min$. 
+At each output time step, $5\;min$-accumulated precipitation and instantaneous velocities are output at each model gridbox. 
 
-
-
-%% Enter Figures and Tables near as possible to where they are first mentioned:
-%
-% DO NOT USE \psfrag or \subfigure commands.
-%
-% Figure captions go below the figure.
-% Table titles go above tables;  other caption information
-%  should be placed in last line of the table, using
-% \multicolumn2l{$^a$ This is a table note.}
-%
-%----------------
-% EXAMPLE FIGURES
-%
-% \begin{figure}
-% \includegraphics{example.png}
-% \caption{caption}
-% \end{figure}
-%
-% Giving latex a width will help it to scale the figure properly. A simple trick is to use \textwidth. Try this if large figures run off the side of the page.
-% \begin{figure}
-% \noindent\includegraphics[width=\textwidth]{anothersample.png}
-%\caption{caption}
-%\label{pngfiguresample}
-%\end{figure}
-%
-%
-% If you get an error about an unknown bounding box, try specifying the width and height of the figure with the natwidth and natheight options. This is common when trying to add a PDF figure without pdflatex.
-% \begin{figure}
-% \noindent\includegraphics[natwidth=800px,natheight=600px]{samplefigure.pdf}
-%\caption{caption}
-%\label{pdffiguresample}
-%\end{figure}
-%
-%
-% PDFLatex does not seem to be able to process EPS figures. You may want to try the epstopdf package.
-%
-
-%
-% ---------------
-% EXAMPLE TABLE
-%
-% \begin{table}
-% \caption{Time of the Transition Between Phase 1 and Phase 2$^{a}$}
-% \centering
-% \begin{tabular}{l c}
-% \hline
-%  Run  & Time (min)  \\
-% \hline
-%   $l1$  & 260   \\
-%   $l2$  & 300   \\
-%   $l3$  & 340   \\
-%   $h1$  & 270   \\
-%   $h2$  & 250   \\
-%   $h3$  & 380   \\
-%   $r1$  & 370   \\
-%   $r2$  & 390   \\
-% \hline
-% \multicolumn{2}{l}{$^{a}$Footnote text here.}
-% \end{tabular}
-% \end{table}
-
-%% SIDEWAYS FIGURE and TABLE
-% AGU prefers the use of {sidewaystable} over {landscapetable} as it causes fewer problems.
-%
-% \begin{sidewaysfigure}
-% \includegraphics[width=20pc]{figsamp}
-% \caption{caption here}
-% \label{newfig}
-% \end{sidewaysfigure}
-%
-%  \begin{sidewaystable}
-%  \caption{Caption here}
-% \label{tab:signif_gap_clos}
-%  \begin{tabular}{ccc}
-% one&two&three\\
-% four&five&six
-%  \end{tabular}
-%  \end{sidewaystable}
-
-%% If using numbered lines, please surround equations with \begin{linenomath*}...\end{linenomath*}
-%\begin{linenomath*}
-%\begin{equation}
-%y|{f} \sim g(m, \sigma),
-%\end{equation}
-%\end{linenomath*}
-
-%%% End of body of article
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% Optional Appendix goes here
-%
-% The \appendix command resets counters and redefines section heads
-%
-% After typing \appendix
-%
-%\section{Here Is Appendix Title}
-% will show
-% A: Here Is Appendix Title
-%
-%\appendix
-%\section{Here is a sample appendix}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%
-% Optional Glossary, Notation or Acronym section goes here:
-%
-%%%%%%%%%%%%%%
-% Glossary is only allowed in Reviews of Geophysics
-%  \begin{glossary}
-%  \term{Term}
-%   Term Definition here
-%  \term{Term}
-%   Term Definition here
-%  \term{Term}
-%   Term Definition here
-%  \end{glossary}
-
-%
-%%%%%%%%%%%%%%
-% Acronyms
-%   \begin{acronyms}
-%   \acro{Acronym}
-%   Definition here
-%   \acro{EMOS}
-%   Ensemble model output statistics
-%   \acro{ECMWF}
-%   Centre for Medium-Range Weather Forecasts
-%   \end{acronyms}
-
-%
-%%%%%%%%%%%%%%
-% Notation
-%   \begin{notation}
-%   \notation{$a+b$} Notation Definition here
-%   \notation{$e=mc^2$}
-%   Equation in German-born physicist Albert Einstein's theory of special
-%  relativity that showed that the increased relativistic mass ($m$) of a
-%  body comes from the energy of motion of the body—that is, its kinetic
-%  energy ($E$)—divided by the speed of light squared ($c^2$).
-%   \end{notation}
+We carry out three distinct simulations:
+\begin{itemize}
+    \item {\bf A}: $T_a=5\;K$ and $dx=1\;km$,
+    \item {\bf B}: $T_a=2\;K$ and $dx=1\;km$,
+    \item {\bf C}: $T_a=5\;K$ and $dx=.5\;km$.
+\end{itemize}
 
 
+\section{Results}\label{sec:results}
 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%
-%  ACKNOWLEDGMENTS
-%
-% The acknowledgments must list:
-%
-% >>>>	A statement that indicates to the reader where the data
-% 	supporting the conclusions can be obtained (for example, in the
-% 	references, tables, supporting information, and other databases).
-%
-% 	All funding sources related to this work from all authors
-%
-% 	Any real or perceived financial conflicts of interests for any
-%	author
-%
-% 	Other affiliations for any author that may be perceived as
-% 	having a conflict of interest with respect to the results of this
-% 	paper.
-%
-%
-% It is also the appropriate place to thank colleagues and other contributors.
-% AGU does not normally allow dedications.
+\begin{figure*}
+\centering
+%\begin{overpic}
+%\includegraphics[height=0.33\linewidth]{cavities}
+\includegraphics[trim={0 0 0cm 0}, clip, height=0.32\linewidth]{tsair_timeseries.pdf}
+\includegraphics[trim={0 0 0cm 0}, clip, height=0.32\linewidth]{prcp_timeseries.pdf}
+\includegraphics[trim={0 0 0cm 0}, clip, height=0.32\linewidth]{pfrac_timeseries.pdf}
+\caption{{\bf Time series of domain averaged quantities}. }
+\label{fig:domain_mean_timeseries}
+\end{figure*}
+
+\begin{figure*}
+\centering
+%\begin{overpic}
+%\includegraphics[height=0.33\linewidth]{cavities}
+\includegraphics[trim={2cm 2cm 1cm 1cm}, clip, height=0.24\linewidth]{1-288_T0_300K_ampl_10_1km_r_int_timmean_xy_plot.pdf}
+\includegraphics[trim={2cm 2cm 1cm 1cm}, clip, height=0.24\linewidth]{333-600_T0_300K_ampl_10_1km_r_int_timmean_xy_plot.pdf}
+\includegraphics[trim={2cm 2cm 1cm 1cm}, clip, height=0.24\linewidth]{621-888_T0_300K_ampl_10_1km_r_int_timmean_xy_plot.pdf}
+\includegraphics[trim={2cm 2cm 1cm 1cm}, clip, height=0.24\linewidth]{909-1176_T0_300K_ampl_10_1km_r_int_timmean_xy_plot.pdf}
+\includegraphics[trim={2cm 2cm 1cm 1cm}, clip, height=0.24\linewidth]{1197-1464_T0_300K_ampl_10_1km_r_int_timmean_xy_plot.pdf}
+\includegraphics[trim={2cm 2cm 1cm 1cm}, clip, height=0.24\linewidth]{1485-1752_T0_300K_ampl_10_1km_r_int_timmean_xy_plot.pdf}
+\includegraphics[trim={2cm 2cm 1cm 1cm}, clip, height=0.24\linewidth]{1773-2040_T0_300K_ampl_10_1km_r_int_timmean_xy_plot.pdf}
+\includegraphics[trim={2cm 2cm 1cm 1cm}, clip, height=0.24\linewidth]{2061-2348_T0_300K_ampl_10_1km_r_int_timmean_xy_plot.pdf}
+\caption{{\bf Spatial distribution of daily precipitation sum.}. }
+\label{fig:daily_sum_5K}
+\end{figure*}
+
+\begin{figure*}
+\centering
+%\begin{overpic}
+%\includegraphics[height=0.33\linewidth]{cavities}
+\includegraphics[trim={2cm 2cm 1cm 1cm}, clip, height=0.24\linewidth]{1-288_T0_300K_ampl_4_1km_r_int_timmean_xy_plot.pdf}
+\includegraphics[trim={2cm 2cm 1cm 1cm}, clip, height=0.24\linewidth]{289-576_T0_300K_ampl_4_1km_r_int_timmean_xy_plot.pdf}
+\includegraphics[trim={2cm 2cm 1cm 1cm}, clip, height=0.24\linewidth]{577-864_T0_300K_ampl_4_1km_r_int_timmean_xy_plot.pdf}
+\includegraphics[trim={2cm 2cm 1cm 1cm}, clip, height=0.24\linewidth]{865-1172_T0_300K_ampl_4_1km_r_int_timmean_xy_plot.pdf}
+\caption{{\bf Daily precipitation sum for smaller forcing amplitude.}. }
+\label{fig:daily_sum_2K}
+\end{figure*}
+
+
+\begin{figure*}
+\centering
+%\begin{overpic}
+%\includegraphics[height=0.33\linewidth]{cavities}
+\includegraphics[trim={2cm 2cm 1cm 1cm}, clip, height=0.12\linewidth]{1-288_T0_300K_ampl_10_500m_r_int_timmean_xy_plot.pdf}
+\includegraphics[trim={2cm 2cm 1cm 1cm}, clip, height=0.12\linewidth]{289-576_T0_300K_ampl_10_500m_r_int_timmean_xy_plot.pdf}
+\includegraphics[trim={2cm 2cm 1cm 1cm}, clip, height=0.12\linewidth]{577-864_T0_300K_ampl_10_500m_r_int_timmean_xy_plot.pdf}
+\caption{{\bf Daily precipitation sum for smaller forcing amplitude.}. }
+\label{fig:daily_sum_2K}
+\end{figure*}
+
+\section{Discussion}\label{sec:discussions}
+
+\section{Conclusion}\label{sec:conclusion}
 
 
 \acknowledgments
-Enter acknowledgments, including your data availability statement, here.
+JOH gratefully acknowledges funding by a grant from the VILLUM Foundation (grant number: 13168) and the European Research Council (ERC) under the European Union's Horizon 2020 research and innovation program (grant number: 771859).
+The authors are grateful for computing resources and technical assistance provided by the Danish Center for Climate Computing, a facility built with support of the Danish e-Infrastructure Corporation, Danish Hydrocarbon Research and Technology Centre, VILLUM Foundation, and the Niels Bohr Institute.
 
-
-%% ------------------------------------------------------------------------ %%
-%% References and Citations
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%
-% \bibliography{<name of your .bib file>} don't specify the file extension
-%
-% don't specify bibliographystyle
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\bibliography{ enter your bibtex bibliography filename here }
+\bibliography{references_clustering.bib}
 
 
 
@@ -423,148 +331,4 @@ Enter acknowledgments, including your data availability statement, here.
 
 
 \end{document}
-
-
-
-More Information and Advice:
-
-%% ------------------------------------------------------------------------ %%
-%
-%  SECTION HEADS
-%
-%% ------------------------------------------------------------------------ %%
-
-% Capitalize the first letter of each word (except for
-% prepositions, conjunctions, and articles that are
-% three or fewer letters).
-
-% AGU follows standard outline style; therefore, there cannot be a section 1 without
-% a section 2, or a section 2.3.1 without a section 2.3.2.
-% Please make sure your section numbers are balanced.
-% ---------------
-% Level 1 head
-%
-% Use the \section{} command to identify level 1 heads;
-% type the appropriate head wording between the curly
-% brackets, as shown below.
-%
-%An example:
-%\section{Level 1 Head: Introduction}
-%
-% ---------------
-% Level 2 head
-%
-% Use the \subsection{} command to identify level 2 heads.
-%An example:
-%\subsection{Level 2 Head}
-%
-% ---------------
-% Level 3 head
-%
-% Use the \subsubsection{} command to identify level 3 heads
-%An example:
-%\subsubsection{Level 3 Head}
-%
-%---------------
-% Level 4 head
-%
-% Use the \subsubsubsection{} command to identify level 3 heads
-% An example:
-%\subsubsubsection{Level 4 Head} An example.
-%
-%% ------------------------------------------------------------------------ %%
-%
-%  IN-TEXT LISTS
-%
-%% ------------------------------------------------------------------------ %%
-%
-% Do not use bulleted lists; enumerated lists are okay.
-% \begin{enumerate}
-% \item
-% \item
-% \item
-% \end{enumerate}
-%
-%% ------------------------------------------------------------------------ %%
-%
-%  EQUATIONS
-%
-%% ------------------------------------------------------------------------ %%
-
-% Single-line equations are centered.
-% Equation arrays will appear left-aligned.
-
-Math coded inside display math mode \[ ...\]
- will not be numbered, e.g.,:
- \[ x^2=y^2 + z^2\]
-
- Math coded inside \begin{equation} and \end{equation} will
- be automatically numbered, e.g.,:
- \begin{equation}
- x^2=y^2 + z^2
- \end{equation}
-
-
-% To create multiline equations, use the
-% \begin{eqnarray} and \end{eqnarray} environment
-% as demonstrated below.
-\begin{eqnarray}
-  x_{1} & = & (x - x_{0}) \cos \Theta \nonumber \\
-        && + (y - y_{0}) \sin \Theta  \nonumber \\
-  y_{1} & = & -(x - x_{0}) \sin \Theta \nonumber \\
-        && + (y - y_{0}) \cos \Theta.
-\end{eqnarray}
-
-%If you don't want an equation number, use the star form:
-%\begin{eqnarray*}...\end{eqnarray*}
-
-% Break each line at a sign of operation
-% (+, -, etc.) if possible, with the sign of operation
-% on the new line.
-
-% Indent second and subsequent lines to align with
-% the first character following the equal sign on the
-% first line.
-
-% Use an \hspace{} command to insert horizontal space
-% into your equation if necessary. Place an appropriate
-% unit of measure between the curly braces, e.g.
-% \hspace{1in}; you may have to experiment to achieve
-% the correct amount of space.
-
-
-%% ------------------------------------------------------------------------ %%
-%
-%  EQUATION NUMBERING: COUNTER
-%
-%% ------------------------------------------------------------------------ %%
-
-% You may change equation numbering by resetting
-% the equation counter or by explicitly numbering
-% an equation.
-
-% To explicitly number an equation, type \eqnum{}
-% (with the desired number between the brackets)
-% after the \begin{equation} or \begin{eqnarray}
-% command.  The \eqnum{} command will affect only
-% the equation it appears with; LaTeX will number
-% any equations appearing later in the manuscript
-% according to the equation counter.
-%
-
-% If you have a multiline equation that needs only
-% one equation number, use a \nonumber command in
-% front of the double backslashes (\\) as shown in
-% the multiline equation above.
-
-% If you are using line numbers, remember to surround
-% equations with \begin{linenomath*}...\end{linenomath*}
-
-%  To add line numbers to lines in equations:
-%  \begin{linenomath*}
-%  \begin{equation}
-%  \end{equation}
-%  \end{linenomath*}
-
-
 
