@@ -21,6 +21,7 @@
 %\bibliographystyle{unsrtnat}
 %this package should fix any errors with URLs in refs.
 %\usepackage{lineno}
+\usepackage{geometry}
 %\usepackage[inline]{trackchanges} %for better track changes. finalnew option will compile document with changes incorporated.
 %\usepackage{soul}
 %\linenumbers
@@ -166,7 +167,7 @@
 %% \begin{abstract} starts the second page
 
 \begin{abstract}
-Convective self-aggregation is a paradigm for tropical oceanic cloud organization\cite{wing2017convective} and has been shown to give rise to cloud clusters over timescales of weeks\cite{khairoutdinov2010aggregation,muller2012detailed}.
+Convective self-aggregation is a paradigm for tropical oceanic cloud organization \cite{wing2017convective} and has been shown to give rise to cloud clusters over timescales of weeks\cite{khairoutdinov2010aggregation,muller2012detailed}.
 In contrast to the standard radiative convective equilibrium setup \cite{held1993radiative,tompkins1998radiative}, where surface conditions are held constant, we here allow surface conditions to oscillate diurnally, but allow the system to reach a repetitive state, termed perpetual equilibrium \cite{schlemmer2011diurnal,haerter2018intensified}.
 While the atmosphere gradually equilibrates at the system scale and domain mean precipitation indeed becomes similar from day to day, the spatial distribution of precipitation is only homogeneous during the first day. 
 Already during the second day, the precipitation field is strongly structured and continues to cluster in subsequent days.
@@ -283,70 +284,54 @@ We carry out a range of distinct simulations:
 \centering
 %\begin{overpic}
 %\includegraphics[height=0.33\linewidth]{cavities}
-\includegraphics[trim={0 0 0cm 0}, clip, height=0.32\linewidth]{tsair_timeseries.pdf}
-\includegraphics[trim={0 0 0cm 0}, clip, height=0.32\linewidth]{prcp_timeseries.pdf}
-\includegraphics[trim={0 0 0cm 0}, clip, height=0.32\linewidth]{pfrac_timeseries.pdf}
-\caption{{\bf Time series of domain averaged quantities}. }
+\includegraphics[trim={0 0 0cm 0}, clip, height=0.32\linewidth]{tsair_varying_ampl_timeseries_agg.pdf}
+\includegraphics[trim={0 0 0cm 0}, clip, height=0.32\linewidth]{prcp_varying_ampl_timeseries_agg.pdf}
+\includegraphics[trim={0 0 0cm 0}, clip, height=0.32\linewidth]{pfrac_varying_ampl_timeseries_agg.pdf}
+\caption{{\bf Diurnal cycles of domain averaged quantities}. 
+Each quantity was averaged over the spatial model domain. The timeseries is a compound diurnal cycle, where equal times of day were averaged over all available model days.
+{\bf a}, Near-surface temperature for simulations with different imposed surface temperature amplitudes, as labeled in legend. Horizontal lines of corresponding colors represent the time average of each simulation.
+{\bf b}, Analogous to (a), but for rain intensity.
+{\bf c}, Analogous to (a), but for rain area fraction. 
+}
 \label{fig:domain_mean_timeseries}
 \end{figure*}
 
 \begin{figure*}
 \centering
-%\begin{overpic}
-%\includegraphics[height=0.33\linewidth]{cavities}
-\includegraphics[trim={2cm 2.4cm 1cm 1cm}, clip, height=0.22\linewidth]{1-288_T0_300K_ampl_10_1km_r_int_timmean_xy_plot_l=1.pdf}
-%\end{overpic}
-\includegraphics[trim={2cm 2.4cm 1cm 1cm}, clip, height=0.22\linewidth]{333-600_T0_300K_ampl_10_1km_r_int_timmean_xy_plot_l=1.pdf}
-\includegraphics[trim={2cm 2.4cm 1cm 1cm}, clip, height=0.22\linewidth]{621-888_T0_300K_ampl_10_1km_r_int_timmean_xy_plot_l=1.pdf}
-\includegraphics[trim={2cm 2.4cm 1cm 1cm}, clip, height=0.22\linewidth]{909-1176_T0_300K_ampl_10_1km_r_int_timmean_xy_plot_l=1.pdf}
-\includegraphics[trim={2cm 2.4cm 1cm 1cm}, clip, height=0.22\linewidth]{1-288_T0_300K_ampl_4_1km_r_int_timmean_xy_plot_l=1.pdf}
-\includegraphics[trim={2cm 2.4cm 1cm 1cm}, clip, height=0.22\linewidth]{289-576_T0_300K_ampl_4_1km_r_int_timmean_xy_plot_l=1.pdf}
-\includegraphics[trim={2cm 2.4cm 1cm 1cm}, clip, height=0.22\linewidth]{577-864_T0_300K_ampl_4_1km_r_int_timmean_xy_plot_l=1.pdf}
-\includegraphics[trim={2cm 2.4cm 1cm 1cm}, clip, height=0.22\linewidth]{865-1172_T0_300K_ampl_4_1km_r_int_timmean_xy_plot_l=1.pdf}
-\begin{overpic}
-\put(1,1){test}
+\begin{overpic}[width=0.4\textwidth ]{dummy.pdf}
+\put(-70,40){\includegraphics[height=0.38\linewidth,trim=0cm 2.75cm 2.6cm 0cm, clip]{var1_daymean_T0_300K_ampl_4_1km_large_1-96.png}}
+\put(0,40){\includegraphics[trim={2.4cm 2.75cm 2.6cm 0cm}, clip, height=0.38\linewidth]{var1_daymean_T0_300K_ampl_4_1km_large_289-384.png}}
+\put(60,40){\includegraphics[trim={2.4cm 2.75cm 0cm 0cm}, clip, height=0.38\linewidth]{var1_daymean_T0_300K_ampl_4_1km_large_385-480.png}}
+\put(-70,-35){\includegraphics[trim={0cm 0cm 2.6cm 1.75cm}, clip, height=0.4\linewidth]{var1_daymean_T0_300K_ampl_10_1km_large_1-144.png}}
+\put(0,-35){\includegraphics[trim={2.4cm 0cm 2.6cm 1.75cm}, clip, height=0.4\linewidth]{var1_daymean_T0_300K_ampl_10_1km_large_433-576.png}}
+\put(60,-35){\includegraphics[trim={2.4cm 0cm 2.6cm 1.75cm}, clip, height=0.4\linewidth]{var1_daymean_T0_300K_ampl_10_1km_large_577-720.png}}
+\put(-62,97){\large \bf a}
+\put(-2,97){\large \bf b}
+\put(59,97){\large \bf c}
+\put(-62,34){\large \bf d}
+\put(-2,34){\large \bf e}
+\put(59,34){\large \bf f}
 \end{overpic}
-%\includegraphics[trim={2cm 2.4cm 1cm 1cm}, clip, height=0.22\linewidth]{1197-1464_T0_300K_ampl_10_1km_r_int_timmean_xy_plot_l=1.pdf}
-%\includegraphics[trim={2cm 2.4cm 1cm 1cm}, clip, height=0.22\linewidth]{1485-1752_T0_300K_ampl_10_1km_r_int_timmean_xy_plot_l=1.pdf}
-%\includegraphics[trim={2cm 2.4cm 1cm 1cm}, clip, height=0.22\linewidth]{1773-2040_T0_300K_ampl_10_1km_r_int_timmean_xy_plot_l=1.pdf}
-%\includegraphics[trim={2cm 2.4cm 1cm 1cm}, clip, height=0.22\linewidth]{2061-2348_T0_300K_ampl_10_1km_r_int_timmean_xy_plot_l=1.pdf}
-\caption{{\bf Spatial distribution of daily precipitation sum.}. }
+\vspace{2cm}
+\caption{{\bf Transition to a clustered rainfall state.}
+{\bf a}, Surface rainfall average during the first day (spin up) for $\Delta T=2\;K$.
+{\bf b}, Similar to (a), but for day 3.
+{\bf c}, Similar to (a), but for day 4.
+{\bf d---f}, Similar to (a)---(c), but for $\Delta T=5\;K$.
+}
 \label{fig:daily_sum_5K}
 \end{figure*}
 
-%\begin{figure*}
-%\centering
-%\begin{overpic}
-%\includegraphics[height=0.33\linewidth]{cavities}
-%\includegraphics[trim={2cm 2.4cm 1cm 1cm}, clip, height=0.22\linewidth]{1-288_T0_300K_ampl_4_1km_r_int_timmean_xy_plot_l=1.pdf}
-%\includegraphics[trim={2cm 2.4cm 1cm 1cm}, clip, height=0.22\linewidth]{289-576_T0_300K_ampl_4_1km_r_int_timmean_xy_plot_l=1.pdf}
-%\includegraphics[trim={2cm 2.4cm 1cm 1cm}, clip, height=0.22\linewidth]{577-864_T0_300K_ampl_4_1km_r_int_timmean_xy_plot_l=1.pdf}
-%\includegraphics[trim={2cm 2.4cm 1cm 1cm}, clip, height=0.22\linewidth]{865-1172_T0_300K_ampl_4_1km_r_int_timmean_xy_plot_l=1.pdf}
-%\caption{{\bf Daily precipitation sum for smaller forcing amplitude.}. }
-%\label{fig:daily_sum_2K}
-%\end{figure*}
 
 
 \begin{figure}
 \centering
-%\begin{overpic}
-%\includegraphics[height=0.33\linewidth]{cavities}
-\includegraphics[trim={2cm 2.4cm 1cm 1cm}, clip, height=0.11\linewidth]{1-288_T0_300K_ampl_10_500m_r_int_timmean_xy_plot_l=2.pdf}
-\includegraphics[trim={2cm 2.4cm 1cm 1cm}, clip, height=0.11\linewidth]{289-576_T0_300K_ampl_10_500m_r_int_timmean_xy_plot_l=2.pdf}
-\includegraphics[trim={2cm 2.4cm 1cm 1cm}, clip, height=0.11\linewidth]{577-864_T0_300K_ampl_10_500m_r_int_timmean_xy_plot_l=2.pdf}
-\caption{{\bf Daily precipitation sum for higher lateral model resolution.}. }
-\label{fig:daily_sum_500m}
-\end{figure}
-
-
-\begin{figure}
-\centering
-%\begin{overpic}
-%\includegraphics[height=0.33\linewidth]{cavities}
-\includegraphics[trim={0cm 0cm 0cm 0cm}, clip, height=0.5\linewidth]{var_ampl_10K_480.pdf}
-\includegraphics[trim={2cm 0cm 0cm 0cm}, clip, height=0.5\linewidth]{var_ampl_10K_960.pdf}
-\includegraphics[trim={2cm 0cm 0cm 0cm}, clip, height=0.5\linewidth]{var_ampl_10K_480_500m.pdf}
-\includegraphics[trim={2cm 0cm 0cm 0cm}, clip, height=0.5\linewidth]{var_ampl_4K_480.pdf}
+\begin{overpic}[width=0.4\textwidth ]{dummy.pdf}
+\put(-60,0){\includegraphics[trim={0cm 0cm 0cm 0cm}, clip, height=0.5\linewidth]{var_5K_960.pdf}}
+\put(10,0){\includegraphics[trim={2cm 0cm 0cm 0cm}, clip, height=0.5\linewidth]{var_2K_960.pdf}}
+\put(60,0){\includegraphics[trim={0cm 0cm 0cm 0cm}, clip, height=0.5\linewidth]{autocor.pdf}}
+%\put(-70,40){\includegraphics[trim={2cm 0cm 0cm 0cm}, clip, height=0.5\linewidth]{var_ampl_10K_480_500m.pdf}}
+\end{overpic}
 \caption{{\bf Spatial variance for different simulations at different times.}. 
 {\bf a}---{\bf d}, $\Delta T=10\;K$, $480km\times 480km$, $\Delta x=1\;km$; same as (a) but $960km\times 960km$; same as (a) but $\Delta x=500\;m$; same as (a) but $\Delta T=4\;K$.
 }
@@ -386,6 +371,17 @@ The authors are grateful for computing resources and technical assistance provid
 % DO NOT use other cite commands (e.g., \citet, \citep, \citeyear, \nocite, \citealp, etc.).
 %
 
+
+\begin{figure}
+\centering
+%\begin{overpic}
+%\includegraphics[height=0.33\linewidth]{cavities}
+\includegraphics[trim={2cm 2.4cm 1cm 1cm}, clip, height=0.11\linewidth]{1-288_T0_300K_ampl_10_500m_r_int_timmean_xy_plot_l=2.pdf}
+\includegraphics[trim={2cm 2.4cm 1cm 1cm}, clip, height=0.11\linewidth]{289-576_T0_300K_ampl_10_500m_r_int_timmean_xy_plot_l=2.pdf}
+\includegraphics[trim={2cm 2.4cm 1cm 1cm}, clip, height=0.11\linewidth]{577-864_T0_300K_ampl_10_500m_r_int_timmean_xy_plot_l=2.pdf}
+\caption{{\bf Daily precipitation sum for higher lateral model resolution.}. }
+\label{fig:daily_sum_500m}
+\end{figure}
 
 
 \end{document}
