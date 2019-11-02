@@ -219,7 +219,7 @@ Together, these two effects induce net near-surface divergence from cloud-free r
 Whereas numerical simulations assume constant insolation as well as surface boundary conditions, buoy-based instruments do measure diurnal variations in tropical sea surface temperature by typically 0.5-2 K \cite{weller1996surface,johnson1999trimodal} and satellite observations show a diurnal cycle in cloud height for the Madden Julian Oscillation \cite{suzuki2009diurnal,tian2006modulation}.
 Diurnal cycles in precipitation also emerge from two-dimensional numerical simulations where variations in insolation are accounted for \cite{liu1998numerical}. 
 This and earlier studies\cite{chen1997diurnal} also describe a persistent organized state of a mesoscale convective system, with characteristics of a squall line.
-\citet{chen1997diurnal} find a dynamics referred to as "diurnal dancing", which involves a bi-diurnal oscillation of local cloudiness.
+\cite{chen1997diurnal} find a dynamics referred to as "diurnal dancing", which involves a bi-diurnal oscillation of local cloudiness.
 \cite{guichard2004modelling,brown2002large,petch2002impact,schlemmer2011diurnal,moseley2016,haerter2018intensified}, as simulated domains show typical build-up on convective available potential energy during the morning hours, and its release in terms of precipitation during the afternoon or evening.
 Yet, as the focus was often on the timing or the overall intensity of rainfall, simulated domains were either chosen to be relatively small and model resolutions relatively high. 
 State-of-the-art regional climate models now simulate relatively large domains ($\sim 1000$ $km$ at $1$ or $2$ $\;km$ resolution), but include the full complexity of the lateral forcing \cite{ban2015heavy}. 
@@ -271,6 +271,12 @@ We carry out a range of distinct simulations:
 
 
 \section{Results}\label{sec:results}
+
+\subsection{Domain mean timeseries}
+
+\subsection{Characterizing the active and quiescent phases}
+
+\subsection{Characterizing the dynamics}
 
 
 \begin{figure*}
@@ -329,6 +335,21 @@ We carry out a range of distinct simulations:
 \includegraphics[trim={2cm 2.4cm 1cm 1cm}, clip, height=0.11\linewidth]{289-576_T0_300K_ampl_10_500m_r_int_timmean_xy_plot_l=2.pdf}
 \includegraphics[trim={2cm 2.4cm 1cm 1cm}, clip, height=0.11\linewidth]{577-864_T0_300K_ampl_10_500m_r_int_timmean_xy_plot_l=2.pdf}
 \caption{{\bf Daily precipitation sum for higher lateral model resolution.}. }
+\label{fig:daily_sum_500m}
+\end{figure}
+
+
+\begin{figure}
+\centering
+%\begin{overpic}
+%\includegraphics[height=0.33\linewidth]{cavities}
+\includegraphics[trim={0cm 0cm 0cm 0cm}, clip, height=0.5\linewidth]{var_ampl_10K_480.pdf}
+\includegraphics[trim={2cm 0cm 0cm 0cm}, clip, height=0.5\linewidth]{var_ampl_10K_960.pdf}
+\includegraphics[trim={2cm 0cm 0cm 0cm}, clip, height=0.5\linewidth]{var_ampl_10K_480_500m.pdf}
+\includegraphics[trim={2cm 0cm 0cm 0cm}, clip, height=0.5\linewidth]{var_ampl_4K_480.pdf}
+\caption{{\bf Spatial variance for different simulations at different times.}. 
+{\bf a}---{\bf d}, $\Delta T=10\;K$, $480km\times 480km$, $\Delta x=1\;km$; same as (a) but $960km\times 960km$; same as (a) but $\Delta x=500\;m$; same as (a) but $\Delta T=4\;K$.
+}
 \label{fig:daily_sum_500m}
 \end{figure}
 
