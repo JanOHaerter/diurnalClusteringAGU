@@ -22,6 +22,7 @@
 %this package should fix any errors with URLs in refs.
 %\usepackage{lineno}
 \usepackage{geometry}
+\usepackage[table,xcdraw]{xcolor}  
 %\usepackage[inline]{trackchanges} %for better track changes. finalnew option will compile document with changes incorporated.
 %\usepackage{soul}
 %\linenumbers
@@ -65,7 +66,7 @@
 %
 % ie, \journalname{Water Resources Research}
 
-\journalname{Diurnal Aggregation}
+\journalname{Nature Geoscience}
 
 
 \begin{document}
@@ -234,8 +235,8 @@ Rich gets richer effect \cite{chou2009evaluating}
 
 \section{Methods}\label{sec:methods}
 We simulate the convective atmosphere using the University of California, Los Angeles (UCLA) Large Eddy Simulation (LES) model with sub-grid scale turbulence parameterized after Smagorinsky \cite{smagorinsky1963general}, a delta four-stream radiation scheme \cite{pincus} and a two-moment cloud microphysics scheme \cite{stevens2005}. 
-Rain evaporation is implemented after \citet{seifert2006two}.
-As detailed in \cite{moseley2016}, diurnally oscillating surface temperature ($T_s(t)$) boundary conditions are applied, with
+Rain evaporation is implemented after \citeauthor{seifert2006two}.
+As detailed in \citeauthor{moseley2016}, diurnally oscillating surface temperature ($T_s(t)$) boundary conditions are applied, with
 \begin{eqnarray}
   T_s(t)=\overline{T_{s}}-T_{a} \cos{(2\pi\;t/t_0)}\;,
 \end{eqnarray}
@@ -245,35 +246,52 @@ All simulations were initialized with data from observed summertime mid-latitude
 However, due to the repeated diurnal cycle forcing, the system eventually establishes a self-consistent vertical temperature and moisture profile [show this somewhere].
 
 \noindent
-The model numerically integrates the anelastic equations of motion on a regular horizontal domain with varying horizontal grid spacing $dx$ and periodic boundary conditions. 
+The model numerically integrates the anelastic equations of motion on a regular horizontal domain with varying horizontal grid spacing $dx$ and periodic boundary conditions (Tab. \ref{tab:experiments}). 
 The model spans 75 stretchable vertical levels peaking at the full domain height of 16.5 km with a sponge layer above 12.3 km.
 The Coriolis force and the mean wind were set to zero with weak random initial perturbations added as noise to break complete spatial symmetry. 
-No large scale forcing was imposed,
-ensuring that the only driving force for convection was buoyancy and the forced lifting through cold pool interaction.
-The model output time step is $\Delta t_{out}=5\;min$. 
-At each output time step, instantaneous precipitation intensity, moisture and velocity fields are output at each model gridbox. 
+No large scale forcing was imposed, ensuring that the only driving force for convection was buoyancy and the forced lifting through cold pool interaction.
+The model output time step varies between experiments between $\Delta t_{out}=5\;min$ and $15\;min$. 
+At each output time step, instantaneous surface precipitation intensity, as well as the three-dimensional moisture and velocity fields are output for the entire model domain. 
 
-We carry out a range of distinct simulations:
-\begin{table}
-    \centering
-    \begin{tabular}{c|c|c|c}
-        Experiment & Surface Temperature Amplitude, $T_a$ & Horizontal Resolution, $dx$ & Domain Size, $L$\\
-        A & 5 & 1 & 500\\
-    \end{tabular}
-    \caption{Summary of numerical experiments}
-    \label{tab:experiments_overview}
+The simulations conducted crucially differ in the amplitude of surface temperature forcing, $T_a$, the effect of which is the main focus of this study.
+However, a number of further sensitivity experiments were conducted, to explore the effects of domain size, cold pool strength, surface evaporation, and lateral model resolution (Tab.~\ref{tab:experiments} and Sec.~\ref{sec:further_experiments}).
+
+\begin{table}[]
+\begin{tabular}{lllll}
+%\rowcolor[HTML]{ECF4FF} 
+Experiment & Forcing Amplitude & Horizontal Resolution & Domain Size & days with\\
+Name & \mathbf{$T_a$} [$K$] & \mathbf{$dx$} [$km$] & $L$ [gridboxes] & 3D output\\
+\hline
+%\rowcolor[HTML]{EFEFEF} 
+ & $5$ & $1$ & $960$ & $1$---$6$ \\
+%\rowcolor[HTML]{EFEFEF} 
+ & $2$ & $1$ & $960$ & $1,4$---$7$ \\
+%\rowcolor[HTML]{EFEFEF} 
+ & $5$ & $1$ & $480$ &  $1$---$8$\\
+ & $2$ & $1$ & $480$ &  $1$---$4$,$8$,$9$\\
+ & $5$ & $.5$ & $480$ & $1$---$3$ \\
+ & $5$ & $.2$ & $1200$ & $1$---$3$ \\
+ & $3.5$ & $1$ & $480$ & $3$---$5$\\
+ \hline
+\end{tabular}
+\caption{{\bf Summary of numerical experiments.}
+All above experiments were carried out at $T_s=298\;K$. Further experiments with increased surface temperature average ($+2K$), reduced ventilation coefficient, and modified potential evaporation were conducted (Sec.~\ref{sec:further_experiments}). }
+\label{tab:experiments}
 \end{table}
 
-\begin{itemize}
-    \item {\bf A}: $T_a=5\;K$ and $dx=1\;km$,
-    \item {\bf B}: $T_a=2\;K$ and $dx=1\;km$,
-    \item {\bf C}: $T_a=5\;K$ and $dx=.5\;km$.
-\end{itemize}
-
-
 \section{Results}\label{sec:results}
-
 \subsection{Domain mean timeseries}
+\noindent
+The differences in surface temperature amplitudes are reflected in larger amplitudes in the diurnal cycles of near-surface temperatures, $T_{50\;m}$  (Fig.~\ref{fig:domain_mean_timeseries}a), but only modest changes to the mean $\overline{T_{50\;m}}$.
+Modifications in domain-mean rain are more profound, with $T_a=5\;K$ yielding a relatively sharp single-peak structure, which transitions to a broader and double-peaked structure as $T_a$ is reduced (Fig.~\ref{fig:domain_mean_timeseries}b).
+Again, the differences in the temporal mean (dashed lines) are very small.
+Approximately proportional curves are found for rain area fraction, which however differ from those of rain rate immediately before the main peak in rate rate (Fig.~\ref{fig:domain_mean_timeseries}c).
+These differences are made more transparent when inspecting rain rates conditional on a threshold ($I>I_0$ with $I_0=.5\;mm\;h^{-1}$, Fig.~\ref{fig:domain_mean_timeseries}d). 
+Both mean and heavy precipitation show a pronounced evening peak for $T_a=5\;K$ and an early-morning peak for $T_a=2\;K$.
+In summary, whereas averages are nearly identical for numerical experiments with varying forcing amplitude, the timeseries of rain rate differ markedly.
+Free tropospheric temperatures, which constrain the rate of radiative emission and thereby overall rain rate \cite{Held:2006} are also very similar for the different numerical experiments  (Fig.~\ref{fig:free_trop_temp}).
+
+
 
 \subsection{Characterizing the active and quiescent phases}
 
@@ -284,17 +302,54 @@ We carry out a range of distinct simulations:
 \centering
 %\begin{overpic}
 %\includegraphics[height=0.33\linewidth]{cavities}
-\includegraphics[trim={0 0 0cm 0}, clip, height=0.32\linewidth]{tsair_varying_ampl_timeseries_agg.pdf}
-\includegraphics[trim={0 0 0cm 0}, clip, height=0.32\linewidth]{prcp_varying_ampl_timeseries_agg.pdf}
-\includegraphics[trim={0 0 0cm 0}, clip, height=0.32\linewidth]{pfrac_varying_ampl_timeseries_agg.pdf}
-\caption{{\bf Diurnal cycles of domain averaged quantities}. 
+\centering
+\begin{overpic}[width=0.4\textwidth ]{dummy.pdf}
+\put(-57,0){
+\includegraphics[trim={0 0 0cm 0}, clip, height=0.25\linewidth]{tsair_varying_ampl_timeseries_agg.pdf}}
+\put(-15,0){
+\includegraphics[trim={0 0 0cm 0}, clip, height=0.25\linewidth]{prcp_varying_ampl_timeseries_agg.pdf}}
+\put(27,0){\includegraphics[trim={0 0 0cm 0}, clip, height=0.25\linewidth]{pfrac_varying_ampl_timeseries_agg.pdf}}
+\put(69,0){\includegraphics[trim={0 0 0cm 0}, clip, height=0.25\linewidth]{diurnal_heavy_precip.pdf}}
+\put(-47,42){\bf a}
+\put( -3,42){\bf b}
+\put( 38,42){\bf c}
+\put( 80,42){\bf d}
+\end{overpic}
+\caption{{\bf Diurnal cycles of domain averaged quantities}. [here we might also want to show $T(6000m)$ and specific humidity.]
 Each quantity was averaged over the spatial model domain. The timeseries is a compound diurnal cycle, where equal times of day were averaged over all available model days.
 {\bf a}, Near-surface temperature for simulations with different imposed surface temperature amplitudes, as labeled in legend. Horizontal lines of corresponding colors represent the time average of each simulation.
 {\bf b}, Analogous to (a), but for rain intensity.
-{\bf c}, Analogous to (a), but for rain area fraction. 
+{\bf c}, Analogous to (a), but for rain area fraction.
+{\bf d}, Mean, 90'th and 99'th percentiles of rain intensity for $T_a=5\;K$ and $T_a=2\;K$, as labeled in the panel.
 }
 \label{fig:domain_mean_timeseries}
 \end{figure*}
+
+
+\begin{figure*}
+\centering
+%\begin{overpic}
+%\includegraphics[height=0.33\linewidth]{cavities}
+\centering
+\begin{overpic}[width=0.4\textwidth ]{dummy.pdf}
+\put(-57,0){
+\includegraphics[trim={0 0 0cm 0}, clip, height=0.25\linewidth]{tsair_varying_ampl_timeseries_agg.pdf}}
+\put(-15,0){
+\includegraphics[trim={0 0 0cm 0}, clip, height=0.25\linewidth]{prcp_varying_ampl_timeseries_agg.pdf}}
+\put(27,0){\includegraphics[trim={0 0 0cm 0}, clip, height=0.25\linewidth]{pfrac_varying_ampl_timeseries_agg.pdf}}
+\put(69,0){\includegraphics[trim={0 0 0cm 0}, clip, height=0.25\linewidth]{diurnal_heavy_precip.pdf}}
+\put(-47,42){\bf a}
+\put( -3,42){\bf b}
+\put( 38,42){\bf c}
+\put( 80,42){\bf d}
+\end{overpic}
+\caption{{\bf Diurnal cycles of domain averaged quantities}. [here we might also want to show $T(6000m)$ and specific humidity.]
+Each quantity was averaged over the spatial model domain. The timeseries is a compound diurnal cycle, where equal times of day were averaged over all available model days.
+{\bf a}, Near-surface temperature for simulations with different imposed surface temperature amplitudes, as labeled in legend. Horizontal lines of corresponding colors represent the time average of each simulation.
+}
+\label{fig:free_trop_temp}
+\end{figure*}
+
 
 \begin{figure*}
 \centering
@@ -314,12 +369,12 @@ Each quantity was averaged over the spatial model domain. The timeseries is a co
 \end{overpic}
 \vspace{2cm}
 \caption{{\bf Transition to a clustered rainfall state.}
-{\bf a}, Surface rainfall average during the first day (spin up) for $\Delta T=2\;K$.
-{\bf b}, Similar to (a), but for day 3.
-{\bf c}, Similar to (a), but for day 4.
+{\bf a}, Surface rainfall average during the first day ($d=1$, spin up) for $\Delta T=2\;K$.
+{\bf b}, Similar to (a), but for $d=3$.
+{\bf c}, Similar to (a), but for $d=4$.
 {\bf d---f}, Similar to (a)---(c), but for $\Delta T=5\;K$.
 }
-\label{fig:daily_sum_5K}
+\label{fig:daily_mean}
 \end{figure*}
 
 
@@ -327,16 +382,69 @@ Each quantity was averaged over the spatial model domain. The timeseries is a co
 \begin{figure}
 \centering
 \begin{overpic}[width=0.4\textwidth ]{dummy.pdf}
-\put(-60,0){\includegraphics[trim={0cm 0cm 0cm 0cm}, clip, height=0.5\linewidth]{var_5K_960.pdf}}
-\put(10,0){\includegraphics[trim={2cm 0cm 0cm 0cm}, clip, height=0.5\linewidth]{var_2K_960.pdf}}
-\put(60,0){\includegraphics[trim={0cm 0cm 0cm 0cm}, clip, height=0.5\linewidth]{autocor_vs_day.pdf}}
-%\put(-70,40){\includegraphics[trim={2cm 0cm 0cm 0cm}, clip, height=0.5\linewidth]{var_ampl_10K_480_500m.pdf}}
+\put(-50,40){\includegraphics[trim={0cm 0cm 0cm 0cm}, clip, height=0.4\linewidth]{var_5K_960.pdf}}
+\put(10,40){\includegraphics[trim={2cm 0cm 0cm 0cm}, clip, height=0.4\linewidth]{{var_3.5K_480}.pdf}}
+\put(60,40){\includegraphics[trim={2cm 0cm 0cm 0cm}, clip, height=0.4\linewidth]{var_2K_960.pdf}}
+\put(-50,-25){\includegraphics[trim={0cm 0cm 0cm 0cm}, clip, height=0.35\linewidth]{maxvar_vs_day.pdf}}
+\put(5,-25){\includegraphics[trim={0cm 0cm 0cm 0cm}, clip, height=0.35\linewidth]{maxvarPos_vs_day.pdf}}
+\put(60,-25){\includegraphics[trim={0cm 0cm 0cm 0cm}, clip, height=0.35\linewidth]{autocor_vs_day.pdf}}
+\put(-38,108){\large \bf a}
+\put(15,108){\large \bf b}
+\put(62,108){\large \bf c}
+\put(-40,34){\large \bf d}
+\put(15,34){\large \bf e}
+\put(70,34){\large \bf f}
+\put(-38,100){\large $\Delta T=5\;K$}
+\put( 12,100){\large $\Delta T=3.5\;K$}
+\put( 62,100){\large $\Delta T=2\;K$}
+
 \end{overpic}
-\caption{{\bf Spatial variance for different simulations at different times.}. 
-{\bf a}---{\bf d}, $\Delta T=10\;K$, $480km\times 480km$, $\Delta x=1\;km$; same as (a) but $960km\times 960km$; same as (a) but $\Delta x=500\;m$; same as (a) but $\Delta T=4\;K$.
+\vspace{2cm}
+\caption{{\bf Quantifying clustering using spatial variance.}
+{\bf a}, Spatial variance at different box sizes for $\Delta T=5\;K$.
+Curves of colors ranging from red to green correspond to increasing days.
+Note that at small scales ($\sim 10\;km$) and early times ($<2\;d$) rain events are distributed regularly, while at larger scales ($\sim 150\;km$) and later times, events are clustered.
+Note the double-logarithmic axis scaling.
+{\bf b}, Analogous to (a), but for $\Delta T=3.5\;K$.
+{\bf c}, Analogous to (a), but for $\Delta T=2\;K$. Note that the normalized variance remains in the regular range and does not exceed unity.
+{\bf d}, Peaks of variance anomalies vs. time for different simulations [mark them in legend]. 
+Note the general increase for large $\Delta T$ but flat behaviour for small $\Delta T$.
+{\bf e}, Scales of clustering, i.e. the peak position in all clustered distributions, such as in (a)---(b). [mark the average somehow]. 
+{\bf f}, Autocorrelation coefficient $c(\tau)$ for $\tau=1\;d$ and $\tau=2\;d$, showing increasing autocorrelation with scale.
 }
-\label{fig:daily_sum_500m}
+\label{fig:quantifying_clustering}
 \end{figure}
+
+
+\begin{figure}
+\centering
+\begin{overpic}[width=0.4\textwidth]{dummy.pdf}
+\put(-68,33){\includegraphics[trim={0cm 2.1cm 0cm 0cm}, clip, height=0.335\linewidth]{T0_300K_ampl_10_1km_1773-20402dPlot_precip_marked_points.pdf}}
+\put(-5,33){\includegraphics[trim={0cm 2.1cm 0cm 0cm}, clip, height=0.335\linewidth]{T0_300K_ampl_10_1km_1773-2040_comparison_q_17.pdf}}
+\put(65,33){\includegraphics[trim={2cm 2.1cm 0cm 0cm}, clip, height=0.335\linewidth]{T0_300K_ampl_10_1km_1773-2040_comparison_q_221.pdf}}
+\put(-68,-30){\includegraphics[trim={0cm 0cm 0cm 0cm}, clip, height=0.4\linewidth]{T0_300K_ampl_4_1km_577-8642dPlot_precip_marked_points.pdf}}
+\put(-5,-30){\includegraphics[trim={0cm 0cm 0cm 0cm}, clip, height=0.4\linewidth]{T0_300K_ampl_4_1km_577-864_comparison_q_13.pdf}}
+\put(65,-30){\includegraphics[trim={2cm 0cm 0cm 0cm}, clip, height=0.4\linewidth]{T0_300K_ampl_4_1km_577-864_comparison_q_217.pdf}}
+\put(-57,82){\large \bf a}
+\put(8,82){\large \bf b}
+\put(67,82){\large \bf c}
+\put(-55,30){\large \bf d}
+\put(8,30){\large \bf e}
+\put(67,30){\large \bf f}
+\put(-45,72){\large $\Delta T=5\;K$}
+\put(-45,25){\large $\Delta T=2\;K$}
+
+\end{overpic}
+\vspace{2cm}
+\caption{{\bf Moisture oscillations.}
+{\bf a}, Simulation with $\Delta T=5\;K$. Spatial rain distribution (red) with high and low values marked in light blue and green, respectively. 
+{\bf b}, Specific humidity vs height for intense and weak precipitation regions before the onset of precipitation (morning).
+{\bf c}, Analogous to (b), but after rain has ceased.
+{\bf d---f}, Analogous to (a)---(c), but for  $\Delta T=2\;K$.
+}
+\label{fig:moisture_oscillations}
+\end{figure}
+
 
 \section{Discussion}\label{sec:discussions}
 
@@ -370,6 +478,73 @@ The authors are grateful for computing resources and technical assistance provid
 % apacite uses < > for prenotes and [ ] for postnotes
 % DO NOT use other cite commands (e.g., \citet, \citep, \citeyear, \nocite, \citealp, etc.).
 %
+
+
+\section*{Acknowledgments}
+\noindent
+JOH gratefully acknowledges funding by a grant from the VILLUM Foundation (grant number: 13168) and the European Research Council (ERC) under the European Union's Horizon 2020 research and innovation program (grant number: 771859). 
+We acknowledge the Danish Climate Computing Center (DC3) and the German Climate Computing Center (DKRZ).
+
+\section*{Author Contributions}
+\noindent
+J.O.H. ran and processed the large eddy simulations (LES) and wrote the manuscript.
+\\
+\section*{Competing Interests}
+\noindent
+The authors declare no competing interests.
+
+\pagebreak
+\clearpage
+
+\renewcommand{\theequation}{S\arabic{equation}}
+\renewcommand{\thesection}{S\arabic{section}}
+\renewcommand{\thefigure}{S\arabic{figure}}
+
+\setcounter{equation}{0}
+\setcounter{figure}{0}
+\setcounter{section}{0}
+
+\section*{Supplementary Information}\label{sec:supp}
+\noindent
+In the supplement, we discuss further experiments (Sec.~\ref{sec:further_experiment}) supporting the main findings.
+
+\subsection*{Additional Numerical Experiments}\label{sec:further_experiments}
+Further experiments were conducted.
+
+
+\begin{figure*}[!]
+\centering
+\begin{overpic}[width=0.4\textwidth ]{dummy.pdf}
+\put(-60,0){\includegraphics[trim={0 0 0cm 0}, clip, height=0.32\linewidth]{tsair_vent_timeseries_agg.pdf}}
+\put(-5,0){
+\includegraphics[trim={0 0 0cm 0}, clip, height=0.32\linewidth]{prcp_vent_timeseries_agg.pdf}}
+\put(50,0){\includegraphics[trim={0 0 0cm 0}, clip, height=0.32\linewidth]{pfrac_vent_timeseries_agg.pdf}}
+\put(-45,53){\bf a}
+\put( 11,53){\bf b}
+\put( 62,53){\bf c}
+\end{overpic}
+\caption{{\bf Diurnal cycles of domain averaged quantities}. [here we might also want to show $T(6000m)$ and specific humidity.]
+Similar to Fig.~\ref{fig:domain_mean_timeseries} but reducing the ventilation coefficient to a fraction of $.5$ and $.01$, respectively. 
+}
+\label{fig:domain_mean_timeseries_ventilation}
+\end{figure*}
+
+\begin{figure*}[!]
+\centering
+\begin{overpic}[width=0.4\textwidth ]{dummy.pdf}
+\put(-60,0){\includegraphics[trim={0 0 0cm 0}, clip, height=0.32\linewidth]{tsair_sea_timeseries_agg.pdf}}
+\put(-5,0){
+\includegraphics[trim={0 0 0cm 0}, clip, height=0.32\linewidth]{prcp_sea_timeseries_agg.pdf}}
+\put(50,0){\includegraphics[trim={0 0 0cm 0}, clip, height=0.32\linewidth]{pfrac_sea_timeseries_agg.pdf}}
+\put(-45,53){\bf a}
+\put( 11,53){\bf b}
+\put( 62,53){\bf c}
+\end{overpic}
+\caption{{\bf Diurnal cycles of domain averaged quantities}. [here we might also want to show $T(6000m)$ and specific humidity.]
+Similar to Fig.~\ref{fig:domain_mean_timeseries} but using $100$ percent surface evaporation. 
+}
+\label{fig:domain_mean_timeseries_surface_evap}
+\end{figure*}
 
 
 \begin{figure}
