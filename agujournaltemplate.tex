@@ -417,27 +417,28 @@ Note the general increase for large $\Delta T$ but flat behaviour for small $\De
 \begin{figure}
 \centering
 \begin{overpic}[width=0.4\textwidth]{dummy.pdf}
-\put(-55,15){\includegraphics[trim={0cm 2.1cm 0cm 0cm}, clip, height=0.235\linewidth]{T0_300K_ampl_10_1km_1773-20402dPlot_precip_marked_points.pdf}}
-\put(-14,16){\includegraphics[trim={0cm 2.1cm 0cm 0cm}, clip, height=0.19\linewidth]{T0_300K_ampl_10_1km_1773-2040_comparison_q_17.pdf}}
-\put(10,16){\includegraphics[trim={2cm 2.1cm 0cm 0cm}, clip, height=0.19\linewidth]{T0_300K_ampl_10_1km_1773-2040_comparison_q_221.pdf}}
-\put(-55,-30){\includegraphics[trim={0cm 0cm 0cm 0cm}, clip, height=0.28\linewidth]{T0_300K_ampl_4_1km_865-11722dPlot_precip_marked_points.pdf}}
+\put(-55,16){\includegraphics[trim={0cm 2.1cm 0cm 0cm}, clip, height=0.19\linewidth]{T0_300K_ampl_10_1km_909-11762dPlot_precip_marked_points.pdf}}
+\put(-14,16){\includegraphics[trim={0cm 2.1cm 0cm 0cm}, clip, height=0.19\linewidth]{T0_300K_ampl_10_1km_909-1176_comparison_q_17.pdf}}
+\put(10,16){\includegraphics[trim={2cm 2.1cm 0cm 0cm}, clip, height=0.19\linewidth]{T0_300K_ampl_10_1km_909-1176_comparison_q_221.pdf}}
+\put(-55,-27.0){\includegraphics[trim={0cm 0cm 0cm 0cm}, clip, height=0.225\linewidth]{T0_300K_ampl_4_1km_865-11722dPlot_precip_marked_points.pdf}}
 \put(-14,-28){\includegraphics[trim={0cm 0cm 0cm 0cm}, clip, height=0.23\linewidth]{T0_300K_ampl_4_1km_865-1172_comparison_q_1.pdf}}
 \put(10,-28){\includegraphics[trim={2cm 0cm 0cm 0cm}, clip, height=0.23\linewidth]{T0_300K_ampl_4_1km_865-1172_comparison_q_1.pdf}}
-\put(-48,49){\large \bf a}
-\put(-8,49){\large \bf b}
-\put(9,49){\large \bf c}
-\put(-48,12){\large \bf d}
-\put(-8,12){\large \bf e}
-\put(9,12){\large \bf f}
+\put(-48,49){\bf a}
+\put(-6,49){\bf b}
+\put(11,49){\bf c}
+\put(-48,12){\bf d}
+\put(-6,12){\bf e}
+\put(11,12){\bf f}
 %\put(-45,72){\large $\Delta T=5\;K$}
 %\put(-45,25){\large $\Delta T=2\;K$}
 \end{overpic}
 \vspace{2cm}
 \caption{{\bf Moisture oscillations.}
-{\bf a}, Simulation with $\Delta T=5\;K$. Spatial rain distribution (red) with high and low values marked in light blue and green, respectively. 
+{\bf a}, Simulation with $\Delta T=5\;K$. Spatial rain distribution (red) with high and low values marked in light blue circles and green diamonds, respectively. 
 {\bf b}, Specific humidity vs height for intense and weak precipitation regions before the onset of precipitation (morning).
 {\bf c}, Analogous to (b), but after rain has ceased.
 {\bf d---f}, Analogous to (a)---(c), but for  $\Delta T=2\;K$.
+Note the logarithmic vertical scale in panels b,c,e,f.
 }
 \label{fig:moisture_oscillations}
 \end{figure}
@@ -505,7 +506,10 @@ The positions of all subsequent rain objects of the same track are discarded in 
 
 \noindent
 {\bf Cold pool tracking.}
-To account for possible changes in cold pool extend between the different simulations, cold pools were tracked by a simple temperature depression method, with the threshold set to $1\;K$ below the domain mean temperature at the same timestep.
+To account for possible changes in cold pool extend between the different simulations, cold pools were tracked by a simple temperature depression method.
+In this method, the IRT was modified, such that at any timestep any gridbox with a temperature anomaly exceeding a threshold of $1\;K$ was recorded.
+As for rainfall, spatially contiguous patches of temperature depression were collected into objects and assigned indexes. 
+Stepping forward in time, overlapping objects were identified and considered to be the same cold pool track.
 [maybe refine this.]
 
 \begin{table}[]
