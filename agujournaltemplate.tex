@@ -305,6 +305,14 @@ To capture temporal anticorrelation caused by cold pools, we further implement t
 
 Notably, the formation of a cluster of size $q$ is related to site percolation \cite{christensen2005complexity}, that is, the formation of a cluster of two sites occurs at the probability $p^2(1-p)^8$.
 The probability of finding a cluster of size $s$ decays approximately exponentially with $s$ and depends strongly on $p$ [check, how exactly it depends on $p$].
+$p_{act}=.8$
+$p_{rec}=-.8$
+$A_{crit}=15$
+$\tau_{rec}=24\;h$
+$\tau_{rec,c}=240\;h$
+$\tau_{cp}=5\;h$
+$T_{c,0}=-10\;K$
+$T_a=0.1$ and $0.5$
 
 
 \begin{figure*}
@@ -811,41 +819,41 @@ As in Fig.~\ref{fig:free_trop_temp}, but for free-tropospheric specific humidity
 \begin{figure*}
 \centering
 \begin{overpic}[width=0.4\textwidth ]{dummy.pdf}
-\put(-70,40){\includegraphics[height=0.36\linewidth,trim=0cm 2cm 0cm 0cm, clip]{{Ta=0.50_N=1600day_1}.png}}
-\put(0,40){\includegraphics[trim={2.5cm 2cm 0cm 0cm}, clip, height=0.36\linewidth½]{{Ta=0.50_N=1600day_6}.png}}
-\put(60,40){\includegraphics[trim={2.5cm 2cm 0cm 0cm}, clip, height=0.36\linewidth]{{Ta=0.50_N=1600day_7}.png}}
-\put(-70,-35){\includegraphics[trim={0cm 0cm 0cm 0cm}, clip, height=0.42\linewidth]{{Ta=0.10_N=1600day_1}.png}}
-\put(0,-35){\includegraphics[trim={2.5cm 0cm 0cm 0cm}, clip, height=0.42\linewidth]{{Ta=0.10_N=1600day_6}.png}}
-\put(60,-35){\includegraphics[trim={2.5cm 0cm 0cm 0cm}, clip, height=0.42\linewidth]{{Ta=0.10_N=1600day_7}.png}}
-\put(-62,97){\large \bf a}
-\put(-2,97){\large \bf b}
-\put(59,97){\large \bf c}
-\put(-62,34){\large \bf d}
-\put(-2,34){\large \bf e}
-\put(59,34){\large \bf f}
+\put(-70,40){\includegraphics[height=0.37\linewidth,trim=0cm 2cm 0cm 0cm, clip]{{Ta=0.10_N=1600day_1}.png}}
+\put(0,40){\includegraphics[trim={2.5cm 2cm 0cm 0cm}, clip, height=0.37\linewidth½]{{Ta=0.10_N=1600day_6}.png}}
+\put(60,40){\includegraphics[trim={2.5cm 2cm 0cm 0cm}, clip, height=0.37\linewidth]{{Ta=0.10_N=1600day_7}.png}}
+\put(-70,-35){\includegraphics[trim={0cm 0cm 0cm 0cm}, clip, height=0.42\linewidth]{{Ta=0.50_N=1600day_1}.png}}
+\put(0,-35){\includegraphics[trim={2.5cm 0cm 0cm 0cm}, clip, height=0.42\linewidth]{{Ta=0.50_N=1600day_6}.png}}
+\put(60,-35){\includegraphics[trim={2.5cm 0cm 0cm 0cm}, clip, height=0.42\linewidth]{{Ta=0.50_N=1600day_7}.png}}
+\put(-60,100){\large \bf a}
+\put(-0,100){\large \bf b}
+\put(61,100){\large \bf c}
+\put(-60,35){\large \bf d}
+\put(-0,35){\large \bf e}
+\put(61,35){\large \bf f}
 
-\put(-58,90){\large $T_a=2\;K$}
-\put(-58,27){\large $T_a=5\;K$}
+\put(-58,90){\large small $T_a$}
+\put(-58,27){\large large $T_a$}
 
-\put(5,72){\color{black}\line(0,-1){10}}
-\put(5,62){\color{black}\line(1,0){10}}
-\put(5,72){\color{black}\line(1,0){10}}
-\put(15,72){\color{black}\line(0,-1){10}}
+\put(10,77){\color{black}\line(0,-1){10}}
+\put(10,67){\color{black}\line(1,0){10}}
+\put(10,77){\color{black}\line(1,0){10}}
+\put(20,77){\color{black}\line(0,-1){10}}
 
-\put(5,10){\color{black}\line(0,-1){10}}
-\put(5,0){\color{black}\line(1,0){10}}
-\put(5,10){\color{black}\line(1,0){10}}
-\put(15,10){\color{black}\line(0,-1){10}}
+\put(10,10){\color{black}\line(0,-1){10}}
+\put(10,0){\color{black}\line(1,0){10}}
+\put(10,10){\color{black}\line(1,0){10}}
+\put(20,10){\color{black}\line(0,-1){10}}
 
-\put(65,72){\color{black}\line(0,-1){10}}
-\put(65,62){\color{black}\line(1,0){10}}
-\put(65,72){\color{black}\line(1,0){10}}
-\put(75,72){\color{black}\line(0,-1){10}}
+\put(70,77){\color{black}\line(0,-1){10}}
+\put(70,67){\color{black}\line(1,0){10}}
+\put(70,77){\color{black}\line(1,0){10}}
+\put(80,77){\color{black}\line(0,-1){10}}
 
-\put(65,10){\color{black}\line(0,-1){10}}
-\put(65,0){\color{black}\line(1,0){10}}
-\put(65,10){\color{black}\line(1,0){10}}
-\put(75,10){\color{black}\line(0,-1){10}}
+\put(70,10){\color{black}\line(0,-1){10}}
+\put(70,0){\color{black}\line(1,0){10}}
+\put(70,10){\color{black}\line(1,0){10}}
+\put(80,10){\color{black}\line(0,-1){10}}
 
 \end{overpic}
 %\begin{picture}
