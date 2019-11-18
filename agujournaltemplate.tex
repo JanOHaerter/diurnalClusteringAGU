@@ -498,6 +498,41 @@ Note the logarithmic vertical scale in panels b,c,e,f.
 \end{figure}
 
 
+\begin{figure}
+\centering
+\begin{overpic}[width=0.4\textwidth ]{dummy.pdf}
+\put(-50,40){\includegraphics[trim={0cm 0cm 0cm 0cm}, clip, height=0.4\linewidth]{var_Ta5.pdf}}
+\put(10,40){\includegraphics[trim={2cm 0cm 0cm 0cm}, clip, height=0.4\linewidth]{var_Ta1.pdf}}
+\put(-50,00){\includegraphics[trim={0cm 0cm 0cm 0cm}, clip, height=0.4\linewidth]{N=160}}
+\put(10,00){\includegraphics[trim={2cm 0cm 0cm 0cm}, clip, height=0.4\linewidth]{var_Ta1.pdf}}
+%\put(60,40){\includegraphics[trim={2cm 0cm 0cm 0cm}, clip, height=0.4\linewidth]{var_2K_960.pdf}}
+%\put(-50,-25){\includegraphics[trim={0cm 0cm 0cm 0cm}, clip, height=0.35\linewidth]{maxvar_vs_day.pdf}}
+%\put(5,-25){\includegraphics[trim={0cm 0cm 0cm 0cm}, clip, height=0.35\linewidth]{maxvarPos_vs_day.pdf}}
+%\put(60,-25){\includegraphics[trim={0cm 0cm 0cm 0cm}, clip, height=0.35\linewidth]{autocor_vs_day.pdf}}
+\put(-38,67){\large \bf a}
+\put(12,67){\large \bf b}
+%\put(62,108){\large \bf c}
+%\put(-40,34){\large \bf d}
+%\put(15,34){\large \bf e}
+%\put(70,34){\large \bf f}
+\put(-38,60){\large large $T_a$}
+\put( 12,60){\large small $T_a$}
+%\put( 62,100){\large $\Delta T=2\;K$}
+\end{overpic}
+\vspace{0cm}
+\caption{{\bf Spatial variance for simplified model.}
+{\bf a}, Spatial variance at different box sizes for a large value of $T_a$.
+Curves of colors ranging from red to green correspond to increasing days.
+%Note that at small scales ($\sim 10\;km$) and early times ($<2\;d$) rain events are distributed regularly, 
+For larger scales ($\sim 150\;km$) and later times, events are clustered.
+Note the double-logarithmic axis scaling.
+{\bf b}, Analogous to (a), but for small $T_a$.
+%{\bf c}, Analogous to (a), but for $T_a=2\;K$. Note that the normalized variance remains in the regular range and does not exceed unity.
+}
+\label{fig:quantifying_clustering_simplified}
+\end{figure}
+
+
 \section{Discussion}\label{sec:discussions}
 Our study analyses the spontaneous emergence of convective clustering, when the amplitude of the diurnal cycle is sufficiently large. 
 During mid-latitude summer, extreme rainfall events and flash floods have been found to occur more frequently during long periods of pronounced heating. 
@@ -770,6 +805,62 @@ As in Fig.~\ref{fig:free_trop_temp}, but for free-tropospheric specific humidity
 \caption{{\bf Daily precipitation sum for higher lateral model resolution.}. }
 \label{fig:daily_sum_500m}
 \end{figure}
+
+
+
+\begin{figure*}
+\centering
+\begin{overpic}[width=0.4\textwidth ]{dummy.pdf}
+\put(-70,40){\includegraphics[height=0.36\linewidth,trim=0cm 2cm 0cm 0cm, clip]{{Ta=0.50_N=1600day_1}.png}}
+\put(0,40){\includegraphics[trim={2.5cm 2cm 0cm 0cm}, clip, height=0.36\linewidth½]{{Ta=0.50_N=1600day_3}.png}}
+\put(60,40){\includegraphics[trim={2.5cm 2cm 0cm 0cm}, clip, height=0.36\linewidth]{{Ta=0.50_N=1600day_4}.png}}
+\put(-70,-35){\includegraphics[trim={0cm 0cm 0cm 0cm}, clip, height=0.42\linewidth]{{Ta=0.50_N=1600day_1}.png}}
+\put(0,-35){\includegraphics[trim={2.5cm 0cm 0cm 0cm}, clip, height=0.42\linewidth]{{Ta=0.50_N=1600day_3}.png}}
+\put(60,-35){\includegraphics[trim={2.5cm 0cm 0cm 0cm}, clip, height=0.42\linewidth]{{Ta=0.50_N=1600day_4}.png}}
+\put(-62,97){\large \bf a}
+\put(-2,97){\large \bf b}
+\put(59,97){\large \bf c}
+\put(-62,34){\large \bf d}
+\put(-2,34){\large \bf e}
+\put(59,34){\large \bf f}
+
+\put(-58,90){\large $T_a=2\;K$}
+\put(-58,27){\large $T_a=5\;K$}
+
+\put(5,72){\color{black}\line(0,-1){10}}
+\put(5,62){\color{black}\line(1,0){10}}
+\put(5,72){\color{black}\line(1,0){10}}
+\put(15,72){\color{black}\line(0,-1){10}}
+
+\put(5,10){\color{black}\line(0,-1){10}}
+\put(5,0){\color{black}\line(1,0){10}}
+\put(5,10){\color{black}\line(1,0){10}}
+\put(15,10){\color{black}\line(0,-1){10}}
+
+\put(65,72){\color{black}\line(0,-1){10}}
+\put(65,62){\color{black}\line(1,0){10}}
+\put(65,72){\color{black}\line(1,0){10}}
+\put(75,72){\color{black}\line(0,-1){10}}
+
+\put(65,10){\color{black}\line(0,-1){10}}
+\put(65,0){\color{black}\line(1,0){10}}
+\put(65,10){\color{black}\line(1,0){10}}
+\put(75,10){\color{black}\line(0,-1){10}}
+
+\end{overpic}
+%\begin{picture}
+%\put(0,15){\circle(20)}
+%\end{picture}
+\vspace{2cm}
+\caption{{\bf Transition to a clustered rainfall state in the simplified model.}
+{\bf a}, Surface rainfall average during the first day ($d=1$, spin up) for $\Delta T=2\;K$.
+{\bf b}, Similar to (a), but for $d=3$.
+{\bf c}, Similar to (a), but for $d=4$.
+{\bf d---f}, Similar to (a)---(c), but for $\Delta T=5\;K$.
+To highlight the spatial and temporal variation, boxes of side length $l=150\;km$ are shown at equal positions in panels b,c,e,f.
+}
+\label{fig:daily_mean_simplified_model}
+\end{figure*}
 
 
 \end{document}
