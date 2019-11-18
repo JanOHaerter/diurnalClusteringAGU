@@ -290,6 +290,21 @@ Additionally computing the height of CPs in the two cases, we find that $T_a=5\;
 
 
 \subsection{Conceptual model}
+We mimic the clustering dynamics in a simple conceptual model, which founds on the notion, that supercells emerge, when a sufficient number of rain events occur in close proximity. 
+On a lattice of $L\times L$ sites and at each timestep, at probability $p$ occupy any given site with a rain event. 
+A lattice site represents the spatial extent of a single cold pool ($\approx 10\;km \times 10\;km$) and the timestep represents the typical lifetime of an active cold pool ($\approx 1\;h$), 
+A rain event thereby represents the union of the rain cell and the cold pool produced by it.
+When the timestep ends all occupied sites are again vacated.
+When a spatially contiguous cluster of $q$ rain events occurs within the same timestep, the probability $p_{sc}$ of additional rain events appearing in the surroundings at the subsequent timestep is elevated, i.e., $p_{sc}>p$.
+To enforce a basic energy constraint on the number of precipitation events, their total number is simply fixed for each day, that is, when $n$ sites have been filled by rain events, the dynamics stops for this day.
+
+To distinguish a large from a small amplitude $T_a$, we simply modify $p$ in the model: 
+small $T_a$ requires small $p$, whereas large $T_a$ requires large $p$.
+The consequence of the total "budget" of cells $n$ is, that the period over which cells are formed for small $T_a$ is larger.
+To capture temporal anticorrelation caused by cold pools, we further implement that after formation of any cell, the probability $p'$ of forming yet another cell at the same site is lowered until the end of the subsequent day, that is $p'<p$.
+
+Notably, the formation of a cluster of size $q$ is related to site percolation \cite{christensen2005complexity}, that is, the formation of a cluster of two sites occurs at the probability $p^2(1-p)^8$.
+The probability of finding a cluster of size $s$ decays approximately exponentially with $s$ and depends strongly on $p$ [check, how exactly it depends on $p$].
 
 
 \begin{figure*}
@@ -417,20 +432,12 @@ Note the general increase for large $\Delta T$ but flat behaviour for small $\De
 \begin{figure}
 \centering
 \begin{overpic}[width=0.4\textwidth]{dummy.pdf}
-\put(-55,16){\includegraphics[trim={0cm 2.1cm 0cm 0cm}, clip, height=0.19\linewidth]{T0_300K_ampl_10_1km_909-11762dPlot_precip_marked_points.pdf}}
-\put(-14,16){\includegraphics[trim={0cm 2.1cm 0cm 0cm}, clip, height=0.19\linewidth]{T0_300K_ampl_10_1km_909-1176_comparison_q_17.pdf}}
-\put(10,16){\includegraphics[trim={2cm 2.1cm 0cm 0cm}, clip, height=0.19\linewidth]{T0_300K_ampl_10_1km_909-1176_comparison_q_221.pdf}}
-\put(-55,-27.0){\includegraphics[trim={0cm 0cm 0cm 0cm}, clip, height=0.225\linewidth]{T0_300K_ampl_4_1km_865-11722dPlot_precip_marked_points.pdf}}
-\put(-14,-28){\includegraphics[trim={0cm 0cm 0cm 0cm}, clip, height=0.23\linewidth]{T0_300K_ampl_4_1km_865-1172_comparison_q_1.pdf}}
-\put(10,-28){\includegraphics[trim={2cm 0cm 0cm 0cm}, clip, height=0.23\linewidth]{T0_300K_ampl_4_1km_865-1172_comparison_q_1.pdf}}
-
-\put(30,26){\includegraphics[trim={0cm 2.2cm 1.8cm 0cm}, clip, width=0.16\linewidth]{temp_depr_timeseries_area_2K_480_day_1-288.pdf}}
-\put(30,2){\includegraphics[trim={0cm 2.2cm 1.8cm 0cm}, clip, width=0.16\linewidth]{temp_depr_timeseries_area_2K_480_day_289-576.pdf}}
-\put(30,-27){\includegraphics[trim={0cm 0cm 1.8cm 0cm}, clip, width=0.16\linewidth]{temp_depr_timeseries_area_2K_480_day_577-864.pdf}}
-
-\put(60,26){\includegraphics[trim={2cm 2.2cm 0cm 0cm}, clip, width=0.16\linewidth]{temp_depr_timeseries_area_5K_480_day_1-288.pdf}}
-\put(60,2){\includegraphics[trim={2cm 2.2cm 0cm 0cm}, clip, width=0.16\linewidth]{temp_depr_timeseries_area_5K_480_day_333-600.pdf}}
-\put(60,-27){\includegraphics[trim={2.0cm 0cm 0cm 0cm}, clip, width=0.16\linewidth]{temp_depr_timeseries_area_5K_480_day_621-888.pdf}}
+\put(-55,16){\includegraphics[trim={0cm 2.1cm 0cm 0cm}, clip, height=0.19\linewidth]{T0_300K_ampl_4_1km_865-11722dPlot_precip_marked_points.pdf}}
+\put(-14,16){\includegraphics[trim={0cm 2.1cm 0cm 0cm}, clip, height=0.19\linewidth]{T0_300K_ampl_4_1km_865-1172_comparison_q_1.pdf}}
+\put(10,16){\includegraphics[trim={2cm 2.1cm 0cm 0cm}, clip, height=0.19\linewidth]{T0_300K_ampl_4_1km_865-1172_comparison_q_1.pdf}}
+\put(-55,-27.0){\includegraphics[trim={0cm 0cm 0cm 0cm}, clip, height=0.225\linewidth]{T0_300K_ampl_10_1km_909-11762dPlot_precip_marked_points.pdf}}
+\put(-14,-28){\includegraphics[trim={0cm 0cm 0cm 0cm}, clip, height=0.23\linewidth]{T0_300K_ampl_10_1km_909-1176_comparison_q_17.pdf}}
+\put(10,-28){\includegraphics[trim={2cm 0cm 0cm 0cm}, clip, height=0.23\linewidth]{T0_300K_ampl_10_1km_909-1176_comparison_q_221.pdf}}
 
 \put(-48,49){\bf a}
 \put(-6,49){\bf b}
@@ -443,13 +450,51 @@ Note the general increase for large $\Delta T$ but flat behaviour for small $\De
 \end{overpic}
 \vspace{2cm}
 \caption{{\bf Moisture oscillations.}
-{\bf a}, Simulation with $\Delta T=5\;K$. Spatial rain distribution (red) with high and low values marked in light blue circles and green diamonds, respectively. 
+{\bf a}, Simulation with $\Delta T=2\;K$. Spatial rain distribution (red) with high and low values marked in light blue circles and green diamonds, respectively. 
 {\bf b}, Specific humidity vs height for intense and weak precipitation regions before the onset of precipitation (morning).
 {\bf c}, Analogous to (b), but after rain has ceased.
-{\bf d---f}, Analogous to (a)---(c), but for  $\Delta T=2\;K$.
+{\bf d---f}, Analogous to (a)---(c), but for  $\Delta T=5\;K$.
 Note the logarithmic vertical scale in panels b,c,e,f.
 }
 \label{fig:moisture_oscillations}
+\end{figure}
+
+
+\begin{figure}
+\centering
+\begin{overpic}[width=0.4\textwidth]{dummy.pdf}
+
+\put(-55,15){\includegraphics[trim={0cm 2.15cm 1.8cm 0cm}, clip, height=0.205\linewidth]{temp_depr_timeseries_area_2K_480_day_1-288.pdf}}
+\put(-28,15){\includegraphics[trim={1.95cm 2.15cm 1.8cm 0cm}, clip, height=.205\linewidth]{temp_depr_timeseries_area_2K_480_day_289-576.pdf}}
+\put(-10,15){\includegraphics[trim={1.95cm 2.15cm 0cm 0cm}, clip, height=0.205\linewidth]{temp_depr_timeseries_area_2K_480_day_577-864.pdf}}
+
+\put(-55,-31){\includegraphics[trim={0cm 0cm 1.8cm 0cm}, clip, height=0.255\linewidth]{temp_depr_timeseries_area_5K_480_day_1-288.pdf}}
+\put(-28,-31){\includegraphics[trim={1.95cm 0cm 1.8cm 0cm}, clip, height=0.255\linewidth]{temp_depr_timeseries_area_5K_480_day_333-600.pdf}}
+\put(-10,-31){\includegraphics[trim={1.95cm 0cm 0cm 0cm}, clip, height=0.255\linewidth]{temp_depr_timeseries_area_5K_480_day_621-888.pdf}}
+
+\put(15,16){\includegraphics[trim={.0cm 2.2cm 0cm 0cm}, clip, height=0.19\linewidth]{cp_presence_T0_300K_ampl_4_1km_577-864.pdf}}
+\put(15,-28){\includegraphics[trim={.0cm 0cm 0cm 0cm}, clip,height=0.23\linewidth]{cp_presence_T0_300K_ampl_10_1km_621-888.pdf}}
+
+\put(70,7){\includegraphics[trim={.0cm 0cm 0cm 0cm}, clip,height=0.23\linewidth]{merge_split_stats.pdf}}
+
+\put(-48,49){\bf a}
+\put(-6,49){\bf b}
+\put(11,49){\bf c}
+\put(-48,12){\bf d}
+\put(-6,12){\bf e}
+\put(11,12){\bf f}
+%\put(-45,72){\large $\Delta T=5\;K$}
+%\put(-45,25){\large $\Delta T=2\;K$}
+\end{overpic}
+\vspace{2cm}
+\caption{{\bf Cold Pool Merging and Supercells.}
+{\bf a}, Simulation with $\Delta T=2\;K$. Spatial rain distribution (red) with high and low values marked in light blue circles and green diamonds, respectively. 
+{\bf b}, Specific humidity vs height for intense and weak precipitation regions before the onset of precipitation (morning).
+{\bf c}, Analogous to (b), but after rain has ceased.
+{\bf d---f}, Analogous to (a)---(c), but for  $\Delta T=5\;K$.
+Note the logarithmic vertical scale in panels b,c,e,f.
+}
+\label{fig:CP_merging}
 \end{figure}
 
 
