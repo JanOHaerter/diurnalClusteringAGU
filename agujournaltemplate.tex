@@ -289,30 +289,31 @@ For the large amplitude, CP mergers are ubiquitous and large, long-lived "super-
 Additionally computing the height of CPs in the two cases, we find that $T_a=5\;K$ gives CPs nearly reaching the level of free convection [make an SI plot here]. 
 
 
-\subsection{Conceptual model}
-We mimic the clustering dynamics in a simple conceptual model, which founds on the notion, that supercells emerge, when a sufficient number of rain events occur in close proximity. 
-On a lattice of $L\times L$ sites and at each timestep, at probability $p$ occupy any given site with a rain event. 
-A lattice site represents the spatial extent of a single cold pool ($\approx 10\;km \times 10\;km$) and the timestep represents the typical lifetime of an active cold pool ($\approx 1\;h$), 
-A rain event thereby represents the union of the rain cell and the cold pool produced by it.
-When the timestep ends all occupied sites are again vacated.
-When a spatially contiguous cluster of $q$ rain events occurs within the same timestep, the probability $p_{sc}$ of additional rain events appearing in the surroundings at the subsequent timestep is elevated, i.e., $p_{sc}>p$.
-To enforce a basic energy constraint on the number of precipitation events, their total number is simply fixed for each day, that is, when $n$ sites have been filled by rain events, the dynamics stops for this day.
+\subsection{Simplified model}
+A key characteristic of large $T_a$ is that parts of the day see no rainfall at all, whereas immediately after the onset of rainfall (near mid-day, Fig.~\ref{fig:domain_mean_timeseries}), the area covered by rain is relatively large --- corresponding to a high number density of rain events and cold pools.
+For small $T_a$, the peak in rain area fraction is only half as large.  
+We hence mimic the clustering dynamics in a simple conceptual model, which founds on the notion, that supercells emerge, when a sufficient number of rain events occur in close proximity. 
+Assuming that each rain cell brings about an associated cold pool with a certain life time, we simplify by considering the rain cell-cold pool pair as one entity, termed "active site". 
+Sites not active are considered "vacant".
 
-To distinguish a large from a small amplitude $T_a$, we simply modify $p$ in the model: 
-small $T_a$ requires small $p$, whereas large $T_a$ requires large $p$.
-The consequence of the total "budget" of cells $n$ is, that the period over which cells are formed for small $T_a$ is larger.
-To capture temporal anticorrelation caused by cold pools, we further implement that after formation of any cell, the probability $p'$ of forming yet another cell at the same site is lowered until the end of the subsequent day, that is $p'<p$.
+Assume that, at a given time, the fraction of the domain occupied by active sites is $p_0$ and sites are independently populated, that is, each site of a square lattice contains a rain event at probability $p_0$.
+The remainder of sites, $1-p_0$, is hence vacant.
+Now demand that, when a cluster consisting of $n>n_0$ contiguous active sites exists, vacant sites in their neighborhood are more likely to become active. 
+This is accomplished by assigning them enhanced state probabilities $p_{act}>p_0$
+(Fig.~\ref{fig:quantifying_clustering_simplified}a).
+When $p_0$ is small ($p_0\ll 1$), the system will however be very unlikely to contain clusters of $n>n_0$ sites.
+To exemplify: the probability of finding two active sites on two neighboring sites is proportional to $p_0^2$.
 
-Notably, the formation of a cluster of size $q$ is related to site percolation \cite{christensen2005complexity}, that is, the formation of a cluster of two sites occurs at the probability $p^2(1-p)^8$.
-The probability of finding a cluster of size $s$ decays approximately exponentially with $s$ and depends strongly on $p$ [check, how exactly it depends on $p$].
-$p_{act}=.8$
-$p_{rec}=-.8$
-$A_{crit}=15$
-$\tau_{rec}=24\;h$
-$\tau_{rec,c}=240\;h$
-$\tau_{cp}=5\;h$
-$T_{c,0}=-10\;K$
-$T_a=0.1$ and $0.5$
+For a prescribed value of $p_0$, this model is sufficient to give supercells for large $p_0$, whereas for small $p_0$ they will be ruled out. 
+But how does $p_0$ emerge from the diurnal cycle dynamics, and how can bi-diurnal temporal correlations be captured (Fig.~\ref{fig:quantifying_clustering})?
+To obtain a self-consistent model that incorporates these features, we add realism by prescribing a sinusoidally varying boundary layer temperature $T_{bl}$ and an interactive free-troposphere temperature $T_{ft}$.
+Initiation probabilities are now computed by coupling the site probabilities $p$ to the temperature difference $\Delta T=T_{bl}-T_{ft}$.
+Two effects impact on $T_{ft}$: 
+thermal radiation to space reduces $T_{ft}$, whereas latent heat transfer by rain events increases it.
+Buoyancy depressions, arising from cold pool formation after rain events, are implemented by a reduction on $p$, that is, once an active site transitions back to vacant, it needs to "wait" until it can become active again 
+({\it Details:} Methods).
+Implementing reasonable coefficients for these processes, the system dynamics is closed and simulations reach a repetitive diurnal cycle (Fig.~\ref{fig:quantifying_clustering_simplified}).
+
 
 
 \begin{figure*}
@@ -436,38 +437,6 @@ Note the general increase for large $\Delta T$ but flat behaviour for small $\De
 \label{fig:quantifying_clustering}
 \end{figure}
 
-
-\begin{figure}
-\centering
-\begin{overpic}[width=0.4\textwidth]{dummy.pdf}
-\put(-55,16){\includegraphics[trim={0cm 2.1cm 0cm 0cm}, clip, height=0.19\linewidth]{T0_300K_ampl_4_1km_865-11722dPlot_precip_marked_points.pdf}}
-\put(-14,16){\includegraphics[trim={0cm 2.1cm 0cm 0cm}, clip, height=0.19\linewidth]{T0_300K_ampl_4_1km_865-1172_comparison_q_1.pdf}}
-\put(10,16){\includegraphics[trim={2cm 2.1cm 0cm 0cm}, clip, height=0.19\linewidth]{T0_300K_ampl_4_1km_865-1172_comparison_q_1.pdf}}
-\put(-55,-27.0){\includegraphics[trim={0cm 0cm 0cm 0cm}, clip, height=0.225\linewidth]{T0_300K_ampl_10_1km_909-11762dPlot_precip_marked_points.pdf}}
-\put(-14,-28){\includegraphics[trim={0cm 0cm 0cm 0cm}, clip, height=0.23\linewidth]{T0_300K_ampl_10_1km_909-1176_comparison_q_17.pdf}}
-\put(10,-28){\includegraphics[trim={2cm 0cm 0cm 0cm}, clip, height=0.23\linewidth]{T0_300K_ampl_10_1km_909-1176_comparison_q_221.pdf}}
-
-\put(-48,49){\bf a}
-\put(-6,49){\bf b}
-\put(11,49){\bf c}
-\put(-48,12){\bf d}
-\put(-6,12){\bf e}
-\put(11,12){\bf f}
-%\put(-45,72){\large $\Delta T=5\;K$}
-%\put(-45,25){\large $\Delta T=2\;K$}
-\end{overpic}
-\vspace{2cm}
-\caption{{\bf Moisture oscillations.}
-{\bf a}, Simulation with $\Delta T=2\;K$. Spatial rain distribution (red) with high and low values marked in light blue circles and green diamonds, respectively. 
-{\bf b}, Specific humidity vs height for intense and weak precipitation regions before the onset of precipitation (morning).
-{\bf c}, Analogous to (b), but after rain has ceased.
-{\bf d---f}, Analogous to (a)---(c), but for  $\Delta T=5\;K$.
-Note the logarithmic vertical scale in panels b,c,e,f.
-}
-\label{fig:moisture_oscillations}
-\end{figure}
-
-
 \begin{figure}
 \centering
 \begin{overpic}[width=0.4\textwidth]{dummy.pdf}
@@ -484,6 +453,8 @@ Note the logarithmic vertical scale in panels b,c,e,f.
 \put(15,-28){\includegraphics[trim={.0cm 0cm 0cm 0cm}, clip,height=0.23\linewidth]{cp_presence_T0_300K_ampl_10_1km_621-888.pdf}}
 
 \put(70,7){\includegraphics[trim={.0cm 0cm 0cm 0cm}, clip,height=0.23\linewidth]{merge_split_stats.pdf}}
+
+\put(70,-28){\includegraphics[trim={.0cm 0cm 0cm 0cm}, clip,height=0.23\linewidth]{variance.pdf}}
 
 \put(-48,49){\bf a}
 \put(-6,49){\bf b}
@@ -509,32 +480,40 @@ Note the logarithmic vertical scale in panels b,c,e,f.
 \begin{figure}
 \centering
 \begin{overpic}[width=0.4\textwidth ]{dummy.pdf}
-\put(-60,0){\includegraphics[trim={0cm 0cm 0cm 0cm}, clip, height=0.4\linewidth]{var_Ta5.pdf}}
-\put(0,0){\includegraphics[trim={2cm 0cm 0cm 0cm}, clip, height=0.4\linewidth]{var_Ta1.pdf}}
-\put(2,26){\includegraphics[trim={0cm 0cm 0cm 0cm}, clip, height=0.23\linewidth]{simple_model_rainarea_composite.pdf}}
+ \put(-55,5){\includegraphics[trim={0cm 0cm 0cm 0cm}, clip, height=0.35\linewidth]{schematic_simplified_supercell.pdf}}
+\put(0,0){\includegraphics[trim={0cm 0cm 0cm 0cm}, clip, height=0.4\linewidth]{var_Ta5.pdf}}
+\put(60,0){\includegraphics[trim={2cm 0cm 0cm 0cm}, clip, height=0.4\linewidth]{var_Ta1.pdf}}
+\put(62,26){\includegraphics[trim={0cm 0cm 0cm 0cm}, clip, height=0.23\linewidth]{simple_model_rainarea_composite.pdf}}
 %\put(60,40){\includegraphics[trim={2cm 0cm 0cm 0cm}, clip, height=0.4\linewidth]{var_2K_960.pdf}}
 %\put(-50,-25){\includegraphics[trim={0cm 0cm 0cm 0cm}, clip, height=0.35\linewidth]{maxvar_vs_day.pdf}}
 %\put(5,-25){\includegraphics[trim={0cm 0cm 0cm 0cm}, clip, height=0.35\linewidth]{maxvarPos_vs_day.pdf}}
 %\put(60,-25){\includegraphics[trim={0cm 0cm 0cm 0cm}, clip, height=0.35\linewidth]{autocor_vs_day.pdf}}
-\put(-48,67){\large \bf a}
-\put(2,67){\large \bf b}
+\put(-55,67){\large \bf a}
+\put(12,67){\large \bf b}
+\put(62,67){\large \bf c}
 %\put(62,108){\large \bf c}
 %\put(-40,34){\large \bf d}
 %\put(15,34){\large \bf e}
 %\put(70,34){\large \bf f}
-\put(-47,15){\large large $T_a$}
-\put( 5,15){\large small $T_a$}
+\put(13,15){\large large $T_a$}
+\put( 65,15){\large small $T_a$}
 %\put( 62,100){\large $\Delta T=2\;K$}
 \end{overpic}
 \vspace{0cm}
-\caption{{\bf Spatial variance from a simplified model.}
+\caption{{\bf Simplified model results.}
+{\bf a}, Schematic explaining the simplified model dynamics.
+(i) Low-density domain showing vacant (white, probability $p_0$) and active (blue, probability $p<p_0$) sites;
+(ii) Similar to (i) but for high density,  showing also boundary sites (orange) with increased probability $p>p_0$.
+(iii) Possible time series for a single site in (ii).
+Green shaded area indicates a possible time series of $p$.
+(iv) Similar to (iii) but corresponding to (ii). 
+{\bf b}, Spatial variance at different box sizes for a large value of $T_a$. 
 Analogous to Fig.~\ref{fig:quantifying_clustering} but for the simplified model.
-{\bf a}, Spatial variance at different box sizes for a large value of $T_a$.
 Curves of colors ranging from red to green correspond to increasing days.
 %Note that at small scales ($\sim 10\;km$) and early times ($<2\;d$) rain events are distributed regularly, 
 For larger scales ($\sim 150\;km$) and later times, events are clustered.
 Note the double-logarithmic axis scaling.
-{\bf b}, Analogous to (a), but for small $T_a$.
+{\bf c}, Analogous to (a), but for small $T_a$.
 %{\bf c}, Analogous to (a), but for $T_a=2\;K$. Note that the normalized variance remains in the regular range and does not exceed unity.
 }
 \label{fig:quantifying_clustering_simplified}
@@ -609,6 +588,100 @@ As for rainfall, spatially contiguous patches of temperature depression were col
 To increase the signal, only objects exceeding an area threshold of ten $\;km^2$ were considered.
 Stepping forward in time, overlapping objects were identified and considered to be the same cold pool track.
 The threshold ratio $\theta$ was again set to unity \cite{moseley2019statistical}.
+
+\noindent
+{\bf Simplified supercell model.}
+A square lattice of $L\times L$ sites is initialized, where the area of each site is taken as the average area $a_0$ occupied by a single convective raincell, $a_0\approx 4km\times 4km$. 
+The total domain area $A$ hence is $A\equiv a_0L^2$.
+Our model builds on the assumption, that boundary layer processes are local and fast, whereas the free troposphere acts as a "bath" of large heat capacity, where heat is quickly redistributed through gravity waves \cite{bretherton1989gravity}. 
+The model incorporates three fundamental processes affecting event initiation: 
+(1) spontaneous initiation due to the moderate drive of the diurnal cycle temperature forcing;
+(2) refractory dynamics due to cold pools; 
+(3) strong activation ahead of cold pool fronts.
+Below we discuss the estimation of model parameters for these processes.
+%All three processes are taken to occur, when the convective inhibition (CIN) is overcome.
+
+\noindent
+{\it Spontaneous activation.}
+For spontaneous activation, we 
+Near-surface temperature $T_{bl}(t)$ is prescribed and oscillates harmonically as $T_{bl}(t)=-t_a \cos (2\pi t/t_0)$, where $t_0=1\;d$ ({\it compare}: Fig.~\ref{fig}).
+Free-troposphere temperature $T_{ft}$ is initialized to zero.
+We also define the temperature difference $\Delta T\equiv T_{bl}-T_{ft}$ and its normalized version $\Delta T'\equiv \Delta T/\Delta T_0$, where the reference scale $\Delta T_0\approx .3\;K$ is taken as two standard deviations of simulated near-surface temperature.
+$\Delta T'$ serves as a proxy for both convective available potential energy (CAPE) and convective inhibition (CIN).
+The basic dynamics proceeds in discrete model timesteps of $.5$ $h$, reflecting the typical timescale of convective cloud formation. 
+At each timestep, the default probability $p_0$ for a vacant site to become active is taken as
+\begin{equation}
+p_0=\begin{cases}
+0 & \text{if $\Delta T'<0$}\\
+\Delta T' & \text{if $0<\Delta T'<1$}\\
+1 & \text{if $\Delta T'>1$}\;.
+\end{cases}
+\label{eq:cases}
+\end{equation}
+Eq.~\ref{eq:cases} makes the qualitative assumption, that there is no activity at all for stratified conditions ($\Delta T'<0$) and events occur with certainty, when the temperature gradient is much larger than typical fluctuations. 
+Both of these limits could be softened, as could the assumption of linearity at intermediate $\Delta T'$, that is, one could equally argue for a smooth function of $\Delta T'$, such as an error function. 
+Nonetheless, Eq.~\ref{eq:cases} captures the observed fact that more initial activity occurs when surface temperature changes quickly.
+Without any further perturbations, the initiation probability $p_{ij}$ at each site $(i,j)$ will be equal, $p_{ij}=p_0$.  
+
+\noindent
+{\it Spatial structure.} 
+Notably, Eq.~\ref{eq:cases} does not depend on the position within the lattice. 
+Spatial structure is caused by local modifications ({\it compare}: Fig.~\ref{fig:quantifying_clustering_simplified}a).
+Cold pools have two effects: reduction of local temperature and reduction of local humidity. 
+However, the recovery timescale for the former is fast ($\tau_{cp}\approx 4\;h$), whereas that of the latter is slower ($\tau_{rec}\approx 1\;d$).
+Temperature reduction dominates the density change and thereby the mechanical cold pool properties, whereas the latter crucially impacts on the local initiation probability.
+To consider both, we take active sites to persist for $\tau_{cp}$, during which time no further activation is possible.
+Simultaneously, the local probability $p_{ij}$ is reduced as $p_{ij}=p_0-p_{ref}\exp(-\delta t/\tau_{rec})$, where $\delta t$ is the time after the occurrence of the rain event and $p_{ref}>0$. 
+$p_{ref}$ essentially controls the fidelity of the anti-correlation from day to day, and results are not qualitatively affected by it.
+
+A supercell can occur, when an active cluster exceeds the threshold area $A_{crit}$ (Fig.~\ref{fig:quantifying_clustering_simplified}). 
+While this is the case, and $\Delta T'>0$, the probability $p$ at each of the surrounding sites $(i,j)$ becomes $p_{ij}\rightarrow p_{ij}+p_{act}$, which acts to lower the barrier presented by CIN.
+When $p_{ij}$ is no longer a surrounding site, the term $p_{act}$ is no longer applied.
+The initiation probability $p_{ij}$ is then defined analogous to the one in Eq.~\ref{eq:cases}. 
+
+\noindent
+{\it Radiative constraint.}
+Generally, as $T_{bl}$ rises in the course of the day as the surface is heated by insolation. 
+$p_{ij}$ will then eventually become positive at some sites and raincells can be produced there.
+When this occurs, latent heat is transferred to the free troposphere, increasing $T_{ft}$, thus subsequently lowering $\Delta T$ and thereby $p_{ij}$.
+Simultaneously, the site $(i,j)$ is shut down by the negative buoyancy effects through cold pool formation.
+%Each occupied site will persist for $\tau_{cp}$, reflecting the relaxation time of temperature anomaly during a cold pool event and will then recover to an unoccupied site.
+%The probability $p$ will relax to its equilibrium value at the relaxation rate $t_{rec}$.
+The free tropospheric temperature will relax by heat loss ($P_{out}\approx 200\;W\;m^{-2}$) through outgoing thermal radiation. 
+According to the Stefan-Boltzmann law, $P_{out}=\sigma T_{eff}^4$, with $\sigma\approx 5.7\times 10^{-8}W\;m^{-2}\;K^{-4}$ the Stefan-Boltzmann constant --- translating to an effective emission temperature $T_{eff}\approx 250\;K$. 
+Through $P_{out}$, the free troposphere would hence cool by approximately $2\;K\;d^{-1}$.
+As a crude estimate of the change in $T_{ft}$ through latent heat transfer, we estimate the free-tropospheric heat capacity $C_{ft}=M_{ft}c_{pd}$, assuming dry air.
+$c_{pd}\approx 1\;kJ/kg$ and the mass of the free troposphere $M_{ft}=\int_{z=z_{LCL}}^{z_{top}}dz\;\rho(z)\approx 8\times 10^3\;kg$, using $z_{LCL}\approx 1\;km$ and $z_{top}\approx 16\;km$ for the lifting condensation level (LCL) and top of the troposphere, respectively.
+Hence, $C_{ft}\approx 8\times 10^6\;Jm^{-2}K^{-1}$.
+From rain cell tracking of our LES simulations we obtain the average rain cell lifetime to be $\approx 1\;h$ at an average rain rate of $3.7\;mm\;h^{-1}$, hence, each rain cell can be assumed to yield $M_{event}=3.7\;kg\;m^{-2}$ of liquid water.
+Assuming that the corresponding latent heat was previously deposited in the free troposphere upon ascent, each rain event heats the free troposphere by $Q_{event}=L_v\;M_{event}$.
+We take this heat to increase $T_{eff}$ accordingly by $\delta\;T_{eff}=Q_{event}/C_{ft}L^{2}$, where $L^{-2}$ results from the ratio $a_0/A$.
+Hence, $\delta T_{eff}L^2\approx 1K$, if one rain event occurred simultaneously at each site, the free tropospheric temperature would rise by $1\;K$.
+
+%To additionally describe supercell formation, clusters of contiguous active sites are detected at every timestep. 
+%When a cluster of area larger than $A_{crit}$ occurs, the probability of initiation at each neighboring site is increased by $p_{act}$.
+%The parameters of the simplified model are summarized in Tab.~\ref{tab:parameters}.
+
+Note that, in the Bethe lattice approximation, for fixed occupation probability $p_0$, the probability density function of cluster sizes $\rho(n,p_0)\propto \exp(-n/\tilde{n})$ will be exponentially decaying with $n$, and the typical cluster size $\tilde{n}(p_0)=-\ln \left[ \frac{(1-p_0)p_0}{(1-p_c)p_c}\right]$, with $p_c=1/3$ the critical occupation probability for the square lattice \cite{christensen2005complexity}.
+\begin{table}[b]
+\begin{tabular}{lll}
+parameter & value & description \\
+\hline
+$p_{act}$ & $.8$ & activation potential along supercell fronts \\ 
+$p_{ref}$ & $-.8$ & refractory potential under cold pools\\
+$A_{crit}$ & $240\;km^2$ & critical area for supercell formation \\
+$\tau_{rec}$ & $24\;h$ & humidity relaxation time \\ 
+%$\tau_{rec,ft}$ & $240\;h$ & free-troposphere relaxation time \\
+$\tau_{cp}$ & $5\;h$ & cold pool lifetime \\ 
+%$T_{c,0}$ $-10\;K$ & [remove] \\
+$t_a$ & $0.1$ K, $0.5$ K & surface temperature amplitude 
+\hline
+\end{tabular}
+\caption{{\bf Parameters for simplified model.}
+}
+\label{tab:parameters}
+\end{table}
+
 
 \begin{table}[]
 \begin{tabular}{lllll}
@@ -812,6 +885,37 @@ As in Fig.~\ref{fig:free_trop_temp}, but for free-tropospheric specific humidity
 \includegraphics[trim={2cm 2.4cm 1cm 1cm}, clip, height=0.11\linewidth]{577-864_T0_300K_ampl_10_500m_r_int_timmean_xy_plot_l=2.pdf}
 \caption{{\bf Daily precipitation sum for higher lateral model resolution.}. }
 \label{fig:daily_sum_500m}
+\end{figure}
+
+
+\begin{figure}
+\centering
+\begin{overpic}[width=0.4\textwidth]{dummy.pdf}
+\put(-55,16){\includegraphics[trim={0cm 2.1cm 0cm 0cm}, clip, height=0.19\linewidth]{T0_300K_ampl_4_1km_865-11722dPlot_precip_marked_points.pdf}}
+\put(-14,16){\includegraphics[trim={0cm 2.1cm 0cm 0cm}, clip, height=0.19\linewidth]{T0_300K_ampl_4_1km_865-1172_comparison_q_1.pdf}}
+\put(10,16){\includegraphics[trim={2cm 2.1cm 0cm 0cm}, clip, height=0.19\linewidth]{T0_300K_ampl_4_1km_865-1172_comparison_q_1.pdf}}
+\put(-55,-27.0){\includegraphics[trim={0cm 0cm 0cm 0cm}, clip, height=0.225\linewidth]{T0_300K_ampl_10_1km_909-11762dPlot_precip_marked_points.pdf}}
+\put(-14,-28){\includegraphics[trim={0cm 0cm 0cm 0cm}, clip, height=0.23\linewidth]{T0_300K_ampl_10_1km_909-1176_comparison_q_17.pdf}}
+\put(10,-28){\includegraphics[trim={2cm 0cm 0cm 0cm}, clip, height=0.23\linewidth]{T0_300K_ampl_10_1km_909-1176_comparison_q_221.pdf}}
+
+\put(-48,49){\bf a}
+\put(-6,49){\bf b}
+\put(11,49){\bf c}
+\put(-48,12){\bf d}
+\put(-6,12){\bf e}
+\put(11,12){\bf f}
+%\put(-45,72){\large $\Delta T=5\;K$}
+%\put(-45,25){\large $\Delta T=2\;K$}
+\end{overpic}
+\vspace{2cm}
+\caption{{\bf Moisture oscillations.}
+{\bf a}, Simulation with $\Delta T=2\;K$. Spatial rain distribution (red) with high and low values marked in light blue circles and green diamonds, respectively. 
+{\bf b}, Specific humidity vs height for intense and weak precipitation regions before the onset of precipitation (morning).
+{\bf c}, Analogous to (b), but after rain has ceased.
+{\bf d---f}, Analogous to (a)---(c), but for  $\Delta T=5\;K$.
+Note the logarithmic vertical scale in panels b,c,e,f.
+}
+\label{fig:moisture_oscillations}
 \end{figure}
 
 
