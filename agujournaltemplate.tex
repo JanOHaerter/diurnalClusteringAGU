@@ -383,8 +383,8 @@ Considering again the variance of the spatial pattern, the simplified model inde
 \put(4,-2){\large \bf i}
 \put(59,-2){\large \bf j}
 
-\put(-50,47){\large $A2$}
-\put(-50,-10){\large $A5$}
+\put(-50,47){\large $A2a$}
+\put(-50,-10){\large $A5a$}
 
 \put(10,37){\color{black}\line(0,-1){10}}
 \put(10,27){\color{black}\line(1,0){10}}
@@ -433,31 +433,31 @@ To highlight the spatial and temporal variation, boxes of side length $150\;km$ 
 \begin{figure}[ht]
 \centering
 \begin{overpic}[width=0.4\textwidth ]{dummy.pdf}
-\put(-50,40){\includegraphics[trim={0cm 0cm 0cm 0cm}, clip, height=0.4\linewidth]{var_A5a.pdf}}
-\put(10,40){\includegraphics[trim={2cm 0cm 0cm 0cm}, clip, height=0.4\linewidth]{{var_A3.5}.pdf}}
-\put(60,40){\includegraphics[trim={2cm 0cm 0cm 0cm}, clip, height=0.4\linewidth]{var_A2a.pdf}}
-\put(-50,-25){\includegraphics[trim={0cm 0cm 0cm 0cm}, clip, height=0.35\linewidth]{maxvar_vs_day.pdf}}
-\put(5,-25){\includegraphics[trim={0cm 0cm 0cm 0cm}, clip, height=0.35\linewidth]{maxvarPos_vs_day.pdf}}
-\put(60,-25){\includegraphics[trim={0cm 0cm 0cm 0cm}, clip, height=0.35\linewidth]{autocor_vs_day.pdf}}
-\put(-38,107){\large \bf a}
-\put(14,107){\large \bf b}
-\put(62,107){\large \bf c}
-\put(-40,33){\large \bf d}
-\put(15,33){\large \bf e}
-\put(70,33){\large \bf f}
-\put(-38,100){\large $A5a$}
-\put( 12,100){\large $A3.5$}
-\put( 62,100){\large $A2a$}
+\put(-50,37){\includegraphics[trim={0cm 0cm 0cm 0cm}, clip, height=0.36\linewidth]{var_A5a.pdf}}
+\put(5,37){\includegraphics[trim={0cm 0cm 0cm 0cm}, clip, height=0.36\linewidth]{{var_A3.5}.pdf}}
+\put(60,37){\includegraphics[trim={0cm 0cm 0cm 0cm}, clip, height=0.36\linewidth]{var_A2a.pdf}}
+\put(-50,-25){\includegraphics[trim={0cm 0cm 0cm 0cm}, clip, height=0.36\linewidth]{maxvar_vs_day.pdf}}
+\put(5,-25){\includegraphics[trim={0cm 0cm 0cm 0cm}, clip, height=0.36\linewidth]{maxvarPos_vs_day.pdf}}
+\put(60,-25){\includegraphics[trim={0cm 0cm 0cm 0cm}, clip, height=0.36\linewidth]{autocor_vs_day.pdf}}
+\put(-40,97){\large \bf a}
+\put(15,97){\large \bf b}
+\put(70,97){\large \bf c}
+\put(-40,35){\large \bf d}
+\put(15,35){\large \bf e}
+\put(70,35){\large \bf f}
+\put(-38,90){ $A5a$}
+\put( 17,90){ $A3.5$}
+\put( 72,90){ $A2a$}
 
 %\put(-33,25){\large $A5$, $A3.5$}
 %\put( 12,){\large $A3.5$}
 %\put(-18,-8){\large $A2$}
 
-\put(-36,57){\large  regular}
-\put(-36,75){\large  clustered}
+\put(-36,53){  regular}
+\put(-36,75){  clustered}
 
 \end{overpic}
-\vspace{2cm}
+\vspace{1.5cm}
 \caption{{\bf Quantifying clustering using spatial variance.}
 {\bf a}, Spatial variance at different box sizes for $A5$.
 Curves of colors ranging from red (day one) to green (day six) correspond to increasing time.
@@ -468,8 +468,8 @@ Note the double-logarithmic axis scaling.
 Note that the normalized variance remains in the regular range and does not exceed unity.
 {\bf d}, Peaks of variance anomalies vs. time for different simulations [mark them in legend]. 
 Note the general increase for large $\Delta T$ but flat behavior for small $\Delta T$.
-{\bf e}, Scales of clustering, i.e. the peak position in all clustered distributions $A3.5$ and $A5$. [mark the average somehow]. 
-{\bf f}, Autocorrelation coefficient $c(\tau)$ for $\tau=1\;d$ and $\tau=2\;d$, showing increasing autocorrelation with scale for both A2 and A5.
+{\bf e}, Scales of clustering, i.e. the peak position in all clustered distributions $A3.5$ and $A5$. The gray shaded area marks the standard error of $l_{max}$, averaged over all times $t\geq 3d$. 
+{\bf f}, Autocorrelation coefficient $c(\tau)$ for $\tau=1$ and $\tau=2$, showing increasing autocorrelation with scale for both A2 and A5.
 }
 \label{fig:quantifying_clustering}
 \end{figure}
@@ -1078,6 +1078,24 @@ P2K with $T_a=5\;K$, reduced ventilation coefficients ($.5$ and $.01$ of the def
 }
 \label{fig:variance_further_sims}
 \end{figure}
+
+\begin{figure}[ht]
+\centering
+\begin{overpic}[width=0.4\textwidth]{dummy.pdf}
+\put(-55,16){\includegraphics[trim={0cm 2.1cm 0cm 0cm}, clip, height=0.19\linewidth]{T0_300K_ampl_4_1km_8.pdf}}
+\put(-14,16){\includegraphics[trim={0cm 2.1cm 0cm 0cm}, clip, height=0.19\linewidth]{T0_300K_ampl_4_1km_865-1172_comparison_q_1.pdf}}
+
+\put(-48,49){\bf a}
+\put(-6,49){\bf b}
+\end{overpic}
+\vspace{2cm}
+\caption{{\bf Cold Pool Height Distribution Functions.}
+{\bf a}, Cold Pool Height for day four of A2b 
+
+}
+\label{fig:moisture_oscillations}
+\end{figure}
+
 
 \begin{figure}[ht]
 \centering
