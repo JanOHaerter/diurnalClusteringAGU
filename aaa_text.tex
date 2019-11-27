@@ -239,32 +239,33 @@ We discuss the relevance for the emergence of extreme rainfall over land and the
 \section*{Results}\label{sec:results}
 \noindent
 We carry out a suite of numerical experiments on mesoscale model domains of up to $960\;km\;\times\;960\;km$ and horizontal grid resolutions of at least one kilometre. We provide sensitivity experiments exploring grid resolution, domain size, microphysics, and surface conditions ({\it Details:} Materials and Methods).
-We contrast simulations with different amplitudes $T_a$ but equal average surface temperature and refer to experiments with $T_a=2\;K$, $3.5\;K$, and $5\;K$ as A2, A3.5, and A5, respectively.
+We contrast simulations with different amplitudes $T_a$ but equal average surface temperature and refer to experiments with $T_a=2\,K$, $3.5\,K$, and $5\,K$ as $A2$, $A3.5$, and $A5$, respectively.
 Each numerical experiment is run for several days, allowing for a spin-up and quasi-steady-state period (Tab.~\ref{tab:experiments} and Fig.~\ref{fig:multi-day_timeseries}). 
 
 \noindent
 {\bf Domain mean time-series.}
 Unsurprisingly, the differences in surface temperature amplitudes are reflected in larger amplitudes of atmospheric near-surface temperatures (Fig.~\ref{fig:daily_mean}a and Fig.~\ref{fig:multi-day_timeseries}).
-Modifications in the time-series of domain-mean rain are more profound: whereas $A5$ yields a relatively sharp mid-afternoon single-peak structure, this transitions to a broader and double-peaked structure for $A2$ (Fig.~\ref{fig:daily_mean}b),
+Changes in the time-series of domain-mean rain are more profound (Fig.~\ref{fig:daily_mean}b): whereas $A5$ yields a relatively sharp mid-afternoon single-peak structure, this transitions to a broader and double-peaked structure for $A2$, %(Fig.~\ref{fig:daily_mean}b),
 thus, approaching the diurnal cycle typical of oceanic convection \cite{yang2001diurnal}.
 Again, the differences in the temporal mean (dashed lines) are minimal, reflecting radiation constraints on rainfall \cite{held2006robust}.
-Approximately proportional curves are found for rain area fraction, which, however, differs from those of rain rate immediately before the central peak in rate (Fig.~\ref{fig:daily_mean}c).
-These differences are made more transparent when inspecting rain rates conditional on a threshold ($I>I_0$ with $I_0=.5\;mm\;h^{-1}$, Fig.~\ref{fig:daily_mean}d). 
+Approximately proportional curves are found for rain area fraction, which, however, differ from those of rain rate immediately before the central peak in rate (Fig.~\ref{fig:daily_mean}c).
+These differences are made more transparent when inspecting rain rates conditional on a threshold ($I>I_0$ with $I_0=.5\,mm\,h^{-1}$, Fig.~\ref{fig:daily_mean}d). 
 Both mean and heavy precipitation show a pronounced evening peak for $A5$ and an early-morning peak for $A2$.
 
-In summary, whereas time averages are nearly identical for numerical experiments with varying forcing amplitude, the time-series of rain rate differ markedly.
-Time-averaged free tropospheric temperatures, which constrain the rate of radiative emission and thereby overall rain rate \cite{held2006robust}, are also very similar for the different numerical experiments. 
-In contrast, the timing of their peak reflects the timing of rainfall maxima (Fig.~\ref{fig:free_trop_temp}).
+In summary, whereas time averages of rain rate are nearly identical for numerical experiments with varying forcing amplitude, the time-series %of rain rate 
+differ markedly.
+Time-averaged free tropospheric temperatures, which constrain the rate of radiative emission and thereby overall rain rate \cite{held2006robust}, are also very similar for the different numerical experiments (Fig.~\ref{fig:free_trop_temp}a).
 
 \noindent
 {\bf Quantifying clustering.}
 Now consider the spatial pattern formed by precipitation cells from day to day (Fig.~\ref{fig:daily_mean}e---j). 
-During the spin-up from the initial condition, both the $A2$ and $A5$ show modest and relatively homogeneous, convective activity throughout the domain. 
-During the subsequent model days, convection intensifies for both simulations because near-surface temperatures gradually increase, but in $A2$, the spatial pattern of events remains rather homogeneous.
-In contrast, for $A5$, an inhomogeneous pattern organizes, with several locations receiving pronounced average rainfall, whereas others are left all but dry. 
+During the spin-up from the initial condition (first day), both the $A2$ and $A5$ show modest and relatively homogeneous, convective activity throughout the domain. 
+During the subsequent model days, convection intensifies for both simulations because near-surface temperatures gradually increas.%e, but i
+In $A2$, the spatial pattern of events remains rather homogeneous.
+In contrast, for $A5$, an inhomogeneous pattern organises, with several locations receiving pronounced average rainfall, whereas others are left all but dry. 
 Besides, for $A5$, alternations in surface rainfall rate are apparent when comparing one day to the next ({\it compare:} Fig.~\ref{fig:daily_mean}i,j).
 
-To quantify spatiotemporal inhomogeneities we determine all surface rain event tracks and compute their center-of-mass positions ({\it Details:} Materials and Methods).
+To quantify spatiotemporal inhomogeneities, we determine all surface rain event tracks and compute their center-of-mass positions ({\it Details:} Materials and Methods).
 %For each model day of a given experiment, we determine the total number $N$ of track positions.
 We then break the horizontal domain area down into square boxes of side length $l$, yielding $n(l)\equiv (L/l)^2$ such boxes, and determine the number of track positions falling into each of the boxes.
 The probability $p_l$ of a track occurring within one of the boxes at random would be $p_l=n(l)^{-1}$
@@ -310,27 +311,27 @@ The resulting merged cold pool spreads outward from the dense region of rain cel
 
 Conversely, the surroundings of this merged cold pools benefit from the moisture transported by the cold pool and the additional latent heat provided by relatively stable surface fluxes due to the cold pool's strong horizontal winds.
 To corroborate this finding, we contrast domain subregions, which receive intense versus weak precipitation during a given model day (Fig.~\ref{fig:moisture_oscillations}).
-For each subregion, we compute the vertical-specific humidity profile, $q_v(z)$, during the early morning and in the evening, that is, before and after the onset of precipitation in A5.
-Regions of intense rainfall are characterized by enhanced moisture near the cloud base before precipitation onset, but marked depletion after the rain has occurred.
-Conversely, the areas of weak rainfall experience nearly a "mirror image," with depressed moisture before but enhanced values after precipitation.
-The bi-diurnal dynamics for A5 can hence be characterized as an oscillation of cloud-based moisture, driven by the lateral expansion of MCSs.
-In A2, these moisture oscillations are all but lacking (Fig.~\ref{fig:moisture_oscillations}d---f), a finding that falls in line with the absence of organized convection.
+For each subregion, we compute the vertical-specific humidity profile, $q_v(z)$, during the early morning and in the evening, that is, before and after the onset of precipitation in $A5$.
+Regions of intense rainfall are characterized by enhanced moisture near the cloud base ($z\sim 1\, km$) before precipitation onset, but marked depletion after the rain has occurred.
+Conversely, the areas of weak rainfall experience nearly a "mirror image," with depressed moisture before but enhanced values after precipitation. Surprisingly, this signal is not visible in the lower boundary layer. 
+The bi-diurnal dynamics for $A5$ can hence be characterized as an oscillation of cloud-base moisture, driven by the lateral expansion of MCSs.
+In $A2$, these moisture oscillations are all but lacking (Fig.~\ref{fig:moisture_oscillations}d---f), a finding that falls in line with the absence of organized convection.
 
 To quantify the effect on CPs in the cases $A2$ vs. $A5$, we perform a simple cold pool tracking, using buoyancy anomalies as a measure ({\it Details:} Materials and Methods).
-In A2, CPs typically do not exceed areas of $200$ $km^2$ (Fig.~\ref{fig:CP_merging}a---d), have modest temperature depressions and lifetimes of generally less than two hours (Fig.~\ref{fig:CP_merging}a---e). 
-In A5, where CPs only occur during parts of the day, CP areas often exceed $10^3\;km^2$, and such large CPs have much stronger temperature depressions  and substantially longer lifetimes (Fig.~\ref{fig:CP_merging}f---j). 
+In $A2$, CPs typically do not exceed areas of $200$ $km^2$ (Fig.~\ref{fig:CP_merging}a---d), have modest temperature depressions and lifetimes of generally less than two hours (Fig.~\ref{fig:CP_merging}a---e). 
+In $A5$, where CPs only occur during parts of the day, CP areas often exceed $10^3\;km^2$, and such large CPs have much stronger temperature depressions  and substantially longer lifetimes (Fig.~\ref{fig:CP_merging}f---j). 
 The formation of very large and strongly negatively buoyant CPs suggests that CPs from distinct rain cells often bunch together before each CP has fully expanded. 
 We employ the CP tracking to detect merging events, that is, those where two previously separate CP areas combine.
 %We find that, for A2, CP mergers are relatively rare and CPs areas remain of a modest extent. 
 For A5b, CP merging is indeed ubiquitous, whereas it is all but absent in A2b.
 We find this remarkable, given that the total count of CPs is similar for A2b and A5b.
 %These areas cannot be explained by a random effect and the significantly lower temperatures and long residence times of these conglomerates (Fig.~\ref{fig:CP_merging}g,h) indicate a cooperative effect.
-Additionally, computing the height of CPs in the two cases, in $A5b$, when CPs first appear, they show heights comparable to those of $A2b$ (Fig.~\ref{fig:CP_height_distribution},\ref{fig:CP_heights_space}). 
-Subsequently, a double peak forms, where groups of CPs develop much larger heights, reaching close to the level of free convection (computed as$\approx 1100\;m)$.
+Additionally, computing the height of CPs in the two cases, in $A5b$, when CPs first appear, they show heights comparable to those of $A2b$ (Figs~\ref{fig:CP_height_distribution} and \ref{fig:CP_heights_space}). 
+Subsequently, a double peak forms, where groups of CPs develop much larger heights, reaching close to the level of free convection ($\approx 1100\;m$).
 
 In total, the analysis suggests that the growth of a super-CP on one day causes a suppressed region the subsequent day. 
 To further check this, we decrease the ventilation coefficients \cite{seifert2006two}, which controls rain evaporation, hence temperature depression $\theta'$ and CP propagation ($\sim \theta'^{1/2}$) ({\it Details}: Methods).
-Indeed, a decrease in this coefficient systematically decreases the spatial extent of the cleared regions (Fig.~\ref{fig:daily_sum_vent}).
+Indeed, a decrease in these coefficients systematically decreases the spatial extent of the cleared regions, which are still visible (Fig.~\ref{fig:daily_sum_vent}).
 
 \noindent
 {\bf Clustering from a simplified model.}
@@ -446,6 +447,7 @@ Horizontal lines of corresponding colors represent the time average of each simu
 {\bf g}, Similar to (e), but for $t=4d$.
 {\bf h---i}, Similar to (e)---(g), but for $A5$.
 Boxes of side length $150\;km$ highlight the spatial and temporal variation in panels f,g,i,j.
+({\it Details}: Figs~\ref{fig:daily_sum_1km_large_many_days} and \ref{fig:daily_sum_1km_many_days}).
 }
 \label{fig:daily_mean}
 \end{figure*}
@@ -489,7 +491,7 @@ Note that the normalized variance remains in the normal range and does not excee
 {\bf d}, Peaks of variance anomalies vs. time for different simulations ({\it see}: legend). 
 Note the general increase for large $\Delta T$ but flat behavior for small $\Delta T$.
 {\bf e}, Scales of clustering, i.e., the peak position in all clustered distributions $A3.5$ and $A5$. The gray shaded area marks the standard error of $l_{max}$, averaged over all times $t\geq 3d$. 
-{\bf f}, Autocorrelation coefficient $c(\tau)$ for $\tau=1$ and $\tau=2$, show increasing autocorrelation with scale for both A2 and A5.
+{\bf f}, Autocorrelation coefficient $c(\tau)$ for $\tau=1$ and $\tau=2$ show increasing autocorrelation with scale for both A2 and A5.
 }
 \label{fig:quantifying_clustering}
 \end{figure}
@@ -599,9 +601,9 @@ Note the double-logarithmic axis scaling.
 Our study analyses the spontaneous emergence of convective clustering, when the amplitude of the diurnal cycle is varied. 
 During mid-latitude summer, extreme rainfall events and flash floods have been found to occur more frequently during long periods of pronounced heating \cite{coumou2012decade}.
 The findings here suggest that the clustering, and thereby the potential for flash floods, increases from day to day, and peaks at the scale of $l_{max}\approx 180\;km$.
-We have also addressed clustering over a sea surface, finding comparable results:
-not the mean, but the amplitude of surface temperature gives rise to clustering.
-Increasing model horizontal resolution to $.5$ or $.2$ $km$ (Fig.~\ref{fig:daily_sum_higher_res}) leads to even stronger clustering effects, in agreement with recent findings with a realistic continental topography \cite{rasp2018variability}.
+We have also addressed clustering over a sea surface (Fig.\ref{fig:domain_mean_timeseries_surface_evap}), finding comparable results:
+not the mean, but the amplitude of surface temperature gives rise to clustering (Fig.\ref{fig:variance_further_sims}).
+Increasing model horizontal resolution to $.5$ or $.2$ $km$ (Fig.~\ref{fig:daily_mean_higher_res}) leads to even stronger clustering effects, in agreement with recent findings with a realistic continental topography \cite{rasp2018variability}.
 
 In convective self-aggregation, the standard explanation for clustering invokes arguments based on circulation changes.
 Remarkably, the memory enabling clustering in the present work is purely thermodynamically-driven; we do not detect any sustained changes of circulation that harbor a memory from one day to the next.
@@ -650,9 +652,12 @@ Additionally, at 30-second and five-minute intervals, respectively, spatially-av
 The principal focus of this study is the response to different values of surface temperature amplitude, $T_a$. 
 The main experiments (A5a, A2a, A5b, A2b) were carried out at $T_s=298\;K$, contrasted $T_a=2\;K$ and $T_a=5\;K$ (Tab.~\ref{tab:experiments}) and used $dx=1\;km$ horizontal model resolution.
 One intermediate value of $T_a=3.5\;K$ was tested to further constraint the transition to clustering.
-These simulations assumed that surface latent heat fluxes occurred at $70$ percent of their potential value. This mimicks a land surface, which is reasonable given the mean surface latent and sensible heat fluxes of $LHF\approx 57\;W/m^2$ and $SHF\approx 18\;W/m^2$, yielding a Bowen ratio of $B\approx .30$, realistic for forested land. 
+These simulations assumed that surface latent heat fluxes occurred at $70$ percent of their potential value. 
+This mimicks a land surface, which is reasonable given the mean surface latent and sensible heat fluxes of $LHF\approx 57\;W/m^2$ and $SHF\approx 18\;W/m^2$, yielding a Bowen ratio of $B\approx .30$, realistic for forested land. 
 These main experiments already explore domain size effects, as the clustering observed could be influenced by the finite system size --- yielding a good degree of consistency.
-We conducted additional experiments to test the sensitivity to test the sensitivity to a range of modifications: lateral model resolution (A5c, A5d), where $dx=.5\;km$ and $dx=.2\;km$ were used; cold pool strength (A5vent05, A5vent001), where the ventilation coefficients $a_v$ and $b_v$ in Eq. 24 of \citeauthor{seifert2006two} \citeyear{seifert2006two} were reduced to $.5$ and $.01$ of their default values; and surface conditions, where surface evaporation was raised to its potential value, mimicking a sea surface ($B\approx .15$, {\it Details}: Tab.~\ref{tab:experiments}).
+We conducted additional experiments to test the sensitivity to test the sensitivity to a range of modifications: lateral model resolution (A5c, A5d, Fig.~\ref{fig:daily_mean_higher_res}), where $dx=.5\;km$ and $dx=.2\;km$ were used; 
+cold pool strength (A5vent05, A5vent001, Fig.~\ref{fig:daily_sum_vent}), where the ventilation coefficients $a_v$ and $b_v$ in Eq. 24 of \citeauthor{seifert2006two} \citeyear{seifert2006two} were reduced to $.5$ and $.01$ of their default values; 
+and surface conditions, where surface evaporation was raised to its potential value, mimicking a sea surface (Fig.~\ref{fig:daily_mean_increased_T_q}, $B\approx .15$, {\it Details}: Tab.~\ref{tab:experiments}).
 %All domains used had square horizontal geometry of $L\times L$, where the linear domain size $L$ took the values $240$, $480$ and $960$ $km$.
 %Lateral resolution $dx$ took the values $.2$, $.5$ and $1.0$ $km$.
 %Cold pool strength is dependent on the amount of rain evaporation. To vary cold pool strength, the value of the ventilation coefficient was modified from its default value \cite{seifert2006two} by diminishing this by a factor $.5$ and $.01$ --- resulting in substantially smaller temperature anomalies below precipitating clouds and weaker cold pools.
@@ -852,7 +857,11 @@ The authors declare no competing interests.
 \setcounter{figure}{0}
 \setcounter{section}{0}
 
-\section*{Supplementary Information}\label{sec:supp}
+\section*{\Large Diurnal Self-Aggregation }\label{sec:supp}
+\noindent
+{\bf \large --- Supplementary Information ---}
+
+
 \noindent
 In the supplement, we discuss further experiments (Sec.~\ref{sec:further_experiments}) supporting the main findings.
 
@@ -899,42 +908,60 @@ Note that some caution should be exercised in interpreting means for experiments
 \begin{figure*}[ht]
 \centering
 \begin{overpic}[width=0.4\textwidth ]{dummy.pdf}
-\put(-55,36){\includegraphics[trim={0 1.35cm 0cm 0}, clip, width=0.45\linewidth]{tsair_T0_300K_ampl_10_1km_timeseries.pdf}}
-\put( 30,36){
-\includegraphics[trim={0 1.35cm 0cm 0}, clip, width=0.45\linewidth]{prcp_T0_300K_ampl_10_1km_timeseries.pdf}}
-\put(-55,-1){\includegraphics[trim={0 0cm 0cm 0}, clip, width=0.45\linewidth]{tsair_T0_300K_ampl_4_1km_timeseries.pdf}}
-\put( 30,-1){
+\put(-55,70){\includegraphics[trim={0 0cm 0cm 0}, clip, width=0.45\linewidth]{tsair_T0_300K_ampl_10_1km_timeseries.pdf}}
+\put(30,70){\includegraphics[trim={0 0cm 0cm 0}, clip, width=0.45\linewidth]{tsair_T0_300K_ampl_4_1km_timeseries.pdf}}
+
+\put( -55,35){
+\includegraphics[trim={0 0cm 0cm 0}, clip, width=0.45\linewidth]{prcp_T0_300K_ampl_10_1km_timeseries.pdf}}
+\put( 30,35){
 \includegraphics[trim={0 0 0cm 0}, clip, width=0.45\linewidth]{prcp_T0_300K_ampl_4_1km_timeseries.pdf}}
-\put(-42,65){\bf a}
-\put( 45,65){\bf b}
-\put(-42,35){\bf c}
-\put( 45,35){\bf d}
+
+\put( -55,0){
+\includegraphics[trim={0 0cm 0cm 0}, clip, width=0.45\linewidth]{lhf_bar_T0_300K_ampl_10_1km_timeseries.pdf}}
+\put( 30,0){
+\includegraphics[trim={0 0 0cm 0}, clip, width=0.45\linewidth]{lhf_bar_T0_300K_ampl_4_1km_timeseries.pdf}}
+
+\put( -55,-35){
+\includegraphics[trim={0 0cm 0cm 0}, clip, width=0.45\linewidth]{shf_bar_T0_300K_ampl_10_1km_timeseries.pdf}}
+\put( 30,-35){
+\includegraphics[trim={0 0 0cm 0}, clip, width=0.45\linewidth]{shf_bar_T0_300K_ampl_4_1km_timeseries.pdf}}
+\put(-41,106){\bf a}
+\put( 44,106){\bf b}
+\put(-41,71){\bf c}
+\put( 44,71){\bf d}
+\put(-41,36){\bf e}
+\put( 44,36){\bf f}
+\put(-41,1){\bf g}
+\put( 44,1){\bf h}
 %\put( 62,53){\bf c}
 \end{overpic}
+\vspace{2.3cm}
 \caption{{\bf Multi-day time-series of domain averaged quantities}. 
-{\bf a}, Domain-mean near-surface temperature for simulation A5b. The horizontal line indicates the time average over the entire time-series;
-{\bf b}, Analogous to (a), but for rain rate;
-{\bf c,d}, Analogous to (a),(b), but for the simulation A2b ({\it compare}: Tab.~\ref{tab:experiments}).}
+{\bf a}, Domain-mean near-surface temperature ($T(z=50\;m)$) for the simulation A5b. 
+The horizontal line indicates the time average over the entire time-series;
+{\bf b}, Analogous to (a), but for $A2b$  ({\it compare}: Tab.~\ref{tab:experiments});
+{\bf c,d}, Analogous to (a),(b), but for domain mean precipitation intensity;
+{\bf e,f}, Analogous, but for the surface latent heat flux;
+{\bf g,h}, Analogous, but for the surface sensible heat flux.}
 \label{fig:multi-day_timeseries}
 \end{figure*}
 
-\begin{figure*}[ht]
-\centering
-\begin{overpic}[width=0.4\textwidth ]{dummy.pdf}
-\put(-60,0){\includegraphics[trim={0 0 0cm 0}, clip, height=0.32\linewidth]{tsair_vent_timeseries_agg.pdf}}
-\put(-5,0){
-\includegraphics[trim={0 0 0cm 0}, clip, height=0.32\linewidth]{prcp_vent_timeseries_agg.pdf}}
-\put(50,0){\includegraphics[trim={0 0 0cm 0}, clip, height=0.32\linewidth]{pfrac_vent_timeseries_agg.pdf}}
-\put(-45,53){\bf a}
-\put( 11,53){\bf b}
-\put( 62,53){\bf c}
-\end{overpic}
-\caption{{\bf Diurnal cycles of domain averaged quantities}. 
-%[here we might also want to show $T(6000m)$ and specific humidity.]
-Similar to Fig.~\ref{fig:daily_mean} but reducing the ventilation coefficient \cite{seifert2006two} to a fraction of $.5$ and $.01$, respectively.
-}
-\label{fig:domain_mean_timeseries_ventilation}
-\end{figure*}
+%\begin{figure*}[ht]
+%\centering
+%\begin{overpic}[width=0.4\textwidth ]{dummy.pdf}
+%\put(-60,0){\includegraphics[trim={0 0 0cm 0}, clip, height=0.32\linewidth]{tsair_vent_timeseries_agg.pdf}}
+%\put(-5,0){
+%\includegraphics[trim={0 0 0cm 0}, clip, height=0.32\linewidth]{prcp_vent_timeseries_agg.pdf}}
+%\put(50,0){\includegraphics[trim={0 0 0cm 0}, clip, height=0.32\linewidth]{pfrac_vent_timeseries_agg.pdf}}
+%\put(-45,53){\bf a}
+%\put( 11,53){\bf b}
+%\put( 62,53){\bf c}
+%\end{overpic}
+%\caption{{\bf Diurnal cycles of domain averaged quantities}. 
+%Similar to Fig.~\ref{fig:daily_mean} but reducing the ventilation coefficient \cite{seifert2006two} to a fraction of $.5$ and $.01$, respectively.
+%}
+%\label{fig:domain_mean_timeseries_ventilation}
+%\end{figure*}
 
 \begin{figure*}[ht]
 \centering
@@ -943,13 +970,13 @@ Similar to Fig.~\ref{fig:daily_mean} but reducing the ventilation coefficient \c
 \put(-5,0){
 \includegraphics[trim={0 0 0cm 0}, clip, height=0.32\linewidth]{prcp_sea_timeseries_agg.pdf}}
 \put(50,0){\includegraphics[trim={0 0 0cm 0}, clip, height=0.32\linewidth]{pfrac_sea_timeseries_agg.pdf}}
-\put(-45,53){\bf a}
-\put( 11,53){\bf b}
-\put( 62,53){\bf c}
+\put(-46,53){\bf a}
+\put( 10,53){\bf b}
+\put( 63,53){\bf c}
 \end{overpic}
-\caption{{\bf Diurnal cycles of domain averaged quantities}. 
+\caption{{\bf Diurnal cycles of domain averaged quantities for a sea surface}. 
 %[here we might also want to show $T(6000m)$ and specific humidity.]
-Similar to Fig.~\ref{fig:daily_mean} but using $100$ percent surface evaporation, mimicking a sea surface.
+Similar to Fig.~\ref{fig:daily_mean} but using potential evaporation for the surface, mimicking a sea surface.
 }
 \label{fig:domain_mean_timeseries_surface_evap}
 \end{figure*}
@@ -965,15 +992,16 @@ Similar to Fig.~\ref{fig:daily_mean} but using $100$ percent surface evaporation
 \put(0,0){
 \includegraphics[trim={0cm 0 0cm 0}, clip, height=0.32\linewidth]{t_sea_timeseries_agg_p.pdf}}
 \put(55,0){\includegraphics[trim={0cm 0 0cm 0}, clip, height=0.32\linewidth]{t_vent_timeseries_agg_p.pdf}}
+\put(-22,14){$\theta_L(50\;m)$}
+\put(-23,25){$\theta_L(1.5\;km)$}
+\put(-23,36){$\theta_L(3.5\;km)$}
 \put(-42,53){\bf a}
 \put( 14,53){\bf b}
 \put( 67,53){\bf c}
 \end{overpic}
-\caption{{\bf Diurnal cycles of surface and free troposphere temperature}. 
-%[here we might also want to show $T(6000m)$ and specific humidity.]
-[several things need correcting here]
-As in Fig.~\ref{fig:daily_mean}a, but including free-tropospheric temperature [add the exact height when ready].
-{\bf a}, Different forcing amplitude $T_a$;
+\caption{{\bf Diurnal cycles of temperature at different heights}. 
+As in Fig.~\ref{fig:daily_mean}a, but including approximate cloud-base ($1.5\km$) and free-tropospheric ($3.5\km$) liquid water potential temperature.
+{\bf a}, Comparing different forcing amplitudes;
 {\bf b}, Similar, but for sea surface conditions;
 {\bf c}, Varying the ventilation coefficient.
 }
@@ -1000,7 +1028,6 @@ As in Fig.~\ref{fig:daily_mean}a, but including free-tropospheric temperature [a
 %\end{figure*}
 
 \begin{figure}[ht]
-\centering
 %\begin{overpic}
 %\includegraphics[height=0.33\linewidth]{cavities}
 \includegraphics[trim={2cm 2.4cm 1cm 1cm}, clip, height=0.11\linewidth]{var1_daymean_T0_300K_ampl_10_1km_large_1-144.png}
@@ -1010,10 +1037,12 @@ As in Fig.~\ref{fig:daily_mean}a, but including free-tropospheric temperature [a
 \includegraphics[trim={2cm 2.4cm 1cm 1cm}, clip, height=0.11\linewidth]{var1_daymean_T0_300K_ampl_10_1km_large_433-576.png}
 \includegraphics[trim={2cm 2.4cm 1cm 1cm}, clip, height=0.11\linewidth]{var1_daymean_T0_300K_ampl_10_1km_large_577-720.png}
 \includegraphics[trim={2cm 2.4cm 1cm 1cm}, clip, height=0.11\linewidth]{var1_daymean_T0_300K_ampl_10_1km_large_721-846.png}\\
+
 \includegraphics[trim={2cm 2.4cm 1cm 1cm}, clip, height=0.11\linewidth]{var1_daymean_T0_300K_ampl_4_1km_large_1-96.png}
 \includegraphics[trim={2cm 2.4cm 1cm 1cm}, clip, height=0.11\linewidth]{var1_daymean_T0_300K_ampl_4_1km_large_289-384.png}
 \includegraphics[trim={2cm 2.4cm 1cm 1cm}, clip, height=0.11\linewidth]{var1_daymean_T0_300K_ampl_4_1km_large_385-480.png}
 \includegraphics[trim={2cm 2.4cm 1cm 1cm}, clip, height=0.11\linewidth]{var1_daymean_T0_300K_ampl_4_1km_large_481-576.png}
+\hspace{1.55cm}
 \includegraphics[trim={2cm 2.4cm 1cm 1cm}, clip, height=0.11\linewidth]{var1_daymean_T0_300K_ampl_4_1km_large_673-768.png}
 
 \caption{{\bf Daily average precipitation intensity.} Similar to the heatmaps shown in Fig. \ref{fig:daily_mean} but for all available data. 
@@ -1022,7 +1051,6 @@ The top panels show $A5a$ for days 1---7, bottom panels show $A2a$ for days 1---
 \end{figure}
 
 \begin{figure}[ht]
-\centering
 %\begin{overpic}
 %\includegraphics[height=0.33\linewidth]{cavities}
 \includegraphics[trim={2cm 2.4cm 1cm 1cm}, clip, height=0.11\linewidth]{var1_daymean_T0_300K_ampl_10_1km_1-288.png}
@@ -1032,9 +1060,12 @@ The top panels show $A5a$ for days 1---7, bottom panels show $A2a$ for days 1---
 \includegraphics[trim={2cm 2.4cm 1cm 1cm}, clip, height=0.11\linewidth]{var1_daymean_T0_300K_ampl_10_1km_1485-1752.png}
 \includegraphics[trim={2cm 2.4cm 1cm 1cm}, clip, height=0.11\linewidth]{var1_daymean_T0_300K_ampl_10_1km_1773-2040.png}
 \includegraphics[trim={2cm 2.4cm 1cm 1cm}, clip, height=0.11\linewidth]{var1_daymean_T0_300K_ampl_10_1km_2061-2348.png}\\
+
+\hspace{1.55cm}
 \includegraphics[trim={2cm 2.4cm 1cm 1cm}, clip, height=0.11\linewidth]{var1_daymean_T0_300K_ampl_7_1km_289-576.png}
 \includegraphics[trim={2cm 2.4cm 1cm 1cm}, clip, height=0.11\linewidth]{var1_daymean_T0_300K_ampl_7_1km_433-576.png}
 \includegraphics[trim={2cm 2.4cm 1cm 1cm}, clip, height=0.11\linewidth]{var1_daymean_T0_300K_ampl_7_1km_577-720.png}\\
+
 \includegraphics[trim={2cm 2.4cm 1cm 1cm}, clip, height=0.11\linewidth]{var1_daymean_T0_300K_ampl_4_1km_1-288.png}
 \includegraphics[trim={2cm 2.4cm 1cm 1cm}, clip, height=0.11\linewidth]{var1_daymean_T0_300K_ampl_4_1km_289-576.png}
 \includegraphics[trim={2cm 2.4cm 1cm 1cm}, clip, height=0.11\linewidth]{var1_daymean_T0_300K_ampl_4_1km_577-864.png}
@@ -1044,7 +1075,6 @@ The top panels show $A5b$ for days 1---7; the middle panels show $A3.5$ for days
 \end{figure}
 
 \begin{figure}[ht]
-\centering
 %\begin{overpic}
 %\includegraphics[height=0.33\linewidth]{cavities}
 \includegraphics[trim={2cm 2.4cm 1cm 1cm}, clip, height=0.11\linewidth]{var1_daymean_T0_300K_ampl_10_500m_1-288.png}
@@ -1055,47 +1085,59 @@ The top panels show $A5b$ for days 1---7; the middle panels show $A3.5$ for days
 \includegraphics[trim={2cm 2.4cm 1cm 1cm}, clip, height=0.11\linewidth]{var1_daymean_T0_300K_ampl_10_200m_289-432.png}
 \caption{{\bf Daily average precipitation intensity for higher resolution.} 
 The horizontal resolution is increased to $500\;m$ (top row) and $200\;m$ (bottom row), and the domain size is $192\;km\times 192$ $km$ and $240\;km\times 240$ $km$. The three panels show days 1---3.}
-\label{fig:daily_sum_higher_res}
+\label{fig:daily_mean_higher_res}
 \end{figure}
 
 \begin{figure}[ht]
-\centering
 %\begin{overpic}
-%\includegraphics[height=0.33\linewidth]{cavities}
 \includegraphics[trim={2cm 2.4cm 1cm 1cm}, clip, height=0.11\linewidth]{var1_daymean_T0_300K_ampl_10_1km_909-1176.png}
 \includegraphics[trim={2cm 2.4cm 1cm 1cm}, clip, height=0.11\linewidth]{var1_daymean_T0_300K_ampl_10_1km_05vent_433-576.png}
 \includegraphics[trim={2cm 2.4cm 1cm 1cm}, clip, height=0.11\linewidth]{var1_daymean_T0_300K_ampl_10_1km_001vent_433-576.png}
 \caption{{\bf Daily average precipitation intensity for modified cold pools.} 
-Model day 4 as in A5b (left panel), and for ventilation coefficients reduced to $.5$ (middle panel) and $.01$ (right panel), respectively.}
+Model day 4 as in A5b (left panel), and for ventilation coefficients reduced to $.5$ (middle panel) and $.01$ (right panel), respectively.
+Note that, due to the decrease of scale, the evaluation of normalized variance becomes less meaningful (Fig.~\ref{fig:variance_further_sims}), since the clustered scale approaches that of the regular scale ($\approx 10\;km$) and the two competing effects lead to a blurring of the variance signal (Fig.~\ref{fig:variance_further_sims}).
+}
 \label{fig:daily_sum_vent}
 \end{figure}
 
 \begin{figure}[ht]
-\centering
 %\begin{overpic}
 %\includegraphics[height=0.33\linewidth]{cavities}
+\hspace{1.55cm}
+\hspace{1.55cm}
+\hspace{1.55cm}
 \includegraphics[trim={2cm 2.4cm 1cm 1cm}, clip, height=0.11\linewidth]{var1_daymean_T0_300K_ampl_10_1km_p2K_865-1152.png}
+\hspace{1.55cm}
+\hspace{1.55cm}
+\hspace{1.55cm}
 \includegraphics[trim={2cm 2.4cm 1cm 1cm}, clip, height=0.11\linewidth]{var1_daymean_T0_300K_ampl_10_1km_p2K_2593-2880.png}
 \\
+
 \includegraphics[trim={2cm 2.4cm 1cm 1cm}, clip, height=0.11\linewidth]{var1_daymean_T0_300K_ampl_10_1km_RH100_1-144.png}
 \includegraphics[trim={2cm 2.4cm 1cm 1cm}, clip, height=0.11\linewidth]{var1_daymean_T0_300K_ampl_10_1km_RH100_145-288.png}
 \includegraphics[trim={2cm 2.4cm 1cm 1cm}, clip, height=0.11\linewidth]{var1_daymean_T0_300K_ampl_10_1km_RH100_289-432.png}
 \includegraphics[trim={2cm 2.4cm 1cm 1cm}, clip, height=0.11\linewidth]{var1_daymean_T0_300K_ampl_10_1km_RH100_433-576.png}
 \\
+
 \includegraphics[trim={2cm 2.4cm 1cm 1cm}, clip, height=0.11\linewidth]{var1_daymean_T0_300K_ampl_4_1km_RH100_1-144.png}
-\includegraphics[trim={2cm 2.4cm 1cm 1cm}, clip, height=0.11\linewidth]{var1_daymean_T0_300K_ampl_10_1km_RH100_1-144.png}
+\hspace{1.55cm}
+\hspace{1.55cm}
+\hspace{1.55cm}
+\hspace{1.55cm}
+\hspace{1.55cm}
+\hspace{1.55cm}
+\hspace{1.55cm}
 \includegraphics[trim={2cm 2.4cm 1cm 1cm}, clip, height=0.11\linewidth]{var1_daymean_T0_300K_ampl_4_1km_RH100_1153-1296.png}
 \caption{{\bf Daily average precipitation intensity for increased surface temperature and increased surface moisture.} 
-The resolution is maintained at $1\;km$ horizontally, the domain size is chosen as $480\;km\times 480$ $km$. The two top panels show days 4 and 8 for P2K at $T_a=5\;K$; 
-the four central panels show days 1---4 for RH100 at $T_a=5\;K$;
-the two bottom panels show days 1---4 for RH100 at $T_a=2\;K$.}
+The resolution is maintained at $1\;km$ horizontally, the domain size is chosen as $480\;km\times 480$ $km$. The two top panels show days 4 and 8 for A5p2K (Tab. \ref{tab:experiments}); 
+the four central panels show days 1---4 for A5sea;
+the two bottom panels show days 1 and 9 for A2sea.}
 \label{fig:daily_mean_increased_T_q}
 \end{figure}
 
 \begin{figure}[ht]
 \centering
-\includegraphics[trim={0cm 0cm 0cm 0cm}, clip, height=0.27\linewidth]{var_5K_480_p2K.pdf}
-\includegraphics[trim={0cm 0cm 0cm 0cm}, clip, height=0.27\linewidth]{{var_3.5K_480}.pdf}\\
+\includegraphics[trim={0cm 0cm 0cm 0cm}, clip, height=0.27\linewidth]{var_5K_480_p2K.pdf}\\
 \includegraphics[trim={0cm 0cm 0cm 0cm}, clip, height=0.27\linewidth]{var_5K_05vent.pdf}
 \includegraphics[trim={0cm 0cm 0cm 0cm}, clip, height=0.27\linewidth]{var_5K_001vent.pdf}\\
 \includegraphics[trim={0cm 0cm 0cm 0cm}, clip, height=0.27\linewidth]{var_5K_480_500m.pdf}
@@ -1103,7 +1145,8 @@ the two bottom panels show days 1---4 for RH100 at $T_a=2\;K$.}
 \includegraphics[trim={0cm 0cm 0cm 0cm}, clip, height=0.27\linewidth]{var_5K_sea.pdf}
 \includegraphics[trim={0cm 0cm 0cm 0cm}, clip, height=0.27\linewidth]{var_2K_sea.pdf}
 \caption{{\bf Normalized variance for further simulations.}
-P2K with $T_a=5\;K$, reduced ventilation coefficients ($.5$ and $.01$ of the default values), $500\;m$ and $200\;m$ resolution with $T_a=5\;K$, sea surface with $T_a=5\;K$ and $T_a=2\;K$.
+From top to bottom, by rows: 
+Increased surface temperature ($A5p2K$, {\it see} Tab.~\ref{tab:parameters}), reduced ventilation coefficients ($.5$ and $.01$ of the default values, $A5vent05$ and $A5vent001$, respectively), increased lateral resolution ($500\;m$ and $200\;m$, $A5c$ and $A5d$, respectively), increased surface latent heat fluxes (sea surface) ($T_a=5\;K$ and $T_a=2\;K$, that is, $A5sea$ and $A2sea$, respectively).
 }
 \label{fig:variance_further_sims}
 \end{figure}
@@ -1149,6 +1192,25 @@ Note the pronounced double-peak structure that emerges for A5b near mid-day.
 \label{fig:CP_heights_space}
 \end{figure}
 
+
+\begin{figure}[ht]
+\centering
+\includegraphics[trim={0 0 2.6cm 0},clip,height=.3\linewidth]{T0_300K_ampl_10_1km_909-1176sequence_WindSpeed_103.png}%12:30
+\includegraphics[trim={2.3cm 0 2.6cm 0},clip,height=.3\linewidth]{T0_300K_ampl_10_1km_909-1176sequence_WindSpeed_115.png}%13:30
+\includegraphics[trim={2.3cm 0 2.6cm 0},clip,height=.3\linewidth]{T0_300K_ampl_10_1km_909-1176sequence_WindSpeed_127.png}%14:30
+\includegraphics[trim={2.3cm 0 0 0},clip,height=.3\linewidth]{T0_300K_ampl_10_1km_909-1176sequence_WindSpeed_139.png}%15:30
+\\
+\includegraphics[trim={0 0 2.6cm 0},clip,height=.3\linewidth]{T0_300K_ampl_4_1km_865-1172sequence_WindSpeed_085.png}
+\includegraphics[trim={2.5cm 0 2.6cm 0},clip,height=.3\linewidth]{T0_300K_ampl_4_1km_865-1172sequence_WindSpeed_109.png}
+\includegraphics[trim={2.5cm 0 2.6cm 0},clip,height=.3\linewidth]{T0_300K_ampl_4_1km_865-1172sequence_WindSpeed_133.png}
+\includegraphics[trim={2.5cm 0 0 0},clip,height=.3\linewidth]{T0_300K_ampl_4_1km_865-1172sequence_WindSpeed_157.png}
+\vspace{0cm}
+\caption{{\bf Near surface horizontal wind speed.}
+{\bf a}, Wind speed for A5b, day 4, at times $t/h$ in $\{12.5, 13.5, 14.5, 15.5\}$. 
+{\bf b}, Wind speed for A2b, day 4, at times $t/h$ $\{7, 9,, 11, 13\}$. ({\it compare}: Fig.~\ref{fig:CP_heights_space}).
+}
+\label{fig:hor_wind_speed}
+\end{figure}
 
 \begin{figure}[ht]
 \centering
