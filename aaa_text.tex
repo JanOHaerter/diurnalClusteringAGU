@@ -1,33 +1,10 @@
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% AGUJournalTemplate.tex: this template file is for articles formatted with LaTeX
-%
-% This file includes commands and instructions
-% given in the order necessary to produce a final output that will
-% satisfy AGU requirements, including customized APA reference formatting.
-%
-% You may copy this file and give it your
-% article name, and enter your text.
-%
-%
-% Step 1: Set the \documentclass
-%
-%
 
-%% To submit your paper:
-%\documentclass[draft]{agujournal2019}
-%\usepackage{url} 
-%\usepackage{graphicx,natbib,overpic,xcolor}
-%\usepackage{apacite}
-%\bibliographystyle{unsrtnat}
-%this package should fix any errors with URLs in refs.
-%\usepackage{lineno}
-%\usepackage{geometry}
-%\usepackage[table,xcdraw]{xcolor}
-%\usepackage[inline]{trackchanges} %for better track changes. finalnew option will compile document with changes incorporated.
-%\usepackage{soul}
 %\linenumbers
 
-\documentclass[draft,linenumbers]{agujournal2019}
+%\documentclass[draft,linenumbers]{agujournal2019}
+%\documentclass[draft,linenumbers]{}
+\documentclass{article}
+\usepackage[a4paper, total={6in, 8in}]{geometry}
 \usepackage{tikz}
 \usepackage{apacite}
 \usepackage{url} %this package should fix any errors with URLs in refs.
@@ -36,170 +13,64 @@
 \usepackage{overpic}
 \usepackage{pict2e}
 \usepackage{picture}
-\usepackage{bm}
+\usepackage{lineno}
+\linenumbers
+%\usepackage[superscript,biblabel]{cite}
 %%%%%%%
-
-\draftfalse
-\def\Var{{\textrm{Var}}\,}
-%% Enter journal name below.
-%% Choose from this list of Journals:
-%
-% JGR: Atmospheres
-% JGR: Biogeosciences
-% JGR: Earth Surface
-% JGR: Oceans
-% JGR: Planets
-% JGR: Solid Earth
-% JGR: Space Physics
-% Global Biogeochemical Cycles
-% Geophysical Research Letters
-% Paleoceanography and Paleoclimatology
-% Radio Science
-% Reviews of Geophysics
-% Tectonics
-% Space Weather
-% Water Resources Research
-% Geochemistry, Geophysics, Geosystems
-% Journal of Advances in Modeling Earth Systems (JAMES)
-% Earth's Future
-% Earth and Space Science
-% Geohealth
-%
-% ie, \journalname{Water Resources Research}
-
-\journalname{Nature Geoscience}
-
-\begin{document}
-
-%% ------------------------------------------------------------------------ %%
-% Title
-%
-% (A title should be specific, informative, and brief. Use
-% abbreviations only if they are defined in the abstract. Titles that
-% start with general keywords then specific terms are optimized in
-% searches)
-%
-%% ------------------------------------------------------------------------ %%
-
-% Example: \title{This is a test title}
+%\bibliographystyle{naturemag}
+\usepackage[super,numbers,sort&compress]{natbib}
+%\usepackage[superscript,biblabel]{cite}
+\bibliographystyle{unsrtnat}
+%\bibliographystyle{unsrt} 
 
 \title{Diurnal Self-Aggregation}
 
-%% ------------------------------------------------------------------------ %%
-%
-% AUTHORS AND AFFILIATIONS
-%
-%% ------------------------------------------------------------------------ %%
-
-% Authors are individuals who have significantly contributed to the
-% research and preparation of the article. Group authors are allowed, if
-% each author in the group is separately identified in an appendix.)
-
-% List authors by first name or initial followed by last name and
-% separated by commas. Use \affil{} to number affiliations, and
-% \thanks{} for author notes.
-% Additional author notes should be indicated with \thanks{} (for
-% example, for current addresses).
-
-% Example: \authors{A. B. Author\affil{1}\thanks{Current address, Antartica}, B. C. Author\affil{2,3}, and D. E.
-% Author\affil{3,4}\thanks{Also funded by Monsanto.}}
-
-\authors{Jan O. Haerter}
+\author{Jan O. Haerter$^{1}$, Bauthor$^2$ \& LastAuthor$^2$}
 
 
-% \affiliation{1}{First Affiliation}
-% \affiliation{2}{Second Affiliation}
-% \affiliation{3}{Third Affiliation}
-% \affiliation{4}{Fourth Affiliation}
+%\draftfalse
+\def\Var{{\textrm{Var}}\,}
 
-\affiliation{1}{Niels Bohr Institute, University of Copenhagen, Blegdamsvej 17, 2100 Copenhagen, Denmark}
-%(repeat as many times as is necessary)
+\begin{document}
 
-%% Corresponding Author:
-% Corresponding author mailing address and e-mail address:
+\maketitle
 
-% (include name and email addresses of the corresponding author. More
-% than one corresponding author is allowed in this LaTeX file and for
-% publication; but only one corresponding author is allowed in our
-% editorial system.)
-
-% Example: \correspondingauthor{First and Last Name}{email@address.edu}
-
-\correspondingauthor{Jan O. Haerter}{haerter@nbi.ku.dk}
-
-%% Keypoints, final entry on title page.
-
-% List up to three key points (at least one is required)
-% Key Points summarize the main points and conclusions of the article
-% Each must be 100 characters or less with no special characters or punctuation and must be complete sentences
-
-% Example:
-% \begin{keypoints}
-% \item	List up to three key points (at least one is required)
-% \item	Key Points summarize the main points and conclusions of the article
-% \item	Each must be 100 characters or less with no special characters or punctuation and must be complete sentences
-% \end{keypoints}
-
-%\begin{keypoints}
-%\item Self-aggregation is possible within short timeperiods, when boundary conditions oscillate,
-%\item the effect is nearly independent of domain size or resolution,
-%\item the effect requires only moderate temperature amplitudes.
-%\end{keypoints}
-
-%% ------------------------------------------------------------------------ %%
-%
-% ABSTRACT and PLAIN LANGUAGE SUMMARY
-%
-% A good Abstract will begin with a short description of the problem
-% being addressed, briefly describe the new data or analyses, then
-% briefly states the main conclusion(s) and how they are supported and
-% uncertainties.
-
-% The Plain Language Summary should be written for a broad audience,
-% including journalists and the science-interested public, that will not have 
-% a background in your field.
-%
-% A Plain Language Summary is required in GRL, JGR: Planets, JGR: Biogeosciences,
-% JGR: Oceans, G-Cubed, Reviews of Geophysics, and JAMES.
-% see http://sharingscience.agu.org/creating-plain-language-summary/)
-%
-%% ------------------------------------------------------------------------ %%
-
-%% \begin{abstract} starts the second page
+\begin{affiliations}
+ \item Niels Bohr Institute, Copenhagen University, Blegdamsvej 17, 2100 Copenhagen, Denmark
+\end{affiliations}
 
 %\begin{abstract}
-\noindent
 {\bf
-Convective self-aggregation is a paradigm for tropical oceanic cloud organization and gives rise to cloud clusters over timescales of weeks. While much is known from standard radiative-convective equilibrium (RCE) setup with constant surface temperature, it remains poorly understood how diurnally oscillating surface temperature affects the clustering of rain events. 
-By processing convection-resolving simulations with oscillating surface temperature, we find the atmosphere to equilibrate within the spatial average and domain-averaged precipitation to become similar from day-to-day. 
-However, the spatial distribution of rainfall is only homogeneous during the first day. 
-From the second day, we find, the precipitation field is firmly structured and continues to cluster in subsequent days.
-We show that the clustering is robust to changes in resolution, domain size, and surface temperature, but can be removed by reduction of the amplitude of oscillation, suggesting a transition to self-organization. Maximal clustering occurs at scales of $\mathbf{l_{max}\approx 150\;km}$, a scale we relate to the emergence of mesoscale convective systems. 
-At $\mathbf{l_{max}}$, extreme events are strongly enhanced and far exceeds the rainfall expected at random. 
+Convective self-aggregation is a paradigm for the modeling of thunderstorm organization over a constant-temperature tropical sea surface. 
+This setup can give rise to cloud clusters over timescales of weeks. 
+%While much is known from standard radiative-convective equilibrium (RCE) setup with constant surface temperature, 
+In reality, sea surface temperatures do oscillate diurnally and continental convection is strongly dependent on the time of day.
+Here we show, that even weak oscillations in the surface temperature enable qualitatively different dynamics to emerge:
+%It remains poorly understood how diurnally oscillating surface temperature affects the clustering of rain events. 
+%with oscillating surface temperature, we find the atmosphere to equilibrate within the spatial average and domain-averaged precipitation to become similar from day-to-day. 
+the spatial distribution of rainfall is only homogeneous during the first day. 
+Already on the second, the rain field is firmly structured.
+On later days, the clustering becomes stronger and alternates from day to day.
+We show that these features are robust to changes in resolution, domain size, and surface temperature, but can be removed by a reduction of the amplitude of oscillation, suggesting a transition to self-organization. 
+Maximal clustering occurs at scales of $\mathbf{l_{max}\approx 180\;km}$, a scale we relate to the emergence of mesoscale convective systems. 
+At $\mathbf{l_{max}}$ rainfall is strongly enhanced and far exceeds the rainfall expected at random. 
 We explain the transition to clustering using a simple conceptual model, which describes periodic redistribution of moisture. 
-These results may help clarify how continental extremes build up and how cloud clustering over the tropical ocean could arise much faster than through conventional self-aggregation alone.
+These results may help clarify how extremes build up and how cloud clustering over the tropical ocean could arise much faster than through conventional self-aggregation alone.
 }
-%{\bf Convective self-aggregation is a paradigm for tropical oceanic cloud organization \cite{wing2017convective} and gives rise to cloud clusters over timescales of weeks \cite{khairoutdinov2010aggregation,muller2012detailed}.
-%In contrast to the standard radiative-convective equilibrium setup \cite{held1993radiative,tompkins1998radiative}, where surface temperature is held constant, we here allow surface temperature to oscillate diurnally.
-%, leading to a repetitive synoptic state, termed perpetual equilibrium \cite{schlemmer2011diurnal,haerter2018intensified}.
-%While the atmosphere gradually equilibrates at the system scale and domain-averaged precipitation indeed becomes similar from day to day, the spatial distribution of precipitation is only homogeneous during the first day. 
-%From the second day on, the precipitation field is strongly structured and continues to cluster in subsequent days.
-%The clustering is robust to changes in resolution, domain size, and surface temperature, but can be removed by reduction of the amplitude of oscillation, suggesting a transition to self-organization.
-%Maximal clustering occurs at scales of $\mathbf{l_{max}\approx 150\;km}$, a scale we relate to the emergence of multicellular convection.
-%At $\mathbf{l_{max}}$, extreme events are strongly enhanced and far exceed the rainfall expected at random.
-%We explain the transition to clustering using a simple conceptual model, which describes periodic redistribution of moisture. 
-%The results may help clarify, how extremes build up in mid-latitudes and how cloud clustering in the tropics could arise much more rapidly than through conventional self-aggregation alone.
-%}
 %\end{abstract}
 
-%\section{Introduction}\label{sec:intro}
+
+
+%\correspondingauthor{Jan O. Haerter}{haerter@nbi.ku.dk}
+
+
 \noindent
 General circulation models (GCMs) currently cannot simulate organized deep convection, as GCMs describe convection as a collection of non-interacting plumes. 
 However, organised deep convection --- clusters of thunderstorms --- 
 cause the most significant increase in tropical rainfall \cite{tan2015increases}. 
 As a model paradigm of tropical oceanic convective clustering, self-aggregation
 %, where the cloud field segregates into cloudy and less cloudy sub-domains, 
-usually employs the RCE scheme \cite{held1993radiative,tompkins1998radiative}. 
+usually employs the radiative-convective equilibrium scheme (RCE) \cite{held1993radiative,tompkins1998radiative}. 
 RCE assumes spatially and temporally constant surface temperature ($\sim 300\;K$), leading to self-organization on the timescale of several weeks \cite{bretherton2005energy,khairoutdinov2010aggregation,muller2012detailed,wing2017convective}. 
 Radiation feedbacks have emerged as the "smoking gun" for sustaining and increasing clustering \cite{bretherton2005energy}. 
 Still, factors such as sea surface feedbacks \cite{hohenegger2016coupled}, domain size, geometry, and resolution \cite{muller2015favors}, as well as cold pool effects \cite{jeevanjee2013convective,haerter2019convective}, all contribute.
@@ -234,7 +105,7 @@ State-of-the-art regional climate models now simulate relatively large areas ($\
 We here study multi-day clustering in the thunderstorm rain field over land. 
 By using a suite of mesoscale cloud-resolving simulations, we show that a transition from a homogeneous to a strongly-clustered state occurs, when the amplitude of surface temperature is increased sufficiently. 
 Clustering continues to grow from day to day --- a finding we explore and explain using conceptual modeling.
-We discuss the relevance for the emergence of extreme rainfall over land and the potential impact on organized convection over the tropical ocean.
+Finally, we discuss the relevance for the emergence of extreme rainfall over land and the potential impact on organized convection over the tropical ocean.
 
 \section*{Results}\label{sec:results}
 \noindent
@@ -260,7 +131,7 @@ Time-averaged free tropospheric temperatures, which constrain the rate of radiat
 {\bf Quantifying clustering.}
 Now consider the spatial pattern formed by precipitation cells from day to day (Fig.~\ref{fig:daily_mean}e---j). 
 During the spin-up from the initial condition (first day), both the $A2$ and $A5$ show modest and relatively homogeneous, convective activity throughout the domain. 
-During the subsequent model days, convection intensifies for both simulations because near-surface temperatures gradually increas.%e, but i
+During the subsequent model days, convection intensifies for both simulations because near-surface temperatures gradually increases.%e, but i
 In $A2$, the spatial pattern of events remains rather homogeneous.
 In contrast, for $A5$, an inhomogeneous pattern organises, with several locations receiving pronounced average rainfall, whereas others are left all but dry. 
 Besides, for $A5$, alternations in surface rainfall rate are apparent when comparing one day to the next ({\it compare:} Fig.~\ref{fig:daily_mean}i,j).
@@ -271,7 +142,7 @@ We then break the horizontal domain area down into square boxes of side length $
 The probability $p_l$ of a track occurring within one of the boxes at random would be $p_l=n(l)^{-1}$
 and the binomial
 \begin{equation}
-    P_l(m)\equiv \binom{N}{m} p_l^m\left( 1-p_l \right)^{n-m}
+    P_l(m)\equiv \binom{N}{m} p_l^m\left( 1-p_l \right)^{N-m}
     \label{eq:binomial}
 \end{equation}
 hence describes the probability of $m$ of $N$ randomly distributed tracks falling into one of these boxes during the model day.
@@ -326,12 +197,13 @@ We employ the CP tracking to detect merging events, that is, those where two pre
 For A5b, CP merging is indeed ubiquitous, whereas it is all but absent in A2b.
 We find this remarkable, given that the total count of CPs is similar for A2b and A5b.
 %These areas cannot be explained by a random effect and the significantly lower temperatures and long residence times of these conglomerates (Fig.~\ref{fig:CP_merging}g,h) indicate a cooperative effect.
-Additionally, computing the height of CPs in the two cases, in $A5b$, when CPs first appear, they show heights comparable to those of $A2b$ (Figs~\ref{fig:CP_height_distribution} and \ref{fig:CP_heights_space}). 
+Additionally, computing the height of CPs, in $A5b$, when CPs first appear, they show heights comparable to those of $A2b$ (Figs~\ref{fig:CP_height_distribution} and \ref{fig:CP_heights_space}). 
 Subsequently, a double peak forms, where groups of CPs develop much larger heights, reaching close to the level of free convection ($\approx 1100\;m$).
+Larger CP heights $h$ and deeper temperature depressions $\theta'$ are consistent with greater surface wind speed $v_{cp}\sim (h\theta')^{-1/2}$ \cite{etling2008theoretische}, which is indeed the case ({\it compare}: Figs~\ref{fig:CP_heights_space} and \ref{fig:hor_wind_speed}) and surface fluxes (Fig.~\ref{fig:multi-day_timeseries}e---h).
 
 In total, the analysis suggests that the growth of a super-CP on one day causes a suppressed region the subsequent day. 
 To further check this, we decrease the ventilation coefficients \cite{seifert2006two}, which controls rain evaporation, hence temperature depression $\theta'$ and CP propagation ($\sim \theta'^{1/2}$) ({\it Details}: Methods).
-Indeed, a decrease in these coefficients systematically decreases the spatial extent of the cleared regions, which are still visible (Fig.~\ref{fig:daily_sum_vent}).
+Indeed, a decrease in these coefficients systematically decreases the spatial extent of the cleared regions (Fig.~\ref{fig:daily_sum_vent}).
 
 \noindent
 {\bf Clustering from a simplified model.}
@@ -344,7 +216,7 @@ Sites not active are considered "vacant."
 
 Assume that, at a given time, the fraction of the domain occupied by active sites is $p_0$, and sites are independently populated. That is, each site of a square lattice contains a rain event at probability $p_0$.
 The remainder of sites, $1-p_0$, is hence vacant.
-Now demand that when a cluster consisting of $n>n_0$ contiguous active sites exists, vacant sites in their neighborhood are more likely to become active. 
+Now demand that when a cluster consisting of $n>n_0$ contiguous active sites exists, vacant sites in their neighbourhood are more likely to become active. 
 Obtaining such a cluster is accomplished by assigning the neighborhood sites enhanced state probabilities $p_{act}>p_0$
 (Fig.~\ref{fig:quantifying_clustering_simplified}a).
 When $p_0$ is small ($p_0\ll 1$), the system will, however, be improbable to contain clusters of $n>n_0$ sites.
@@ -403,6 +275,8 @@ Considering the variance of the spatial pattern again, the simplified model inde
 \put(-51,-2){\large \bf h}
 \put(4,-2){\large \bf i}
 \put(59,-2){\large \bf j}
+
+\put(120,18){\rotatebox{90}{\normalsize $I\;[mm\;h^{-1}]$}}
 
 \put(-50,47){\large $A2a$}
 \put(-50,-10){\large $A5a$}
@@ -488,10 +362,12 @@ Note the double-logarithmic axis scaling.
 {\bf b}, Analogous to (a), but for $A3.5$.
 {\bf c}, Analogous to (a), but for $A2$. 
 Note that the normalized variance remains in the normal range and does not exceed unity.
-{\bf d}, Peaks of variance anomalies vs. time for different simulations ({\it see}: legend). 
+{\bf d}, Maxima of variance anomalies vs. time for different simulations ({\it see}: legend and Tab.~\ref{tab:experiments}). 
 Note the general increase for large $\Delta T$ but flat behavior for small $\Delta T$.
-{\bf e}, Scales of clustering, i.e., the peak position in all clustered distributions $A3.5$ and $A5$. The gray shaded area marks the standard error of $l_{max}$, averaged over all times $t\geq 3d$. 
+{\bf e}, Scales of clustering, i.e., the position of the variance maxima in $A3.5$ and $A5$. 
+The gray shaded area marks the standard error of $l_{max}$, averaged over all times $t\geq 3d$. 
 {\bf f}, Autocorrelation coefficient $c(\tau)$ for $\tau=1$ and $\tau=2$ show increasing autocorrelation with scale for both A2 and A5.
+Several points for $A2$ are not shown due to lack of statistical significance at the $.01$-level.
 }
 \label{fig:quantifying_clustering}
 \end{figure}
@@ -500,46 +376,52 @@ Note the general increase for large $\Delta T$ but flat behavior for small $\Del
 \centering
 \begin{overpic}[width=0.4\textwidth]{dummy.pdf}
 
-\put(-55,15){\includegraphics[trim={0cm 2.15cm 1.8cm 0cm}, clip, height=0.205\linewidth]{temp_depr_timeseries_area_A2b_day_1-288.pdf}}
-\put(-28,15){\includegraphics[trim={1.95cm 2.15cm 1.8cm 0cm}, clip, height=.205\linewidth]{temp_depr_timeseries_area_A2b_day_289-576.pdf}}
-\put(-10,15){\includegraphics[trim={1.95cm 2.15cm 0cm 0cm}, clip, height=0.205\linewidth]{temp_depr_timeseries_area_A2b_day_865-1172.pdf}}
+\put(-50,15){\includegraphics[trim={0cm 2.15cm 1.8cm 0cm}, clip, height=0.205\linewidth]{temp_depr_timeseries_area_A2b_day_1-288.pdf}}
+\put(-23,15){\includegraphics[trim={1.95cm 2.15cm 1.8cm 0cm}, clip, height=.205\linewidth]{temp_depr_timeseries_area_A2b_day_289-576.pdf}}
+\put(-5,15){\includegraphics[trim={1.95cm 2.15cm 0cm 0cm}, clip, height=0.205\linewidth]{temp_depr_timeseries_area_A2b_day_865-1172.pdf}}
 
-\put(-55,-31){\includegraphics[trim={0cm 0cm 1.8cm 0cm}, clip, height=0.255\linewidth]{temp_depr_timeseries_area_A5b_day_1-288.pdf}}
-\put(-28,-31){\includegraphics[trim={1.95cm 0cm 1.8cm 0cm}, clip, height=0.255\linewidth]{temp_depr_timeseries_area_A5b_day_333-600.pdf}}
-\put(-10,-31){\includegraphics[trim={1.95cm 0cm 0cm 0cm}, clip, height=0.255\linewidth]{temp_depr_timeseries_area_A5b_day_909-1176.pdf}}
+\put(-50,-31){\includegraphics[trim={0cm 0cm 1.8cm 0cm}, clip, height=0.255\linewidth]{temp_depr_timeseries_area_A5b_day_1-288.pdf}}
+\put(-23,-31){\includegraphics[trim={1.95cm 0cm 1.8cm 0cm}, clip, height=0.255\linewidth]{temp_depr_timeseries_area_A5b_day_333-600.pdf}}
+\put(-5,-31){\includegraphics[trim={1.95cm 0cm 0cm 0cm}, clip, height=0.255\linewidth]{temp_depr_timeseries_area_A5b_day_909-1176.pdf}}
 
-\put(13,16){\includegraphics[trim={.0cm 2.25cm 0cm 0cm}, clip, height=0.20\linewidth]{cp_presence_T0_300K_ampl_4_1km_865-1172.pdf}}
-\put(13,-28){\includegraphics[trim={.0cm 0cm 0cm 0cm}, clip,height=0.24\linewidth]{cp_presence_T0_300K_ampl_10_1km_909-1176.pdf}}
+\put(18,16){\includegraphics[trim={.0cm 2.25cm 0cm 0cm}, clip, height=0.20\linewidth]{cp_presence_T0_300K_ampl_4_1km_865-1172.pdf}}
+\put(18,-28){\includegraphics[trim={.0cm 0cm 0cm 0cm}, clip,height=0.24\linewidth]{cp_presence_T0_300K_ampl_10_1km_909-1176.pdf}}
 
 
-\put(70,16){\includegraphics[trim={.0cm 2.15cm 0cm 0cm}, clip, width=0.27\linewidth]{temp_depr_scatterplot_area_A2b_day_865-1172.pdf}}
-\put(70,-30){\includegraphics[trim={.0cm 0cm 0cm 0cm}, clip,width=0.27\linewidth]{temp_depr_scatterplot_area_A5b_day_909-1176.pdf}}
+\put(75,16){\includegraphics[trim={.0cm 2.15cm 0cm 0cm}, clip, width=0.27\linewidth]{temp_depr_scatterplot_area_A2b_day_865-1172.pdf}}
+\put(75,-30){\includegraphics[trim={.0cm 0cm 0cm 0cm}, clip,width=0.27\linewidth]{temp_depr_scatterplot_area_A5b_day_909-1176.pdf}}
 
 %\put(70,7){\includegraphics[trim={.0cm 0cm 0cm 0cm}, clip,height=0.23\linewidth]{merge_split_stats.pdf}}
 
-\put(-43,50){\bf a}
-\put(-26,50){\bf b}
-\put(-7,50){\bf c}
-\put(26,50){\bf d}
-\put(78,50){\bf e}
+\put(-38,50){\bf a}
+\put(-21,50){\bf b}
+\put(-2,50){\bf c}
+\put(31,50){\bf d}
+\put(85,50){\bf e}
 
-\put(-43,12){\bf f}
-\put(-26,12){\bf g}
-\put(-7,12){\bf h}
-\put(26,12){\bf i}
-\put(78,12){\bf j}
+\put(-38,13){\bf f}
+\put(-21,13){\bf g}
+\put(-2,13){\bf h}
+\put(31,13){\bf i}
+\put(85,13){\bf j}
 
+\put(-37,36){day 1}
+\put(-19,36){day 2}
+\put(-1,36){day 4}
+
+\put(54,50){day 4}
+\put(104,50){day 4}
 %\put(-45,72){\large $\Delta T=5\;K$}
 %\put(-45,25){\large $\Delta T=2\;K$}
 \end{overpic}
-\vspace{2cm}
+\vspace{2.4cm}
 \caption{{\bf Cold pool merging and deepening.}
-{\bf a}, Occurrence time, maximum area, and average temperature depression (colors from red to blue) of CPs on day one of A2b. The black curve indicates the total CP area at each time.
+{\bf a}, CP occurrence time, maximum area, and average temperature depression (colours from red to blue, {\it see} legend) on day one of A2b. The black curve indicates the total CP area at each time, whereas the thin coloured curve highlights the timeseries of the largest CP during the respective day. 
 {\bf b,c}, Analogous to (a), but for days two and four of A2b.
-{\bf d}, Areas covered by CPs during day three of A2b, the colors indicate the duration of the CPs ({\it compare:} Fig.~\ref{fig:CP_heights_space}).
+{\bf d}, Areas covered by CPs during day four of A2b, the colours ({\it see} colourbar) indicate the duration during which CPs were present ({\it compare:} Fig.~\ref{fig:CP_heights_space}).
 {\bf e}, CP area vs. the corresponding maximum of areal mean temperature depression (day four).
 Symbol sizes indicate CP lifetime and colors indicate occurrence time within the model day ({\it see} legends).
-{\bf f---j}, Analogous to (a)---(d), but for A5b.
+{\bf f---j}, Analogous to (a)---(e), but for A5b.
 Note the logarithmic vertical axis scale in (a)---(c), (e), and (f)---(h), (j).
 }
 \label{fig:CP_merging}
@@ -601,9 +483,9 @@ Note the double-logarithmic axis scaling.
 Our study analyses the spontaneous emergence of convective clustering, when the amplitude of the diurnal cycle is varied. 
 During mid-latitude summer, extreme rainfall events and flash floods have been found to occur more frequently during long periods of pronounced heating \cite{coumou2012decade}.
 The findings here suggest that the clustering, and thereby the potential for flash floods, increases from day to day, and peaks at the scale of $l_{max}\approx 180\;km$.
-We have also addressed clustering over a sea surface (Fig.\ref{fig:domain_mean_timeseries_surface_evap}), finding comparable results:
+We have addressed clustering over a sea surface (Fig. \ref{fig:domain_mean_timeseries_surface_evap}), finding comparable results:
 not the mean, but the amplitude of surface temperature gives rise to clustering (Fig.\ref{fig:variance_further_sims}).
-Increasing model horizontal resolution to $.5$ or $.2$ $km$ (Fig.~\ref{fig:daily_mean_higher_res}) leads to even stronger clustering effects, in agreement with recent findings with a realistic continental topography \cite{rasp2018variability}.
+Increasing model horizontal resolution to $.5$ or $.2$ $km$ (Fig.~\ref{fig:daily_mean_higher_res}) leads to even stronger clustering effects, in agreement with recent findings with realistic continental topography \cite{rasp2018variability}.
 
 In convective self-aggregation, the standard explanation for clustering invokes arguments based on circulation changes.
 Remarkably, the memory enabling clustering in the present work is purely thermodynamically-driven; we do not detect any sustained changes of circulation that harbor a memory from one day to the next.
@@ -619,7 +501,7 @@ Future research should probe, whether a state of self-aggregation can be reached
 
 \newpage
 \clearpage
-\section*{Materials and Methods}\label{sec:methods}
+\begin{methods}
 \noindent
 {\bf Large-eddy model, boundary, and initial conditions.}
 We simulate the convective atmosphere using the University of California, Los Angeles (UCLA) Large Eddy Simulation (LES) model with sub-grid scale turbulence parametrized after Smagorinsky \cite{smagorinsky1963general}.
@@ -679,7 +561,7 @@ To increase the signal, only objects exceeding an area threshold of ten $\;km^2$
 Going forward in time, overlapping objects were identified and considered to be the same cold pool track.
 The threshold ratio $\theta$ was again set to unity \cite{moseley2019statistical}.
 
-Furthermore, we measure cold pool height, by evaluating the average temperature of the domain and the standard deviation at each output timestep and vertical model level $k$ and comparing the local temperature $T_0$ at each grid cell $(i,j,k)$ with this value.
+Furthermore, we measure cold pool height by evaluating the average temperature of the domain and the standard deviation at each output timestep and vertical model level $k$ and comparing the local temperature $T_0$ at each grid cell $(i,j,k)$ with this value.
 If $T_0$ is two standard deviations below the domain mean at the same height level $k$, this grid box is considered part of a cold pool. 
 Within each column $(i,j)$ the CP height is determined as the highest level, which fulfills this criterion.
 
@@ -809,42 +691,25 @@ A5vent05 and A5vent001 denote experiments, where the ventilation coefficients \c
 \label{tab:experiments}
 \end{table}
 
+\end{methods}
+
+\begin{addendum}
+ \item JOH gratefully acknowledges funding by a grant from the VILLUM Foundation (grant number: 13168) and the European Research Council (ERC) under the European Union's Horizon 2020 research and innovation program (grant number: 771859). SBN acknowledges funding through the Danish National Research Foundation (grant number: DNRF116).
+We acknowledge the Danish Climate Computing Center (DC3) and the German Climate Computing Center (DKRZ).
+ \item[Competing Interests] The authors declare that they have no
+competing financial interests.
+ \item[Correspondence] Correspondence and requests for materials
+should be addressed to J.O.H.~(email: haerter@nbi.ku.dk).
+\end{addendum}
+
+\section*{Author Contributions}
+\noindent
+J.O.H. ran and processed the large-eddy simulations (LES) and wrote the manuscript. S.B.N. contributed in model development and implementation and revised the manuscript.
+
 \clearpage
 \newpage
 \pagebreak
 \bibliography{aaa_ref}
-
-%Reference citation instructions and examples:
-%
-% Please use ONLY \cite and \citeA for reference citations.
-% \cite for parenthetical references
-% ...as shown in recent studies (Simpson et al., 2019)
-% \citeA for in-text citations
-% ...Simpson et al. (2019) have shown...
-%
-%
-%...as shown by \citeA{jskilby}.
-%...as shown by \citeA{lewin76}, \citeA{carson86}, \citeA{bartoldy02}, and \citeA{rinaldi03}.
-%...has been shown \cite{jskilbye}.
-%...has been shown \cite{lewin76,carson86,bartoldy02,rinaldi03}.
-%... \cite <i.e.>[]{lewin76,carson86,bartoldy02,rinaldi03}.
-%...has been shown by \cite <e.g.,>[and others]{lewin76}.
-%
-% apacite uses < > for prenotes and [ ] for postnotes
-% DO NOT use other cite commands (e.g., \citet, \citep, \citeyear, \nocite, \citealp, etc.).
-
-\section*{Acknowledgments}
-\noindent
-JOH gratefully acknowledges funding by a grant from the VILLUM Foundation (grant number: 13168) and the European Research Council (ERC) under the European Union's Horizon 2020 research and innovation program (grant number: 771859). 
-We acknowledge the Danish Climate Computing Center (DC3) and the German Climate Computing Center (DKRZ).
-
-\section*{Author Contributions}
-\noindent
-J.O.H. ran and processed the large-eddy simulations (LES) and wrote the manuscript.
-\\
-\section*{Competing Interests}
-\noindent
-The authors declare no competing interests.
 
 \pagebreak
 \clearpage
@@ -976,7 +841,7 @@ The horizontal line indicates the time average over the entire time-series;
 \end{overpic}
 \caption{{\bf Diurnal cycles of domain averaged quantities for a sea surface}. 
 %[here we might also want to show $T(6000m)$ and specific humidity.]
-Similar to Fig.~\ref{fig:daily_mean} but using potential evaporation for the surface, mimicking a sea surface.
+Similar to Fig.~\ref{fig:daily_mean} but using potential evaporation at the surface, mimicking a sea surface ($A2sea$ and $A5sea$, respectively, {\it compare}: Tab.~\ref{tab:experiments}).
 }
 \label{fig:domain_mean_timeseries_surface_evap}
 \end{figure*}
@@ -1000,7 +865,7 @@ Similar to Fig.~\ref{fig:daily_mean} but using potential evaporation for the sur
 \put( 67,53){\bf c}
 \end{overpic}
 \caption{{\bf Diurnal cycles of temperature at different heights}. 
-As in Fig.~\ref{fig:daily_mean}a, but including approximate cloud-base ($1.5\km$) and free-tropospheric ($3.5\km$) liquid water potential temperature.
+As in Fig.~\ref{fig:daily_mean}a, but including approximate cloud-base ($1.5\;km$) and free-tropospheric ($3.5\;km$) liquid water potential temperature.
 {\bf a}, Comparing different forcing amplitudes;
 {\bf b}, Similar, but for sea surface conditions;
 {\bf c}, Varying the ventilation coefficient.
